@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Felicitas Amulets — The Fascinum, Amulet of Protection</title>
+<meta name="description" content="Ancient Rome's most trusted talisman against the evil eye, reborn in sterling silver. May envy never find you, and fortune never leave you.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --pompeii:#5A1030;      /* imperial Tyrian purple-wine */
+    --pompeii-deep:#320A1C;
+    --bone:#F6EFDD;         /* warm champagne ivory */
+    --bone-dim:#ECE1C8;
+    --ink:#140F12;          /* near-black, faint plum */
+    --silver:#B7B1A5;
+    --gold:#A9823A;         /* deep antique gold */
+    --gold-lite:#E6C879;    /* champagne gold */
+    --serif:'EB Garamond', Georgia, serif;
+    --inscr:'Cinzel', 'Times New Roman', serif;
+    --ease:cubic-bezier(.16,1,.3,1);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--serif);background:var(--bone);color:var(--ink);font-size:18px;line-height:1.65;overflow-x:hidden}
+
+  .eyebrow{font-family:var(--inscr);font-size:.72rem;letter-spacing:.42em;text-transform:uppercase;color:var(--gold)}
+
+  /* ---------- SCROLL PROGRESS + NAV ---------- */
+  .progress{position:fixed;top:0;left:0;height:3px;width:0%;
+    background:linear-gradient(90deg,var(--gold),var(--gold-lite));z-index:100;transition:width .1s linear}
+  nav{position:fixed;top:0;left:0;right:0;z-index:90;display:flex;align-items:center;justify-content:space-between;
+    padding:1.1rem clamp(1.25rem,4vw,3rem);transition:background .4s var(--ease),padding .4s var(--ease),box-shadow .4s var(--ease);
+    transform:translateY(-100%);opacity:0}
+  nav.show{transform:translateY(0);opacity:1}
+  nav.solid{background:rgba(241,233,216,.86);backdrop-filter:blur(14px);box-shadow:0 1px 0 rgba(139,115,85,.25);padding:.7rem clamp(1.25rem,4vw,3rem)}
+  nav .brand{font-family:var(--inscr);font-size:.9rem;letter-spacing:.34em;color:var(--pompeii);text-decoration:none}
+  nav .links{display:flex;gap:2rem}
+  nav .links a{font-family:var(--inscr);font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;
+    color:var(--ink);text-decoration:none;position:relative;padding:.2rem 0}
+  nav .links a::after{content:"";position:absolute;left:0;bottom:-2px;width:0;height:1px;background:var(--pompeii);transition:width .3s var(--ease)}
+  nav .links a:hover::after,nav .links a:focus-visible::after{width:100%}
+  @media (max-width:720px){nav .links{display:none}}
+
+  /* ---------- CURSOR GLOW ---------- */
+  .glow{position:fixed;top:0;left:0;width:520px;height:520px;border-radius:50%;pointer-events:none;z-index:1;
+    background:radial-gradient(circle,rgba(216,185,143,.16) 0%,transparent 65%);
+    transform:translate(-50%,-50%);opacity:0;transition:opacity .4s;mix-blend-mode:screen}
+
+  /* ---------- HERO ---------- */
+  .hero{position:relative;min-height:100vh;color:var(--bone);display:flex;flex-direction:column;align-items:center;justify-content:center;
+    text-align:center;padding:4rem 1.5rem;overflow:hidden;
+    background:radial-gradient(ellipse 120% 90% at 50% -10%, #7a1c4a 0%, var(--pompeii) 42%, var(--pompeii-deep) 100%)}
+  .hero::before{content:"";position:absolute;inset:0;opacity:.5;pointer-events:none;
+    background:radial-gradient(circle at 50% 40%,transparent 30%,rgba(0,0,0,.35) 100%)}
+  .hero::after{content:"";position:absolute;inset:0;opacity:.14;pointer-events:none;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E")}
+  .embers{position:absolute;inset:0;pointer-events:none;z-index:1}
+  .ember{position:absolute;bottom:-10px;width:3px;height:3px;border-radius:50%;background:var(--gold-lite);opacity:0;
+    animation:rise linear infinite}
+  @keyframes rise{
+    0%{transform:translateY(0) scale(1);opacity:0}
+    12%{opacity:.7}
+    100%{transform:translateY(-105vh) scale(.3);opacity:0}}
+  .hero-inner{position:relative;z-index:2;transform:translateZ(0)}
+  .sigil{width:120px;height:150px;margin-bottom:2.2rem;filter:drop-shadow(0 6px 18px rgba(0,0,0,.4))}
+  .sigil path,.sigil circle{fill:none;stroke:var(--bone);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;
+    stroke-dasharray:600;stroke-dashoffset:600;animation:draw 2.6s ease forwards}
+  .sigil circle{animation-delay:.5s}
+  @keyframes draw{to{stroke-dashoffset:0}}
+  .hero h1{font-family:var(--inscr);font-weight:500;font-size:clamp(2.2rem,7vw,4.4rem);letter-spacing:.24em;margin-bottom:1.1rem;
+    background:linear-gradient(180deg,#F7ECCF 0%,var(--gold-lite) 45%,#B98F3E 100%);
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:var(--gold-lite);
+    filter:drop-shadow(0 2px 10px rgba(0,0,0,.35))}
+  .hero h1 span{display:inline-block;opacity:0;transform:translateY(24px);animation:letterUp .8s var(--ease) forwards}
+  @keyframes letterUp{to{opacity:1;transform:translateY(0)}}
+  .hero .sub{font-family:var(--inscr);font-size:.78rem;letter-spacing:.46em;text-transform:uppercase;color:var(--gold-lite);margin-bottom:2.4rem;
+    opacity:0;animation:fadeUp 1s var(--ease) .3s forwards}
+  .hero .blessing{font-style:italic;font-size:clamp(1.05rem,2.6vw,1.35rem);max-width:34ch;margin:0 auto 3rem;color:#F3E8CD;
+    opacity:0;animation:fadeUp 1s var(--ease) 1.4s forwards}
+  .hero .cta-row{opacity:0;animation:fadeUp 1s var(--ease) 1.7s forwards}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+  .btn{display:inline-block;font-family:var(--inscr);font-size:.8rem;letter-spacing:.3em;text-transform:uppercase;
+    color:var(--bone);border:1px solid var(--bone);padding:1.05rem 2.6rem;text-decoration:none;position:relative;overflow:hidden;
+    transition:color .3s var(--ease)}
+  .btn::before{content:"";position:absolute;inset:0;background:var(--bone);transform:translateY(101%);transition:transform .35s var(--ease);z-index:-1}
+  .btn:hover,.btn:focus-visible{color:var(--pompeii-deep)}
+  .btn:hover::before,.btn:focus-visible::before{transform:translateY(0)}
+  .btn:focus-visible{outline:2px solid #D8B98F;outline-offset:3px}
+  .scroll-hint{position:absolute;bottom:1.8rem;left:50%;transform:translateX(-50%);z-index:2;
+    font-family:var(--inscr);font-size:.6rem;letter-spacing:.3em;color:var(--gold-lite);text-transform:uppercase;opacity:.8;
+    display:flex;flex-direction:column;align-items:center;gap:.5rem;animation:bob 2.4s ease-in-out infinite}
+  .scroll-hint::after{content:"";width:1px;height:34px;background:linear-gradient(var(--gold-lite),transparent)}
+  @keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
+
+  /* ---------- SECTION SHELL ---------- */
+  section{padding:6rem 1.5rem;position:relative}
+  .wrap{max-width:1060px;margin:0 auto;position:relative;z-index:2}
+  .sect-head{text-align:center;margin-bottom:3.5rem}
+  .sect-head h2{font-family:var(--inscr);font-weight:500;font-size:clamp(1.6rem,4vw,2.4rem);letter-spacing:.14em;margin-top:.9rem}
+  .rule{width:54px;height:1px;background:var(--gold);margin:1.4rem auto 0;position:relative}
+  .rule::after{content:"";position:absolute;left:50%;top:50%;width:7px;height:7px;background:var(--gold);
+    transform:translate(-50%,-50%) rotate(45deg)}
+
+  /* ---------- REVEAL ---------- */
+  .reveal{opacity:0;transform:translateY(34px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+  .reveal.in{opacity:1;transform:none}
+  .reveal.d1{transition-delay:.1s}.reveal.d2{transition-delay:.2s}.reveal.d3{transition-delay:.3s}
+
+  /* ---------- LEGEND ---------- */
+  .legend .cols{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:start}
+  .legend p{margin-bottom:1.3rem}
+  .legend p:first-of-type::first-letter{font-family:var(--inscr);font-size:3.4em;float:left;line-height:.85;
+    padding-right:.12em;color:var(--pompeii)}
+  .legend .aside{border-left:1px solid var(--gold);padding-left:2rem}
+  .legend .aside .latin{font-family:var(--inscr);font-size:1.15rem;letter-spacing:.18em;color:var(--pompeii);margin-bottom:.4rem}
+  .legend .aside .trans{font-style:italic;color:#5c554b;margin-bottom:1.6rem}
+
+  /* stat counters */
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:4rem;text-align:center}
+  .stat .num{font-family:var(--inscr);font-size:clamp(1.8rem,4vw,2.6rem);color:var(--pompeii);line-height:1}
+  .stat .lbl{font-family:var(--inscr);font-size:.62rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-top:.6rem}
+  @media (max-width:520px){.stats{grid-template-columns:1fr;gap:2rem}}
+
+  /* ---------- AMULETS ---------- */
+  .amulets{background:var(--bone-dim)}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+  .card{background:var(--bone);border:1px solid #d3c6ab;padding:1.2rem 1.2rem 1.8rem;text-align:center;
+    transition:transform .3s var(--ease),box-shadow .3s var(--ease);transform-style:preserve-3d;will-change:transform}
+  .card:hover{box-shadow:0 26px 50px -20px rgba(82,21,17,.4);border-color:var(--gold)}
+  .card .ph{aspect-ratio:4/5;position:relative;overflow:hidden;margin-bottom:1.4rem;
+    background:radial-gradient(ellipse at 50% 35%, #c9c4ba 0%, #8f8a80 70%, #6f6a61 100%)}
+  .card .ph::after{content:"";position:absolute;inset:0;transform:translateX(-120%);
+    background:linear-gradient(105deg,transparent 30%,rgba(255,255,255,.35) 50%,transparent 70%)}
+  .card:hover .ph::after{animation:sheen .9s var(--ease)}
+  @keyframes sheen{to{transform:translateX(120%)}}
+  .card .ph span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+    font-family:var(--inscr);font-size:.62rem;letter-spacing:.3em;color:#efeae0;text-transform:uppercase}
+  .card .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;
+    transition:transform .6s var(--ease)}
+  .card:hover .ph img{transform:scale(1.06)}
+  .card h3{font-family:var(--inscr);font-weight:500;font-size:1.05rem;letter-spacing:.16em;margin-bottom:.5rem}
+  .card p{font-size:.95rem;color:#4c463d}
+  .card .price{display:block;margin-top:1rem;font-family:var(--inscr);font-size:.85rem;letter-spacing:.2em;color:var(--pompeii)}
+  .card .pick{display:inline-block;margin-top:1.2rem;font-family:var(--inscr);font-size:.62rem;letter-spacing:.24em;
+    text-transform:uppercase;color:var(--gold);border-bottom:1px solid transparent;transition:border-color .3s,color .3s;cursor:pointer}
+  .card:hover .pick{color:var(--pompeii);border-color:var(--pompeii)}
+
+  /* ---------- RITUAL ---------- */
+  .ritual{background:var(--ink);color:var(--bone);overflow:hidden}
+  .ritual .eyebrow{color:#C6A377}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:2.5rem;text-align:center;max-width:900px;margin:0 auto;position:relative}
+  .steps::before{content:"";position:absolute;top:26px;left:16%;right:16%;height:1px;
+    background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.5}
+  @media (max-width:820px){.steps::before{display:none}}
+  .step{position:relative;cursor:default}
+  .step .glyph{width:56px;height:56px;margin:0 auto 1.2rem;display:flex;align-items:center;justify-content:center;
+    font-family:var(--inscr);font-size:1.4rem;color:#C6A377;border:1px solid var(--gold);border-radius:50%;
+    background:var(--ink);transition:transform .4s var(--ease),color .4s,border-color .4s,box-shadow .4s}
+  .step:hover .glyph{transform:translateY(-6px) scale(1.06);color:var(--ink);background:var(--gold-lite);
+    border-color:var(--gold-lite);box-shadow:0 0 30px rgba(198,163,119,.5)}
+  .step h3{font-family:var(--inscr);font-weight:500;font-size:1rem;letter-spacing:.26em;text-transform:uppercase;margin-bottom:.7rem}
+  .step p{font-size:.98rem;color:#CDC3B0}
+
+  /* ---------- INSCRIPTION BAND ---------- */
+  .inscription{background:var(--pompeii);color:var(--bone);text-align:center;padding:4.5rem 1.5rem;position:relative;overflow:hidden}
+  .inscription .carved{font-family:var(--inscr);font-weight:600;font-size:clamp(1.3rem,4.5vw,2.6rem);
+    letter-spacing:.3em;text-shadow:0 1px 0 rgba(255,255,255,.12), 0 -1px 1px rgba(0,0,0,.45)}
+  .inscription .meaning{font-style:italic;margin-top:1rem;color:#E9D9BE}
+
+  /* ---------- SIGNUP ---------- */
+  .signup{text-align:center}
+  .signup p{max-width:52ch;margin:0 auto 2.2rem}
+  .field{display:flex;max-width:460px;margin:0 auto;border:1px solid var(--ink);transition:border-color .3s,box-shadow .3s}
+  .field:focus-within{border-color:var(--pompeii);box-shadow:0 0 0 3px rgba(110,31,27,.12)}
+  .field input{flex:1;border:0;background:transparent;padding:1rem 1.2rem;font-family:var(--serif);font-size:1rem;color:var(--ink)}
+  .field input:focus{outline:none}
+  .field button{border:0;background:var(--pompeii);color:var(--bone);font-family:var(--inscr);
+    font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;padding:0 1.8rem;cursor:pointer;transition:background .25s}
+  .field button:hover,.field button:focus-visible{background:var(--pompeii-deep)}
+  .field button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+  .signup .note{font-size:.85rem;color:#6b6355;margin-top:1rem}
+  .signup .done{display:none;font-style:italic;color:var(--pompeii);margin-top:1.4rem;font-size:1.1rem}
+  .signup .done.show{display:block;animation:fadeUp .6s var(--ease)}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--ink);color:#9d968a;text-align:center;padding:3rem 1.5rem;font-size:.9rem}
+  footer .mark{font-family:var(--inscr);letter-spacing:.3em;color:var(--bone);font-size:.95rem;margin-bottom:.8rem}
+  footer .disclaimer{max-width:60ch;margin:1.2rem auto 0;font-size:.8rem;color:#7c766b}
+
+  /* ---------- TOP BUTTON ---------- */
+  .top{position:fixed;right:1.4rem;bottom:1.4rem;z-index:80;width:44px;height:44px;border-radius:50%;
+    background:var(--pompeii);color:var(--bone);border:0;cursor:pointer;display:grid;place-items:center;
+    opacity:0;transform:translateY(20px);pointer-events:none;transition:opacity .35s,transform .35s,background .25s}
+  .top.show{opacity:1;transform:none;pointer-events:auto}
+  .top:hover{background:var(--pompeii-deep)}
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:.001s !important;animation-delay:0s !important;transition-duration:.001s !important}
+    .reveal{opacity:1;transform:none}
+    .sigil path,.sigil circle{stroke-dashoffset:0}
+    .hero h1 span,.hero .sub,.hero .blessing,.hero .cta-row{opacity:1;transform:none}
+  }
+
+  @media (max-width:820px){
+    .legend .cols{grid-template-columns:1fr}
+    .legend .aside{border-left:0;border-top:1px solid var(--gold);padding-left:0;padding-top:2rem}
+    .cards{grid-template-columns:1fr;max-width:400px;margin:0 auto}
+    .steps{grid-template-columns:1fr;gap:2.5rem}
+    section{padding:4.5rem 1.25rem}
+  }
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+<div class="glow" id="glow" aria-hidden="true"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a class="brand" href="#top">FELICITAS</a>
+  <div class="links">
+    <a href="#legend">Legend</a>
+    <a href="#amulets">Amulets</a>
+    <a href="#ritual">Ritual</a>
+    <a href="#signup">Join</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="embers" id="embers" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <svg class="sigil" viewBox="0 0 120 150" aria-hidden="true">
+      <circle cx="60" cy="22" r="9"/>
+      <path d="M60 36 L60 128 M52 40 L52 110 Q52 122 60 128 Q68 122 68 110 L68 40"/>
+      <path d="M52 48 Q30 40 16 22 Q26 52 48 62 M52 60 Q34 56 22 44 Q32 68 50 74"/>
+      <path d="M68 48 Q90 40 104 22 Q94 52 72 62 M68 60 Q86 56 98 44 Q88 68 70 74"/>
+    </svg>
+    <p class="sub">Roma · Amuletum</p>
+    <h1 id="title" aria-label="Felicitas"></h1>
+    <p class="blessing">May envy never find you, and fortune never leave you.</p>
+    <p class="cta-row"><a class="btn" href="#amulets">Discover the Amulet</a></p>
+  </div>
+  <div class="scroll-hint" aria-hidden="true">Scroll</div>
+</header>
+
+<!-- LEGEND -->
+<section class="legend" id="legend">
+  <div class="wrap">
+    <div class="sect-head reveal">
+      <span class="eyebrow">The Legend</span>
+      <h2>Two Thousand Years of Protection</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="cols">
+      <div class="reveal">
+        <p>Two thousand years ago, the people of Rome trusted one talisman above all others. They called it the fascinum — sacred to Fascinus, the divine guardian of vitality and fortune, whose cult was tended by the Vestal Virgins, the holiest priestesses of the eternal city.</p>
+        <p>Mothers hung it over cradles to shield their children. Generals rode to triumph with it fixed beneath their chariots, guarding them at the very moment envy burned hottest. Its purpose was singular: to break the evil eye — the jealous glance the ancients believed could steal health, happiness, and luck.</p>
+        <p>Wherever the fascinum was worn, envy blinked and looked away.</p>
+      </div>
+      <div class="aside reveal d1">
+        <p class="latin">HIC HABITAT FELICITAS</p>
+        <p class="trans">"Here dwells happiness" — carved beside a bakery door in Pompeii, preserved in ash for eighteen centuries.</p>
+        <p>Our name, Felicitas, is taken from that inscription. Every amulet we cast carries its promise: that happiness, guarded well, endures.</p>
+      </div>
+    </div>
+    <div class="stats reveal">
+      <div class="stat"><div class="num" data-count="2000" data-suffix="">0</div><div class="lbl">Years of Tradition</div></div>
+      <div class="stat"><div class="num" data-count="925" data-suffix="">0</div><div class="lbl">Sterling Silver</div></div>
+      <div class="stat"><div class="num" data-count="1" data-suffix=" of a kind">0</div><div class="lbl">Hand-Finished</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- AMULETS -->
+<section class="amulets" id="amulets">
+  <div class="wrap">
+    <div class="sect-head reveal">
+      <span class="eyebrow">The Collection</span>
+      <h2>The Fascinum, Reborn in Silver</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="cards">
+      <div class="card tilt reveal">
+        <div class="ph"><img src="images/guardian.png" alt="The Guardian — winged fascinum amulet in sterling silver"></div>
+        <h3>THE GUARDIAN</h3>
+        <p>The winged fascinum in its classic form — solid 925 silver, hand-finished with an antique patina.</p>
+        <span class="price">Sterling Silver · 925</span><br>
+        <a class="pick" href="#signup">Reserve →</a>
+      </div>
+      <div class="card tilt reveal d1">
+        <div class="ph"><img src="images/seal.png" alt="The Seal — votive coin medallion with winged sigil"></div>
+        <h3>THE SEAL</h3>
+        <p>A medallion struck like an ancient votive coin, the winged sigil ringed by the marks of fortune.</p>
+        <span class="price">Sterling Silver · 925</span><br>
+        <a class="pick" href="#signup">Reserve →</a>
+      </div>
+      <div class="card tilt reveal d2">
+        <div class="ph"><img src="images/crescent.png" alt="The Crescent — wings over the lunula amulet"></div>
+        <h3>THE CRESCENT</h3>
+        <p>Wings over the lunula — the crescent amulet Roman women wore — united in one protective form.</p>
+        <span class="price">Sterling Silver · 925</span><br>
+        <a class="pick" href="#signup">Reserve →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RITUAL -->
+<section class="ritual" id="ritual">
+  <div class="wrap">
+    <div class="sect-head reveal">
+      <span class="eyebrow">The Awakening Ritual</span>
+      <h2 style="color:var(--bone)">Make It Yours</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <div class="glyph">I</div>
+        <h3>Hold</h3>
+        <p>On the first evening, hold the amulet against your heart and be still.</p>
+      </div>
+      <div class="step reveal d1">
+        <div class="glyph">II</div>
+        <h3>Speak</h3>
+        <p>Name what you wish to protect, and speak the blessing aloud.</p>
+      </div>
+      <div class="step reveal d2">
+        <div class="glyph">III</div>
+        <h3>Wear</h3>
+        <p>Wear it against the skin through the night. From then on, it works as amulets always have — quietly, close to the body.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INSCRIPTION -->
+<div class="inscription" role="presentation">
+  <p class="carved">HIC · HABITAT · FELICITAS</p>
+  <p class="meaning">Here dwells happiness.</p>
+</div>
+
+<!-- SIGNUP -->
+<section class="signup" id="signup">
+  <div class="wrap">
+    <div class="sect-head reveal">
+      <span class="eyebrow">First Casting</span>
+      <h2>Join the Founding Guardians</h2>
+      <div class="rule"></div>
+    </div>
+    <p class="reveal">The first casting of the Fascinum launches soon on Kickstarter. Leave your email to receive the early blessing price — the best it will ever be offered.</p>
+    <form class="field reveal" id="signupForm">
+      <input type="email" id="email" placeholder="Your email" aria-label="Email address" required>
+      <button type="submit">Notify Me</button>
+    </form>
+    <p class="done" id="doneMsg">Welcome among the guardians — we will write to you before the first casting.</p>
+    <p class="note reveal">No noise, no spam. One letter when the casting opens.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p class="mark">FELICITAS AMULETS</p>
+  <p>Sterling silver amulets in the Roman tradition · felicitasamulets.com</p>
+  <p class="disclaimer">Our amulets are offered in the spirit of tradition, retelling beliefs held for two thousand years. They are jewelry and story — not medical products — and make no promise beyond the oldest one: may envy never find you, and fortune never leave you.</p>
+</footer>
+
+<button class="top" id="topBtn" aria-label="Back to top">↑</button>
+
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---- animate title letters ---- */
+  var title = document.getElementById('title');
+  'FELICITAS'.split('').forEach(function(ch,i){
+    var s=document.createElement('span');
+    s.textContent=ch;
+    s.style.animationDelay=(0.4 + i*0.08)+'s';
+    title.appendChild(s);
+  });
+
+  /* ---- embers ---- */
+  if(!reduce){
+    var box=document.getElementById('embers');
+    for(var i=0;i<22;i++){
+      var e=document.createElement('span');
+      e.className='ember';
+      var size=1.5+Math.random()*2.5;
+      e.style.left=(Math.random()*100)+'%';
+      e.style.width=e.style.height=size+'px';
+      e.style.animationDuration=(6+Math.random()*7)+'s';
+      e.style.animationDelay=(Math.random()*8)+'s';
+      box.appendChild(e);
+    }
+  }
+
+  /* ---- scroll progress + nav + top btn ---- */
+  var progress=document.getElementById('progress'),
+      nav=document.getElementById('nav'),
+      topBtn=document.getElementById('topBtn');
+  function onScroll(){
+    var st=window.scrollY||document.documentElement.scrollTop;
+    var h=document.documentElement.scrollHeight-window.innerHeight;
+    progress.style.width=(h>0?(st/h*100):0)+'%';
+    if(st>80){nav.classList.add('show');} else {nav.classList.remove('show');}
+    if(st>140){nav.classList.add('solid');} else {nav.classList.remove('solid');}
+    if(st>600){topBtn.classList.add('show');} else {topBtn.classList.remove('show');}
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});
+  onScroll();
+  topBtn.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+
+  /* ---- reveal on scroll ---- */
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}
+    });
+  },{threshold:0.16,rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+
+  /* ---- animated counters ---- */
+  var cio=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(!en.isIntersecting) return;
+      var el=en.target, target=+el.dataset.count, suffix=el.dataset.suffix||'', start=null, dur=1400;
+      function tick(ts){
+        if(!start) start=ts;
+        var p=Math.min((ts-start)/dur,1);
+        var eased=1-Math.pow(1-p,3);
+        el.textContent=Math.round(eased*target).toLocaleString()+suffix;
+        if(p<1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+      cio.unobserve(el);
+    });
+  },{threshold:0.6});
+  document.querySelectorAll('[data-count]').forEach(function(el){cio.observe(el);});
+
+  /* ---- cursor glow ---- */
+  var glow=document.getElementById('glow');
+  if(window.matchMedia('(pointer:fine)').matches && !reduce){
+    window.addEventListener('mousemove',function(e){
+      glow.style.opacity='1';
+      glow.style.left=e.clientX+'px';
+      glow.style.top=e.clientY+'px';
+    });
+    document.addEventListener('mouseleave',function(){glow.style.opacity='0';});
+  }
+
+  /* ---- 3D tilt cards ---- */
+  if(window.matchMedia('(pointer:fine)').matches && !reduce){
+    document.querySelectorAll('.tilt').forEach(function(card){
+      card.addEventListener('mousemove',function(e){
+        var r=card.getBoundingClientRect();
+        var x=(e.clientX-r.left)/r.width-0.5;
+        var y=(e.clientY-r.top)/r.height-0.5;
+        card.style.transform='perspective(900px) rotateX('+(-y*7)+'deg) rotateY('+(x*7)+'deg) translateY(-6px)';
+      });
+      card.addEventListener('mouseleave',function(){card.style.transform='';});
+    });
+  }
+
+  /* ---- signup ---- */
+  document.getElementById('signupForm').addEventListener('submit',function(e){
+    e.preventDefault();
+    var email=document.getElementById('email').value;
+    if(!email) return;
+    // TODO: send `email` to your mailing list provider (Mailchimp, MailerLite, etc.)
+    this.style.display='none';
+    document.getElementById('doneMsg').classList.add('show');
+  });
+})();
+</script>
+</body>
+</html>

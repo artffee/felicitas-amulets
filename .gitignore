@@ -1,0 +1,16 @@
+# Vercel
+.vercel
+
+# Dependencies
+node_modules
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.log
+
+# Local raw photo dumps (keep the clean named product images)
+images/12db9c57-*.png
+images/213b7fe6-*.png
+images/9bc267f2-*.png
+images/db134779-*.png
