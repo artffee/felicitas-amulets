@@ -515,7 +515,13 @@
         </div>
       </article>
       <article class="sp rv d1">
-        <div class="frame"><span class="no">FA·002</span><img src="images/seal.webp" alt="The Seal amulet"></div>
+        <div class="frame flip">
+          <div class="flip-inner">
+            <div class="face front"><span class="no">FA·002</span><img src="images/seal.webp" alt="The Seal amulet"></div>
+            <div class="face back"><img src="images/card-seal.webp" alt="The Seal — power of fortune and opportunity, 925 sterling silver"></div>
+          </div>
+          <span class="peek">Hover ⟳</span>
+        </div>
         <div class="body">
           <h3>The Seal</h3>
           <p>A medallion struck like a votive coin, the winged sigil ringed by the marks of fortune.</p>
@@ -686,11 +692,12 @@
   lb.addEventListener('click',function(e){ if(e.target===lb) closeLB(); });
   document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&lb.classList.contains('open')) closeLB(); });
 
-  /* Guardian card — tap to flip on touch (desktop uses :hover) */
-  var gflip=document.getElementById('guardianFlip');
-  if(gflip && window.matchMedia('(hover:none)').matches){
-    gflip.setAttribute('role','button'); gflip.setAttribute('tabindex','0');
-    gflip.addEventListener('click',function(){ gflip.classList.toggle('flipped'); });
+  /* Amulet cards — tap to flip on touch (desktop uses :hover) */
+  if(window.matchMedia('(hover:none)').matches){
+    document.querySelectorAll('.frame.flip').forEach(function(fl){
+      fl.setAttribute('role','button'); fl.setAttribute('tabindex','0');
+      fl.addEventListener('click',function(){ fl.classList.toggle('flipped'); });
+    });
   }
 
   /* Curator — scripted FAQ chat */
