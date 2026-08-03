@@ -215,6 +215,31 @@
   .st h4{font-family:var(--mono);font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;margin:1.2rem 0 .7rem}
   .st p{color:var(--bone-dim);font-size:.95rem}
 
+  /* ---------- THE BOOK ---------- */
+  .book{border-top:1px solid var(--line)}
+  .book .layout{display:grid;grid-template-columns:.82fr 1.18fr;gap:clamp(2rem,5vw,5rem);align-items:center}
+  @media (max-width:820px){.book .layout{grid-template-columns:1fr;gap:2.6rem;justify-items:center;text-align:center}}
+  .book .cover{position:relative;max-width:400px;width:100%}
+  .book .cover img{width:100%;display:block;border:1px solid var(--line);
+    box-shadow:-14px 0 34px -26px rgba(0,0,0,.9), 0 44px 80px -34px rgba(0,0,0,.85);
+    transition:transform .6s var(--e-out)}
+  .book .cover:hover img{transform:translateY(-8px) rotate(-.6deg)}
+  .book .cover-ph{aspect-ratio:7/10;width:100%;border:1px solid var(--line);
+    background:radial-gradient(120% 100% at 50% 18%,#1a1d20,#0b0c0e);
+    display:none;flex-direction:column;align-items:center;justify-content:center;gap:.9rem;text-align:center;padding:2rem}
+  .book .cover-ph .t{font-family:var(--disp);font-size:1.7rem;color:var(--bone);line-height:1.05}
+  .book .cover-ph .s{font-family:var(--mono);font-size:.56rem;letter-spacing:.18em;text-transform:uppercase;color:var(--silver)}
+  .book .sub2{font-family:var(--mono);font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--patina);margin-bottom:.9rem}
+  .book h3{font-family:var(--disp);font-weight:500;font-size:clamp(2rem,4.6vw,3.4rem);line-height:1;margin-bottom:1.2rem}
+  .book h3 em{font-style:italic;font-weight:400}
+  .book p{color:var(--bone-dim);margin-bottom:1.2rem;max-width:52ch}
+  @media (max-width:820px){.book p{margin-inline:auto}}
+  .book .facts{display:flex;gap:2.4rem;margin:1.9rem 0;flex-wrap:wrap}
+  @media (max-width:820px){.book .facts{justify-content:center}}
+  .book .facts .m .k{font-family:var(--mono);font-size:.56rem;letter-spacing:.16em;text-transform:uppercase;color:var(--silver);margin-bottom:.35rem}
+  .book .facts .m .v{font-family:var(--disp);font-size:1.25rem;color:var(--bone)}
+  .book .latin2{font-family:var(--disp);font-style:italic;font-size:1.15rem;color:var(--patina);margin-top:.6rem}
+
   /* ---------- DOSSIER (details + faq) ---------- */
   .dossier{border-top:1px solid var(--line)}
   .specs{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);margin-bottom:3.5rem}
@@ -290,6 +315,7 @@
   <nav class="meta">
     <a href="#provenance">Provenance</a>
     <a href="#register">The Register</a>
+    <a href="#book">The Book</a>
     <a href="#conservation">Handling</a>
     <a href="#dossier">Dossier</a>
     <a href="#acquire" class="acq">Acquire →</a>
@@ -390,10 +416,40 @@
   </div>
 </section>
 
+<!-- THE BOOK -->
+<section id="book" class="book">
+  <div class="max">
+    <div class="kicker rv"><span class="no">03</span><span class="ttl">The Grimoire</span><span class="fill"></span></div>
+    <div class="layout">
+      <div class="cover rv">
+        <img src="images/book.png" alt="The Book of Sigils — a manual of protection and sacred symbols"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <div class="cover-ph">
+          <span class="t">The Book<br>of Sigils</span>
+          <span class="s">Cover — save to images/book.png</span>
+        </div>
+      </div>
+      <div class="text rv d1">
+        <p class="sub2">A Manual of Protection &amp; Sacred Symbols</p>
+        <h3>The Book of <em>Sigils</em></h3>
+        <p>The companion volume to the collection. Every sigil we cast is drawn here in full — its origin in the ancient world, the envy it was made to turn away, and the ritual that wakes it against the skin.</p>
+        <p>Bound in the old manner, printed on heavy stock, and pressed with the winged fascinum. A record of two thousand years of protection, to keep beside the amulet it explains.</p>
+        <div class="facts">
+          <div class="m"><div class="k">Binding</div><div class="v">Hardbound</div></div>
+          <div class="m"><div class="k">Language</div><div class="v">Latin · English</div></div>
+          <div class="m"><div class="k">Edition</div><div class="v">First Casting</div></div>
+        </div>
+        <p class="latin2">Ne invidia te inveniat, ne fortuna te deserat.</p>
+        <p><a href="#acquire" class="cta">Reserve the Book <span class="arw">→</span></a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- CONSERVATION -->
 <section id="conservation" class="cons">
   <div class="max">
-    <div class="kicker rv"><span class="no">03</span><span class="ttl">Handling Notes — The Awakening</span><span class="fill"></span></div>
+    <div class="kicker rv"><span class="no">04</span><span class="ttl">Handling Notes — The Awakening</span><span class="fill"></span></div>
     <div class="steps">
       <div class="st rv">
         <div class="n">I</div>
@@ -417,7 +473,7 @@
 <!-- DOSSIER -->
 <section id="dossier" class="dossier">
   <div class="max">
-    <div class="kicker rv"><span class="no">04</span><span class="ttl">The Dossier — Specification &amp; Enquiry</span><span class="fill"></span></div>
+    <div class="kicker rv"><span class="no">05</span><span class="ttl">The Dossier — Specification &amp; Enquiry</span><span class="fill"></span></div>
     <div class="specs rv">
       <div class="cell"><div class="k">Metal</div><div class="v">925 Silver</div></div>
       <div class="cell"><div class="k">Pendant</div><div class="v">≈28mm</div></div>
@@ -467,6 +523,7 @@
       <h5>Cabinet</h5>
       <a href="#provenance">Provenance</a>
       <a href="#register">The Register</a>
+      <a href="#book">The Book</a>
       <a href="#conservation">Handling</a>
     </div>
     <div class="fcol">
@@ -552,6 +609,15 @@
       "description": "Wings over the lunula — the crescent amulet Roman women wore — united in one protective form.",
       "material": "925 Sterling Silver",
       "brand": { "@id": "https://feclicitasamulets.com/#org" }
+    },
+    {
+      "@type": "Book",
+      "name": "The Book of Sigils",
+      "alternativeHeadline": "A Manual of Protection and Sacred Symbols",
+      "bookFormat": "https://schema.org/Hardcover",
+      "inLanguage": ["la", "en"],
+      "image": "https://feclicitasamulets.com/images/book.png",
+      "publisher": { "@id": "https://feclicitasamulets.com/#org" }
     },
     {
       "@type": "FAQPage",
