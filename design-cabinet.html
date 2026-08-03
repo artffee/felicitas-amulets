@@ -338,6 +338,47 @@
     display:flex;justify-content:space-between;gap:1.5rem;flex-wrap:wrap}
   .disc p{font-family:var(--mono);font-size:.58rem;letter-spacing:.1em;color:var(--silver);line-height:1.9;max-width:70ch}
 
+  /* ---------- CURATOR (scripted help chat) ---------- */
+  .cs{position:fixed;right:1.2rem;bottom:1.2rem;z-index:150;font-family:var(--body)}
+  .cs-toggle{position:relative;width:56px;height:56px;border-radius:50%;border:1px solid var(--patina);cursor:pointer;
+    background:var(--patina);color:var(--void);display:grid;place-items:center;
+    box-shadow:0 16px 34px -14px rgba(0,0,0,.8);transition:transform .2s var(--e-out),background .3s var(--e-out)}
+  .cs-toggle:hover{background:var(--patina-2)}
+  .cs-toggle:active{transform:scale(.94)}
+  .cs-toggle svg{width:22px;height:22px;fill:none;stroke:var(--void);stroke-width:1.8}
+  .cs-toggle .dot{position:absolute;top:2px;right:2px;width:11px;height:11px;border-radius:50%;
+    background:var(--rust);border:2px solid var(--void)}
+  .cs-panel{position:absolute;right:0;bottom:70px;width:min(90vw,350px);background:var(--void-2);
+    border:1px solid var(--line);box-shadow:0 30px 70px -24px rgba(0,0,0,.9);
+    display:flex;flex-direction:column;overflow:hidden;transform-origin:bottom right;
+    opacity:0;transform:translateY(10px) scale(.96);pointer-events:none;
+    transition:opacity .28s var(--e-out),transform .28s var(--e-out)}
+  .cs.open .cs-panel{opacity:1;transform:none;pointer-events:auto}
+  .cs-head{position:relative;padding:1.1rem 1.2rem;border-bottom:1px solid var(--line);background:var(--panel)}
+  .cs-head .t{font-family:var(--disp);font-size:1.25rem;color:var(--bone);line-height:1}
+  .cs-head .s{font-family:var(--mono);font-size:.56rem;letter-spacing:.16em;text-transform:uppercase;color:var(--patina);margin-top:.35rem}
+  .cs-close{position:absolute;top:.8rem;right:.9rem;background:none;border:0;color:var(--silver);font-size:1.3rem;
+    line-height:1;cursor:pointer;transition:color .3s}
+  .cs-close:hover{color:var(--bone)}
+  .cs-body{padding:1.1rem;display:flex;flex-direction:column;gap:.7rem;max-height:46vh;overflow-y:auto}
+  .cs-msg{max-width:88%;padding:.7rem .9rem;font-size:.9rem;line-height:1.5;border-radius:12px;
+    opacity:0;transform:translateY(8px);animation:csIn .4s var(--e-out) forwards}
+  @keyframes csIn{to{opacity:1;transform:none}}
+  .cs-msg.bot{align-self:flex-start;background:var(--panel);border:1px solid var(--line);color:var(--bone-dim);border-bottom-left-radius:3px}
+  .cs-msg.bot b{color:var(--bone);font-weight:500}
+  .cs-msg.me{align-self:flex-end;background:var(--patina);color:var(--void);border-bottom-right-radius:3px;font-weight:400}
+  .cs-typing{align-self:flex-start;display:inline-flex;gap:4px;padding:.8rem .9rem;background:var(--panel);border:1px solid var(--line);border-radius:12px}
+  .cs-typing i{width:6px;height:6px;border-radius:50%;background:var(--silver);animation:csBlink 1.2s infinite}
+  .cs-typing i:nth-child(2){animation-delay:.2s}.cs-typing i:nth-child(3){animation-delay:.4s}
+  @keyframes csBlink{0%,60%,100%{opacity:.25}30%{opacity:1}}
+  .cs-quick{display:flex;flex-wrap:wrap;gap:.5rem;padding:.9rem 1.1rem 1.1rem;border-top:1px solid var(--line)}
+  .cs-chip{font-family:var(--mono);font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;color:var(--bone-dim);
+    background:transparent;border:1px solid var(--line);border-radius:999px;padding:.45rem .8rem;cursor:pointer;
+    transition:border-color .25s var(--e-out),color .25s var(--e-out),background .25s var(--e-out)}
+  .cs-chip:hover{border-color:var(--patina);color:var(--patina)}
+  .cs-chip.accent{border-color:var(--patina);color:var(--patina)}
+  .cs-chip.accent:hover{background:var(--patina);color:var(--void)}
+
   @media (prefers-reduced-motion: reduce){
     *{animation-duration:.001s !important;animation-delay:0s !important;transition-duration:.001s !important}
     .rv{opacity:1;transform:none}
@@ -607,6 +648,53 @@
   lb.addEventListener('click',function(e){ if(e.target===lb) closeLB(); });
   document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&lb.classList.contains('open')) closeLB(); });
 
+  /* Curator — scripted FAQ chat */
+  var CONTACT_EMAIL='hello@feclicitasamulets.com';
+  var CS_QA=[
+    {q:'Real silver?', a:'Every amulet is <b>solid 925 sterling silver</b> — cast, hand-finished with an antique patina, and stamped 925. Never plated.'},
+    {q:'Size & chain', a:'The pendant stands about <b>28&nbsp;mm</b> and arrives on a solid sterling chain in <b>50&nbsp;cm</b> or <b>60&nbsp;cm</b>.'},
+    {q:'Price & shipping', a:'The first casting launches on <b>Kickstarter</b>. Founding supporters ship earliest at the best price we will ever offer — join the register and we’ll write with dates and pricing first.'},
+    {q:'Returns', a:'A <b>30-day return</b> on unworn pieces, and anything damaged in transit is replaced at no cost.'},
+    {q:'Will it tarnish?', a:'The patina is intentional and ages gracefully. Sterling can darken over time; a soft cloth returns the raised surfaces to a bright shine.'},
+    {q:'The Book of Sigils', a:'A companion volume — the origin of every sigil and the ritual that wakes it. Hover the book on this page to peek inside, or tap it to read a preview.'}
+  ];
+  var cs=document.getElementById('cs'), csToggle=document.getElementById('csToggle'),
+      csClose=document.getElementById('csClose'), csBody=document.getElementById('csBody'),
+      csQuick=document.getElementById('csQuick'), csDot=document.getElementById('csDot'),
+      csPanel=document.getElementById('csPanel'), csGreeted=false;
+  function csScroll(){ csBody.scrollTop=csBody.scrollHeight; }
+  function csAdd(text,who){ var d=document.createElement('div'); d.className='cs-msg '+who; d.innerHTML=text; csBody.appendChild(d); csScroll(); return d; }
+  function csBot(html,delay){
+    var t=document.createElement('div'); t.className='cs-typing'; t.innerHTML='<i></i><i></i><i></i>';
+    csBody.appendChild(t); csScroll();
+    setTimeout(function(){ t.remove(); csAdd(html,'bot'); }, delay||550);
+  }
+  function csAnswer(item){ csAdd(item.q,'me'); csBot(item.a); }
+  function csBuildChips(){
+    csQuick.innerHTML='';
+    CS_QA.forEach(function(item){
+      var b=document.createElement('button'); b.className='cs-chip'; b.type='button'; b.textContent=item.q;
+      b.addEventListener('click',function(){ csAnswer(item); }); csQuick.appendChild(b);
+    });
+    var reg=document.createElement('button'); reg.className='cs-chip accent'; reg.type='button'; reg.textContent='Join the register →';
+    reg.addEventListener('click',function(){ csClosePanel(); document.getElementById('acquire').scrollIntoView({behavior:'smooth'}); });
+    csQuick.appendChild(reg);
+    var mail=document.createElement('button'); mail.className='cs-chip'; mail.type='button'; mail.textContent='Write to us';
+    mail.addEventListener('click',function(){ window.location.href='mailto:'+CONTACT_EMAIL+'?subject=Felicitas%20enquiry'; });
+    csQuick.appendChild(mail);
+  }
+  function csOpenPanel(){
+    cs.classList.add('open'); csToggle.setAttribute('aria-expanded','true'); csPanel.setAttribute('aria-hidden','false');
+    if(csDot) csDot.style.display='none';
+    if(!csGreeted){ csGreeted=true; csBot('Salve. I am the <b>Curator</b>. Ask me about the amulets, the Book, or the first casting — or write to us anytime.',300); }
+    csClose.focus();
+  }
+  function csClosePanel(){ cs.classList.remove('open'); csToggle.setAttribute('aria-expanded','false'); csPanel.setAttribute('aria-hidden','true'); }
+  csBuildChips();
+  csToggle.addEventListener('click',function(){ cs.classList.contains('open')?csClosePanel():csOpenPanel(); });
+  csClose.addEventListener('click',csClosePanel);
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&cs.classList.contains('open')) csClosePanel(); });
+
   /* signup — Formspree */
   var form=document.getElementById('form');
   form.addEventListener('submit',function(e){
@@ -627,6 +715,23 @@
   });
 })();
 </script>
+
+<!-- CURATOR — scripted help chat -->
+<div class="cs" id="cs">
+  <button class="cs-toggle" id="csToggle" aria-label="Open help chat" aria-expanded="false">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z" stroke-linejoin="round" stroke-linecap="round"/></svg>
+    <span class="dot" id="csDot"></span>
+  </button>
+  <div class="cs-panel" id="csPanel" role="dialog" aria-label="Felicitas — the Curator" aria-hidden="true">
+    <div class="cs-head">
+      <div class="t">The Curator</div>
+      <div class="s">Felicitas · here to help</div>
+      <button class="cs-close" id="csClose" aria-label="Close chat">&times;</button>
+    </div>
+    <div class="cs-body" id="csBody"></div>
+    <div class="cs-quick" id="csQuick"></div>
+  </div>
+</div>
 
 <!-- BOOK PAGES LIGHTBOX -->
 <div class="lb" id="lightbox" aria-hidden="true" role="dialog" aria-label="The Book of Sigils — preview pages">
