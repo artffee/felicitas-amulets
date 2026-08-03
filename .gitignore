@@ -22,3 +22,7 @@ images/9bc267f2-*.png
 images/db134779-*.png
 
 .vercel
+
+# stray build scripts
+id.mjs
+book.mjs
