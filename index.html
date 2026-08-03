@@ -18,6 +18,7 @@
 <meta name="description" content="Ancient Rome's most trusted talisman against the evil eye, reborn in sterling silver. May envy never find you, and fortune never leave you.">
 <meta name="google-site-verification" content="hV52fCJ4aKBrudCzSk0uukU2D56Q_z1bTInavsvmIb0">
 <link rel="canonical" href="https://feclicitasamulets.com/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="theme-color" content="#5A1030">
 <meta name="keywords" content="fascinum, Roman amulet, evil eye protection, sterling silver amulet, talisman, lunula, ancient Rome jewelry">
@@ -28,13 +29,13 @@
 <meta property="og:url" content="https://feclicitasamulets.com/">
 <meta property="og:title" content="Felicitas Amulets — The Fascinum, Amulet of Protection">
 <meta property="og:description" content="Ancient Rome's most trusted talisman against the evil eye, reborn in sterling silver. May envy never find you, and fortune never leave you.">
-<meta property="og:image" content="https://feclicitasamulets.com/images/guardian.png">
+<meta property="og:image" content="https://feclicitasamulets.com/og.jpg">
 <meta property="og:image:alt" content="The Guardian — winged fascinum amulet in sterling silver">
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Felicitas Amulets — The Fascinum, Amulet of Protection">
 <meta name="twitter:description" content="Ancient Rome's most trusted talisman against the evil eye, reborn in sterling silver.">
-<meta name="twitter:image" content="https://feclicitasamulets.com/images/guardian.png">
+<meta name="twitter:image" content="https://feclicitasamulets.com/og.jpg">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -216,6 +217,23 @@
     letter-spacing:.3em;text-shadow:0 1px 0 rgba(255,255,255,.12), 0 -1px 1px rgba(0,0,0,.45)}
   .inscription .meaning{font-style:italic;margin-top:1rem;color:#E9D9BE}
 
+  /* ---------- DETAILS + FAQ ---------- */
+  .details .specs{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-bottom:3.5rem}
+  @media (max-width:760px){.details .specs{grid-template-columns:1fr 1fr}}
+  .spec-item{border:1px solid #d3c6ab;background:var(--bone);padding:1.4rem;text-align:center}
+  .spec-item .k{font-family:var(--inscr);font-size:.6rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-bottom:.6rem}
+  .spec-item .v{font-family:var(--inscr);font-size:1rem;letter-spacing:.06em;color:var(--pompeii)}
+  .faq{max-width:760px;margin:0 auto}
+  .faq details{border-bottom:1px solid #d3c6ab}
+  .faq summary{list-style:none;cursor:pointer;padding:1.3rem 2.4rem 1.3rem 0;position:relative;
+    font-family:var(--inscr);font-size:1.02rem;letter-spacing:.04em;color:var(--ink);transition:color .3s var(--ease-out)}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary:hover{color:var(--pompeii)}
+  .faq summary::after{content:"+";position:absolute;right:.2rem;top:50%;transform:translateY(-50%);
+    font-family:var(--inscr);font-size:1.4rem;color:var(--gold);transition:transform .3s var(--ease-out)}
+  .faq details[open] summary::after{transform:translateY(-50%) rotate(45deg)}
+  .faq .ans{padding:0 2.4rem 1.4rem 0;color:#4c463d;font-size:.97rem}
+
   /* ---------- SIGNUP ---------- */
   .signup{text-align:center}
   .signup p{max-width:52ch;margin:0 auto 2.2rem}
@@ -278,6 +296,7 @@
     <a href="#legend">Legend</a>
     <a href="#amulets">Amulets</a>
     <a href="#ritual">Ritual</a>
+    <a href="#details">Details</a>
     <a href="#signup">Join</a>
   </div>
 </nav>
@@ -339,21 +358,21 @@
     </div>
     <div class="cards">
       <div class="card tilt reveal">
-        <div class="ph"><img src="images/guardian.png" alt="The Guardian — winged fascinum amulet in sterling silver"></div>
+        <div class="ph"><img src="images/guardian.webp" alt="The Guardian — winged fascinum amulet in sterling silver"></div>
         <h3>THE GUARDIAN</h3>
         <p>The winged fascinum in its classic form — solid 925 silver, hand-finished with an antique patina.</p>
         <span class="price">Sterling Silver · 925</span><br>
         <a class="pick" href="#signup">Reserve →</a>
       </div>
       <div class="card tilt reveal d1">
-        <div class="ph"><img src="images/seal.png" alt="The Seal — votive coin medallion with winged sigil"></div>
+        <div class="ph"><img src="images/seal.webp" alt="The Seal — votive coin medallion with winged sigil"></div>
         <h3>THE SEAL</h3>
         <p>A medallion struck like an ancient votive coin, the winged sigil ringed by the marks of fortune.</p>
         <span class="price">Sterling Silver · 925</span><br>
         <a class="pick" href="#signup">Reserve →</a>
       </div>
       <div class="card tilt reveal d2">
-        <div class="ph"><img src="images/crescent.png" alt="The Crescent — wings over the lunula amulet"></div>
+        <div class="ph"><img src="images/crescent.webp" alt="The Crescent — wings over the lunula amulet"></div>
         <h3>THE CRESCENT</h3>
         <p>Wings over the lunula — the crescent amulet Roman women wore — united in one protective form.</p>
         <span class="price">Sterling Silver · 925</span><br>
@@ -397,6 +416,35 @@
   <p class="meaning">Here dwells happiness.</p>
 </div>
 
+<!-- DETAILS + FAQ -->
+<section class="details" id="details">
+  <div class="wrap">
+    <div class="sect-head reveal">
+      <span class="eyebrow">The Making</span>
+      <h2>Details &amp; Assurances</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="specs reveal">
+      <div class="spec-item"><div class="k">Metal</div><div class="v">925 Sterling</div></div>
+      <div class="spec-item"><div class="k">Pendant</div><div class="v">≈ 28 mm</div></div>
+      <div class="spec-item"><div class="k">Chain</div><div class="v">50 / 60 cm</div></div>
+      <div class="spec-item"><div class="k">Finish</div><div class="v">Antique Patina</div></div>
+    </div>
+    <div class="faq">
+      <details class="reveal"><summary>Is it solid sterling silver?</summary>
+        <div class="ans">Yes — every amulet is cast in solid 925 sterling silver, then hand-finished with an antique patina and sealed. It is not plated. Each piece is stamped 925.</div></details>
+      <details class="reveal"><summary>How large is the amulet, and what chain does it come with?</summary>
+        <div class="ans">The pendant measures roughly 28&nbsp;mm tall — substantial but comfortable for daily wear. It arrives on a solid sterling chain, offered in 50&nbsp;cm and 60&nbsp;cm lengths so it sits well on any frame.</div></details>
+      <details class="reveal"><summary>Will it tarnish?</summary>
+        <div class="ans">The antique patina is intentional — it deepens the detail and is meant to age gracefully. Sterling can darken over time; a soft polishing cloth returns the raised surfaces to a bright shine whenever you wish.</div></details>
+      <details class="reveal"><summary>When does it ship, and what does it cost?</summary>
+        <div class="ans">The first casting launches on Kickstarter. Founding supporters receive the earliest ships and the best price we will ever offer. Join the list below and we will write to you with dates and pricing before anyone else.</div></details>
+      <details class="reveal"><summary>What if it isn't right for me?</summary>
+        <div class="ans">Every order is backed by a 30-day return on unworn pieces. If something arrives damaged, we replace it at no cost. Your happiness is, after all, the point.</div></details>
+    </div>
+  </div>
+</section>
+
 <!-- SIGNUP -->
 <section class="signup" id="signup">
   <div class="wrap">
@@ -435,7 +483,7 @@
       "@id": "https://feclicitasamulets.com/#org",
       "name": "Felicitas Amulets",
       "url": "https://feclicitasamulets.com/",
-      "logo": "https://feclicitasamulets.com/images/guardian.png",
+      "logo": "https://feclicitasamulets.com/og.jpg",
       "description": "Sterling silver amulets in the Roman tradition, cast from the ancient fascinum — the talisman worn against the evil eye."
     },
     {
@@ -449,7 +497,7 @@
     {
       "@type": "Product",
       "name": "The Guardian",
-      "image": "https://feclicitasamulets.com/images/guardian.png",
+      "image": "https://feclicitasamulets.com/images/guardian.webp",
       "description": "The winged fascinum in its classic form — solid 925 silver, hand-finished with an antique patina.",
       "material": "925 Sterling Silver",
       "brand": { "@id": "https://feclicitasamulets.com/#org" }
@@ -457,7 +505,7 @@
     {
       "@type": "Product",
       "name": "The Seal",
-      "image": "https://feclicitasamulets.com/images/seal.png",
+      "image": "https://feclicitasamulets.com/images/seal.webp",
       "description": "A medallion struck like an ancient votive coin, the winged sigil ringed by the marks of fortune.",
       "material": "925 Sterling Silver",
       "brand": { "@id": "https://feclicitasamulets.com/#org" }
@@ -465,10 +513,20 @@
     {
       "@type": "Product",
       "name": "The Crescent",
-      "image": "https://feclicitasamulets.com/images/crescent.png",
+      "image": "https://feclicitasamulets.com/images/crescent.webp",
       "description": "Wings over the lunula — the crescent amulet Roman women wore — united in one protective form.",
       "material": "925 Sterling Silver",
       "brand": { "@id": "https://feclicitasamulets.com/#org" }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type":"Question","name":"Is it solid sterling silver?","acceptedAnswer":{"@type":"Answer","text":"Yes — every amulet is cast in solid 925 sterling silver, then hand-finished with an antique patina and sealed. It is not plated. Each piece is stamped 925."}},
+        {"@type":"Question","name":"How large is the amulet, and what chain does it come with?","acceptedAnswer":{"@type":"Answer","text":"The pendant measures roughly 28 mm tall. It arrives on a solid sterling chain, offered in 50 cm and 60 cm lengths."}},
+        {"@type":"Question","name":"Will it tarnish?","acceptedAnswer":{"@type":"Answer","text":"The antique patina is intentional and ages gracefully. Sterling can darken over time; a soft polishing cloth returns the raised surfaces to a bright shine."}},
+        {"@type":"Question","name":"When does it ship, and what does it cost?","acceptedAnswer":{"@type":"Answer","text":"The first casting launches on Kickstarter. Founding supporters receive the earliest ships and the best price we will ever offer. Join the list to hear dates and pricing first."}},
+        {"@type":"Question","name":"What if it isn't right for me?","acceptedAnswer":{"@type":"Answer","text":"Every order is backed by a 30-day return on unworn pieces. Damaged items are replaced at no cost."}}
+      ]
     }
   ]
 }
@@ -583,6 +641,7 @@
     function success(){
       signupForm.style.display='none';
       document.getElementById('doneMsg').classList.add('show');
+      if(typeof gtag==='function'){ gtag('event','sign_up',{method:'email',event_category:'engagement'}); }
     }
     // Until the Formspree endpoint is set, degrade gracefully so the form still confirms.
     if(!configured){ console.warn('Formspree endpoint not set — replace YOUR_FORM_ID in the form action.'); success(); return; }

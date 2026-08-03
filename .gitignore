@@ -3,6 +3,12 @@
 
 # Dependencies
 node_modules
+package.json
+package-lock.json
+
+# Build scripts (image conversion)
+convert.mjs
+og.mjs
 
 # OS / editor
 .DS_Store

@@ -17,12 +17,13 @@
 
 <meta name="google-site-verification" content="hV52fCJ4aKBrudCzSk0uukU2D56Q_z1bTInavsvmIb0">
 <link rel="canonical" href="https://feclicitasamulets.com/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <meta name="theme-color" content="#0b0c0d">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://feclicitasamulets.com/">
 <meta property="og:title" content="Felicitas — The Cabinet of Protection">
 <meta property="og:description" content="An archival house of Roman amulets. The fascinum, recast in sterling silver.">
-<meta property="og:image" content="https://feclicitasamulets.com/images/guardian.png">
+<meta property="og:image" content="https://feclicitasamulets.com/og.jpg">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -205,6 +206,26 @@
   .st h4{font-family:var(--mono);font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;margin:1.2rem 0 .7rem}
   .st p{color:var(--bone-dim);font-size:.95rem}
 
+  /* ---------- DOSSIER (details + faq) ---------- */
+  .dossier{border-top:1px solid var(--line)}
+  .specs{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);margin-bottom:3.5rem}
+  @media (max-width:640px){.specs{grid-template-columns:1fr 1fr}}
+  .specs .cell{padding:1.4rem;border-right:1px solid var(--line)}
+  .specs .cell:last-child{border-right:0}
+  @media (max-width:640px){.specs .cell:nth-child(2){border-right:0}.specs .cell:nth-child(1),.specs .cell:nth-child(2){border-bottom:1px solid var(--line)}}
+  .specs .k{font-family:var(--mono);font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:var(--silver);margin-bottom:.6rem}
+  .specs .v{font-family:var(--disp);font-size:1.3rem;color:var(--bone)}
+  .faq{max-width:820px}
+  .faq details{border-bottom:1px solid var(--line)}
+  .faq summary{list-style:none;cursor:pointer;padding:1.4rem 2.4rem 1.4rem 0;position:relative;
+    font-family:var(--disp);font-size:1.25rem;color:var(--bone);transition:color .3s var(--e-out)}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary:hover{color:var(--patina)}
+  .faq summary::after{content:"+";position:absolute;right:0;top:50%;transform:translateY(-50%);
+    font-family:var(--mono);font-size:1.2rem;color:var(--patina);transition:transform .3s var(--e-out)}
+  .faq details[open] summary::after{transform:translateY(-50%) rotate(45deg)}
+  .faq .ans{padding:0 2rem 1.5rem 0;color:var(--bone-dim);font-size:.96rem}
+
   /* ---------- ACQUISITION (signup) ---------- */
   .acq-sec{border-top:1px solid var(--line);text-align:center}
   .acq-sec h2{font-family:var(--disp);font-weight:500;font-size:clamp(2.2rem,6vw,4.4rem);line-height:1;
@@ -261,6 +282,7 @@
     <a href="#provenance">Provenance</a>
     <a href="#register">The Register</a>
     <a href="#conservation">Handling</a>
+    <a href="#dossier">Dossier</a>
     <a href="#acquire" class="acq">Acquire →</a>
   </nav>
 </div>
@@ -287,7 +309,7 @@
     <div class="right">
       <span class="cross c-tl"></span><span class="cross c-tr"></span>
       <span class="cross c-bl"></span><span class="cross c-br"></span>
-      <img src="images/guardian.png" alt="The Guardian — winged fascinum amulet in sterling silver">
+      <img src="images/guardian.webp" alt="The Guardian — winged fascinum amulet in sterling silver">
       <div class="spec-tag">
         SPECIMEN <b>FA·001</b><br>
         THE GUARDIAN<br>
@@ -332,7 +354,7 @@
     <div class="kicker rv"><span class="no">02</span><span class="ttl">The Register — Three Castings</span><span class="fill"></span></div>
     <div class="specimens">
       <article class="sp rv">
-        <div class="frame"><span class="no">FA·001</span><img src="images/guardian.png" alt="The Guardian amulet"></div>
+        <div class="frame"><span class="no">FA·001</span><img src="images/guardian.webp" alt="The Guardian amulet"></div>
         <div class="body">
           <h3>The Guardian</h3>
           <p>The winged fascinum in its classic form, hand-finished with an antique patina.</p>
@@ -340,7 +362,7 @@
         </div>
       </article>
       <article class="sp rv d1">
-        <div class="frame"><span class="no">FA·002</span><img src="images/seal.png" alt="The Seal amulet"></div>
+        <div class="frame"><span class="no">FA·002</span><img src="images/seal.webp" alt="The Seal amulet"></div>
         <div class="body">
           <h3>The Seal</h3>
           <p>A medallion struck like a votive coin, the winged sigil ringed by the marks of fortune.</p>
@@ -348,7 +370,7 @@
         </div>
       </article>
       <article class="sp rv d2">
-        <div class="frame"><span class="no">FA·003</span><img src="images/crescent.png" alt="The Crescent amulet"></div>
+        <div class="frame"><span class="no">FA·003</span><img src="images/crescent.webp" alt="The Crescent amulet"></div>
         <div class="body">
           <h3>The Crescent</h3>
           <p>Wings over the lunula — the crescent Roman women wore — united in one protective form.</p>
@@ -379,6 +401,31 @@
         <h4>Wear</h4>
         <p>Wear it against the skin through the night. From then on it works quietly, close to the body.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- DOSSIER -->
+<section id="dossier" class="dossier">
+  <div class="max">
+    <div class="kicker rv"><span class="no">04</span><span class="ttl">The Dossier — Specification &amp; Enquiry</span><span class="fill"></span></div>
+    <div class="specs rv">
+      <div class="cell"><div class="k">Metal</div><div class="v">925 Silver</div></div>
+      <div class="cell"><div class="k">Pendant</div><div class="v">≈28mm</div></div>
+      <div class="cell"><div class="k">Chain</div><div class="v">50 / 60cm</div></div>
+      <div class="cell"><div class="k">Finish</div><div class="v">Patina</div></div>
+    </div>
+    <div class="faq">
+      <details class="rv"><summary>Is it solid sterling silver?</summary>
+        <div class="ans">Yes — each specimen is cast in solid 925 sterling silver, hand-finished with an antique patina and sealed. Not plated. Stamped 925.</div></details>
+      <details class="rv"><summary>Dimensions and chain?</summary>
+        <div class="ans">The pendant stands roughly 28&nbsp;mm — substantial yet comfortable for daily wear. It arrives on a solid sterling chain in your choice of 50&nbsp;cm or 60&nbsp;cm.</div></details>
+      <details class="rv"><summary>Will it tarnish?</summary>
+        <div class="ans">The patina is intentional and deepens the relief; it is meant to age. Sterling can darken over time — a soft cloth returns the raised surfaces to a bright shine.</div></details>
+      <details class="rv"><summary>Shipping &amp; price?</summary>
+        <div class="ans">The first casting launches on Kickstarter. Founding supporters ship earliest at the best price we will ever offer. Enter the register below to hear dates first.</div></details>
+      <details class="rv"><summary>Returns?</summary>
+        <div class="ans">A 30-day return on unworn pieces. Anything damaged in transit is replaced at no cost.</div></details>
     </div>
   </div>
 </section>
@@ -443,7 +490,8 @@
     var configured=endpoint.indexOf('YOUR_FORM_ID')===-1;
     err.classList.remove('show');
     btn.disabled=true; btn.textContent='Sending…';
-    function success(){ form.style.display='none'; document.getElementById('done').classList.add('show'); }
+    function success(){ form.style.display='none'; document.getElementById('done').classList.add('show');
+      if(typeof gtag==='function'){ gtag('event','sign_up',{method:'email',event_category:'engagement'}); } }
     if(!configured){ console.warn('Formspree endpoint not set — replace YOUR_FORM_ID in the form action.'); success(); return; }
     fetch(endpoint,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}})
       .then(function(res){ if(res.ok){success();} else {throw new Error('bad');} })
