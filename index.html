@@ -378,6 +378,20 @@
   .cs-chip:hover{border-color:var(--patina);color:var(--patina)}
   .cs-chip.accent{border-color:var(--patina);color:var(--patina)}
   .cs-chip.accent:hover{background:var(--patina);color:var(--void)}
+  .cs-form{display:flex;flex-direction:column;gap:.55rem;align-self:stretch;background:var(--panel);
+    border:1px solid var(--line);border-radius:12px;padding:.9rem;
+    opacity:0;transform:translateY(8px);animation:csIn .4s var(--e-out) forwards}
+  .cs-form input,.cs-form textarea{background:var(--void-2);border:1px solid var(--line);color:var(--bone);
+    font-family:var(--mono);font-size:.78rem;padding:.6rem .7rem;border-radius:6px}
+  .cs-form input::placeholder,.cs-form textarea::placeholder{color:var(--silver)}
+  .cs-form input:focus,.cs-form textarea:focus{outline:none;border-color:var(--patina)}
+  .cs-form textarea{resize:vertical;min-height:64px;font-family:var(--body);font-size:.88rem}
+  .cs-form button{background:var(--patina);color:var(--void);border:0;font-family:var(--mono);font-size:.62rem;
+    letter-spacing:.16em;text-transform:uppercase;padding:.65rem;border-radius:6px;cursor:pointer;
+    transition:background .3s var(--e-out),transform .16s var(--e-out)}
+  .cs-form button:hover{background:var(--patina-2)}
+  .cs-form button:active{transform:scale(.97)}
+  .cs-form button[disabled]{opacity:.7;cursor:default}
 
   @media (prefers-reduced-motion: reduce){
     *{animation-duration:.001s !important;animation-delay:0s !important;transition-duration:.001s !important}
@@ -649,7 +663,6 @@
   document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&lb.classList.contains('open')) closeLB(); });
 
   /* Curator — scripted FAQ chat */
-  var CONTACT_EMAIL='hello@feclicitasamulets.com';
   var CS_QA=[
     {q:'Real silver?', a:'Every amulet is <b>solid 925 sterling silver</b> — cast, hand-finished with an antique patina, and stamped 925. Never plated.'},
     {q:'Size & chain', a:'The pendant stands about <b>28&nbsp;mm</b> and arrives on a solid sterling chain in <b>50&nbsp;cm</b> or <b>60&nbsp;cm</b>.'},
@@ -670,6 +683,32 @@
     setTimeout(function(){ t.remove(); csAdd(html,'bot'); }, delay||550);
   }
   function csAnswer(item){ csAdd(item.q,'me'); csBot(item.a); }
+  function csContactForm(){
+    var existing=csBody.querySelector('.cs-form');
+    if(existing){ existing.scrollIntoView({block:'nearest'}); existing.querySelector('input').focus(); return; }
+    csBot('Leave your email and a message — it comes straight to us. We usually reply within a day.',300);
+    setTimeout(function(){
+      var f=document.createElement('form'); f.className='cs-form';
+      f.setAttribute('action','https://formspree.io/f/xeeyyzkk'); f.setAttribute('method','POST');
+      f.innerHTML=
+        '<input type="email" name="email" placeholder="your email" required autocomplete="email">'+
+        '<textarea name="message" placeholder="how can we help?" required></textarea>'+
+        '<input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none">'+
+        '<input type="hidden" name="_subject" value="Felicitas — message from the Curator chat">'+
+        '<input type="hidden" name="source" value="curator-chat">'+
+        '<button type="submit">Send message</button>';
+      csBody.appendChild(f); csScroll(); f.querySelector('input').focus();
+      f.addEventListener('submit',function(e){
+        e.preventDefault();
+        var btn=f.querySelector('button');
+        btn.disabled=true; btn.textContent='Sending…';
+        fetch(f.getAttribute('action'),{method:'POST',body:new FormData(f),headers:{'Accept':'application/json'}})
+          .then(function(r){ if(!r.ok) throw new Error('bad'); f.remove();
+            csBot('Thank you — your message is on its way. We’ll reply to the address you gave.',300); })
+          .catch(function(){ btn.disabled=false; btn.textContent='Try again'; });
+      });
+    }, 650);
+  }
   function csBuildChips(){
     csQuick.innerHTML='';
     CS_QA.forEach(function(item){
@@ -680,7 +719,7 @@
     reg.addEventListener('click',function(){ csClosePanel(); document.getElementById('acquire').scrollIntoView({behavior:'smooth'}); });
     csQuick.appendChild(reg);
     var mail=document.createElement('button'); mail.className='cs-chip'; mail.type='button'; mail.textContent='Write to us';
-    mail.addEventListener('click',function(){ window.location.href='mailto:'+CONTACT_EMAIL+'?subject=Felicitas%20enquiry'; });
+    mail.addEventListener('click',csContactForm);
     csQuick.appendChild(mail);
   }
   function csOpenPanel(){
