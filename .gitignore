@@ -26,3 +26,4 @@ images/db134779-*.png
 # stray build scripts
 id.mjs
 book.mjs
+pages.mjs
