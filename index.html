@@ -61,6 +61,13 @@
 
   .eyebrow{font-family:var(--inscr);font-size:.72rem;letter-spacing:.42em;text-transform:uppercase;color:var(--gold)}
 
+  .soon{display:inline-flex;align-items:center;gap:.55rem;font-family:var(--inscr);font-size:.62rem;
+    letter-spacing:.28em;text-transform:uppercase;color:var(--gold-lite);
+    border:1px solid rgba(230,200,121,.4);border-radius:999px;padding:.45rem 1.05rem}
+  .soon .pulse{width:6px;height:6px;border-radius:50%;background:var(--gold-lite);animation:pulseDot 2.4s ease-out infinite}
+  @keyframes pulseDot{0%{box-shadow:0 0 0 0 rgba(230,200,121,.55)}70%{box-shadow:0 0 0 8px rgba(230,200,121,0)}100%{box-shadow:0 0 0 0 rgba(230,200,121,0)}}
+  .hero .soon-wrap{opacity:0;animation:fadeUp 1s var(--ease) .5s forwards;margin-bottom:1.7rem}
+
   /* ---------- SCROLL PROGRESS + NAV ---------- */
   .progress{position:fixed;top:0;left:0;height:3px;width:0%;
     background:linear-gradient(90deg,var(--gold),var(--gold-lite));z-index:100;transition:width .1s linear}
@@ -225,6 +232,9 @@
   .signup .note{font-size:.85rem;color:#6b6355;margin-top:1rem}
   .signup .done{display:none;font-style:italic;color:var(--pompeii);margin-top:1.4rem;font-size:1.1rem}
   .signup .done.show{display:block;animation:fadeUp .6s var(--ease)}
+  .signup .err{display:none;color:var(--pompeii);margin-top:1rem;font-size:.92rem}
+  .signup .err.show{display:block;animation:fadeUp .5s var(--ease)}
+  .field button[disabled]{opacity:.7;cursor:default}
 
   /* ---------- FOOTER ---------- */
   footer{background:var(--ink);color:#9d968a;text-align:center;padding:3rem 1.5rem;font-size:.9rem}
@@ -283,6 +293,7 @@
       <path d="M68 48 Q90 40 104 22 Q94 52 72 62 M68 60 Q86 56 98 44 Q88 68 70 74"/>
     </svg>
     <p class="sub">Roma · Amuletum</p>
+    <p class="soon-wrap"><span class="soon"><span class="pulse"></span>Coming Soon · First Casting</span></p>
     <h1 id="title" aria-label="Felicitas"></h1>
     <p class="blessing">May envy never find you, and fortune never leave you.</p>
     <p class="cta-row"><a class="btn" href="#amulets">Discover the Amulet</a></p>
@@ -395,11 +406,13 @@
       <div class="rule"></div>
     </div>
     <p class="reveal">The first casting of the Fascinum launches soon on Kickstarter. Leave your email to receive the early blessing price — the best it will ever be offered.</p>
-    <form class="field reveal" id="signupForm">
-      <input type="email" id="email" placeholder="Your email" aria-label="Email address" required>
-      <button type="submit">Notify Me</button>
+    <form class="field reveal" id="signupForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <input type="email" name="email" id="email" placeholder="Your email" aria-label="Email address" required autocomplete="email">
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+      <button type="submit" id="signupBtn">Notify Me</button>
     </form>
     <p class="done" id="doneMsg">Welcome among the guardians — we will write to you before the first casting.</p>
+    <p class="err" id="errMsg">Something went wrong — please try again.</p>
     <p class="note reveal">No noise, no spam. One letter when the casting opens.</p>
   </div>
 </section>
@@ -555,14 +568,33 @@
     });
   }
 
-  /* ---- signup ---- */
-  document.getElementById('signupForm').addEventListener('submit',function(e){
+  /* ---- signup (Formspree) ---- */
+  var signupForm=document.getElementById('signupForm');
+  signupForm.addEventListener('submit',function(e){
     e.preventDefault();
-    var email=document.getElementById('email').value;
+    var email=document.getElementById('email').value.trim();
     if(!email) return;
-    // TODO: send `email` to your mailing list provider (Mailchimp, MailerLite, etc.)
-    this.style.display='none';
-    document.getElementById('doneMsg').classList.add('show');
+    var btn=document.getElementById('signupBtn');
+    var errMsg=document.getElementById('errMsg');
+    var endpoint=signupForm.getAttribute('action');
+    var configured=endpoint.indexOf('YOUR_FORM_ID')===-1;
+    errMsg.classList.remove('show');
+    btn.disabled=true; btn.textContent='Sending…';
+    function success(){
+      signupForm.style.display='none';
+      document.getElementById('doneMsg').classList.add('show');
+    }
+    // Until the Formspree endpoint is set, degrade gracefully so the form still confirms.
+    if(!configured){ console.warn('Formspree endpoint not set — replace YOUR_FORM_ID in the form action.'); success(); return; }
+    fetch(endpoint,{method:'POST',body:new FormData(signupForm),headers:{'Accept':'application/json'}})
+      .then(function(res){
+        if(res.ok){ success(); }
+        else { throw new Error('bad response'); }
+      })
+      .catch(function(){
+        btn.disabled=false; btn.textContent='Try Again';
+        errMsg.classList.add('show');
+      });
   });
 })();
 </script>
