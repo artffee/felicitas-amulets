@@ -19,11 +19,20 @@
 <link rel="canonical" href="https://feclicitasamulets.com/">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <meta name="theme-color" content="#0b0c0d">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="keywords" content="fascinum, Roman amulet, evil eye protection, sterling silver amulet, talisman, lunula, ancient Rome jewelry">
 <meta property="og:type" content="website">
+<meta property="og:site_name" content="Felicitas Amulets">
 <meta property="og:url" content="https://feclicitasamulets.com/">
 <meta property="og:title" content="Felicitas — The Cabinet of Protection">
 <meta property="og:description" content="An archival house of Roman amulets. The fascinum, recast in sterling silver.">
 <meta property="og:image" content="https://feclicitasamulets.com/og.jpg">
+<meta property="og:image:alt" content="Felicitas — the fascinum, amulet of protection, in sterling silver">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Felicitas — The Cabinet of Protection">
+<meta name="twitter:description" content="An archival house of Roman amulets. The fascinum, recast in sterling silver.">
+<meta name="twitter:image" content="https://feclicitasamulets.com/og.jpg">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -498,6 +507,64 @@
       .catch(function(){ btn.disabled=false; btn.textContent='Try Again'; err.classList.add('show'); });
   });
 })();
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://feclicitasamulets.com/#org",
+      "name": "Felicitas Amulets",
+      "url": "https://feclicitasamulets.com/",
+      "logo": "https://feclicitasamulets.com/favicon.svg",
+      "description": "Sterling silver amulets in the Roman tradition, cast from the ancient fascinum — the talisman worn against the evil eye."
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://feclicitasamulets.com/#site",
+      "url": "https://feclicitasamulets.com/",
+      "name": "Felicitas Amulets",
+      "publisher": { "@id": "https://feclicitasamulets.com/#org" },
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "Product",
+      "name": "The Guardian",
+      "image": "https://feclicitasamulets.com/images/guardian.webp",
+      "description": "The winged fascinum in its classic form — solid 925 silver, hand-finished with an antique patina.",
+      "material": "925 Sterling Silver",
+      "brand": { "@id": "https://feclicitasamulets.com/#org" }
+    },
+    {
+      "@type": "Product",
+      "name": "The Seal",
+      "image": "https://feclicitasamulets.com/images/seal.webp",
+      "description": "A medallion struck like an ancient votive coin, the winged sigil ringed by the marks of fortune.",
+      "material": "925 Sterling Silver",
+      "brand": { "@id": "https://feclicitasamulets.com/#org" }
+    },
+    {
+      "@type": "Product",
+      "name": "The Crescent",
+      "image": "https://feclicitasamulets.com/images/crescent.webp",
+      "description": "Wings over the lunula — the crescent amulet Roman women wore — united in one protective form.",
+      "material": "925 Sterling Silver",
+      "brand": { "@id": "https://feclicitasamulets.com/#org" }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type":"Question","name":"Is it solid sterling silver?","acceptedAnswer":{"@type":"Answer","text":"Yes — each specimen is cast in solid 925 sterling silver, hand-finished with an antique patina and sealed. Not plated. Stamped 925."}},
+        {"@type":"Question","name":"What are the dimensions and chain?","acceptedAnswer":{"@type":"Answer","text":"The pendant stands roughly 28 mm and arrives on a solid sterling chain in your choice of 50 cm or 60 cm."}},
+        {"@type":"Question","name":"Will it tarnish?","acceptedAnswer":{"@type":"Answer","text":"The patina is intentional and ages gracefully. Sterling can darken over time; a soft cloth returns the raised surfaces to a bright shine."}},
+        {"@type":"Question","name":"When does it ship, and what does it cost?","acceptedAnswer":{"@type":"Answer","text":"The first casting launches on Kickstarter. Founding supporters ship earliest at the best price we will ever offer. Enter the register to hear dates first."}},
+        {"@type":"Question","name":"What is the return policy?","acceptedAnswer":{"@type":"Answer","text":"A 30-day return on unworn pieces. Anything damaged in transit is replaced at no cost."}}
+      ]
+    }
+  ]
+}
 </script>
 </body>
 </html>

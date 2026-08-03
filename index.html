@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Felicitas — The Cabinet of Protection</title>
+<meta name="description" content="An archival house of Roman amulets. The fascinum — worn against the evil eye for two thousand years — recast in sterling silver, catalogued and conserved.">
 
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-G76GFDSWE5"></script>
@@ -10,469 +12,502 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-G76GFDSWE5');
 </script>
 
-<title>Felicitas Amulets — The Fascinum, Amulet of Protection</title>
-<meta name="description" content="Ancient Rome's most trusted talisman against the evil eye, reborn in sterling silver. May envy never find you, and fortune never leave you.">
 <meta name="google-site-verification" content="hV52fCJ4aKBrudCzSk0uukU2D56Q_z1bTInavsvmIb0">
 <link rel="canonical" href="https://feclicitasamulets.com/">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#0b0c0d">
 <meta name="robots" content="index, follow, max-image-preview:large">
-<meta name="theme-color" content="#5A1030">
 <meta name="keywords" content="fascinum, Roman amulet, evil eye protection, sterling silver amulet, talisman, lunula, ancient Rome jewelry">
-
-<!-- Social preview (Open Graph / Twitter) -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Felicitas Amulets">
 <meta property="og:url" content="https://feclicitasamulets.com/">
-<meta property="og:title" content="Felicitas Amulets — The Fascinum, Amulet of Protection">
-<meta property="og:description" content="Ancient Rome's most trusted talisman against the evil eye, reborn in sterling silver. May envy never find you, and fortune never leave you.">
+<meta property="og:title" content="Felicitas — The Cabinet of Protection">
+<meta property="og:description" content="An archival house of Roman amulets. The fascinum, recast in sterling silver.">
 <meta property="og:image" content="https://feclicitasamulets.com/og.jpg">
-<meta property="og:image:alt" content="The Guardian — winged fascinum amulet in sterling silver">
+<meta property="og:image:alt" content="Felicitas — the fascinum, amulet of protection, in sterling silver">
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Felicitas Amulets — The Fascinum, Amulet of Protection">
-<meta name="twitter:description" content="Ancient Rome's most trusted talisman against the evil eye, reborn in sterling silver.">
+<meta name="twitter:title" content="Felicitas — The Cabinet of Protection">
+<meta name="twitter:description" content="An archival house of Roman amulets. The fascinum, recast in sterling silver.">
 <meta name="twitter:image" content="https://feclicitasamulets.com/og.jpg">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;1,6..96,400;1,6..96,500&family=Hanken+Grotesk:wght@300;400;500;600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 <style>
   :root{
-    --pompeii:#5A1030;      /* imperial Tyrian purple-wine */
-    --pompeii-deep:#320A1C;
-    --bone:#F6EFDD;         /* warm champagne ivory */
-    --bone-dim:#ECE1C8;
-    --ink:#140F12;          /* near-black, faint plum */
-    --silver:#B7B1A5;
-    --gold:#A9823A;         /* deep antique gold */
-    --gold-lite:#E6C879;    /* champagne gold */
-    --serif:'EB Garamond', Georgia, serif;
-    --inscr:'Cinzel', 'Times New Roman', serif;
-    --ease-out:cubic-bezier(0.23,1,0.32,1);      /* strong ease-out for UI enter/exit */
-    --ease-in-out:cubic-bezier(0.77,0,0.175,1);  /* strong ease-in-out for on-screen movement */
-    --ease:var(--ease-out);                       /* default */
+    --void:#0b0c0d;
+    --void-2:#101113;
+    --panel:#15171a;
+    --line:#26292d;
+    --bone:#e9e5db;
+    --bone-dim:#b9b6ac;
+    --silver:#8b9296;
+    --patina:#5fa093;      /* excavated bronze verdigris */
+    --patina-2:#7cbdb0;
+    --rust:#b56a4a;        /* trace oxidation, used sparingly */
+    --disp:'Bodoni Moda', Georgia, serif;
+    --body:'Hanken Grotesk', system-ui, sans-serif;
+    --mono:'IBM Plex Mono', ui-monospace, monospace;
+    --e-out:cubic-bezier(0.23,1,0.32,1);
+    --e-io:cubic-bezier(0.77,0,0.175,1);
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
-  body{font-family:var(--serif);background:var(--bone);color:var(--ink);font-size:18px;line-height:1.65;overflow-x:hidden}
+  ::selection{background:var(--patina);color:var(--void)}
+  body{font-family:var(--body);background:var(--void);color:var(--bone);font-weight:300;
+    font-size:17px;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 
-  .eyebrow{font-family:var(--inscr);font-size:.72rem;letter-spacing:.42em;text-transform:uppercase;color:var(--gold)}
+  /* grain + vignette atmosphere */
+  body::before{content:"";position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.05;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E")}
+  body::after{content:"";position:fixed;inset:0;z-index:1;pointer-events:none;
+    background:radial-gradient(ellipse 90% 70% at 50% 40%,transparent 55%,rgba(0,0,0,.55) 100%)}
 
-  .soon{display:inline-flex;align-items:center;gap:.55rem;font-family:var(--inscr);font-size:.62rem;
-    letter-spacing:.28em;text-transform:uppercase;color:var(--gold-lite);
-    border:1px solid rgba(230,200,121,.4);border-radius:999px;padding:.45rem 1.05rem}
-  .soon .pulse{width:6px;height:6px;border-radius:50%;background:var(--gold-lite);animation:pulseDot 2.4s ease-out infinite}
-  @keyframes pulseDot{0%{box-shadow:0 0 0 0 rgba(230,200,121,.55)}70%{box-shadow:0 0 0 8px rgba(230,200,121,0)}100%{box-shadow:0 0 0 0 rgba(230,200,121,0)}}
-  .hero .soon-wrap{opacity:0;animation:fadeUp 1s var(--ease) .5s forwards;margin-bottom:1.7rem}
+  .mono{font-family:var(--mono);font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;color:var(--silver)}
+  .patina{color:var(--patina)}
+  a{color:inherit;text-decoration:none}
 
-  /* ---------- SCROLL PROGRESS + NAV ---------- */
-  .progress{position:fixed;top:0;left:0;height:3px;width:0%;
-    background:linear-gradient(90deg,var(--gold),var(--gold-lite));z-index:100;transition:width .1s linear}
-  nav{position:fixed;top:0;left:0;right:0;z-index:90;display:flex;align-items:center;justify-content:space-between;
-    padding:1.1rem clamp(1.25rem,4vw,3rem);transition:background .4s var(--ease),padding .4s var(--ease),box-shadow .4s var(--ease);
-    transform:translateY(-100%);opacity:0}
-  nav.show{transform:translateY(0);opacity:1}
-  nav.solid{background:rgba(241,233,216,.86);backdrop-filter:blur(14px);box-shadow:0 1px 0 rgba(139,115,85,.25);padding:.7rem clamp(1.25rem,4vw,3rem)}
-  nav .brand{font-family:var(--inscr);font-size:.9rem;letter-spacing:.34em;color:var(--pompeii);text-decoration:none}
-  nav .links{display:flex;gap:2rem}
-  nav .links a{font-family:var(--inscr);font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;
-    color:var(--ink);text-decoration:none;position:relative;padding:.2rem 0}
-  nav .links a::after{content:"";position:absolute;left:0;bottom:-2px;width:0;height:1px;background:var(--pompeii);transition:width .3s var(--ease)}
-  nav .links a:hover::after,nav .links a:focus-visible::after{width:100%}
-  @media (max-width:720px){nav .links{display:none}}
+  .soon{display:inline-flex;align-items:center;gap:.55rem;font-family:var(--mono);font-size:.6rem;
+    letter-spacing:.24em;text-transform:uppercase;color:var(--patina);border:1px solid var(--patina);
+    border-radius:999px;padding:.4rem .9rem;align-self:flex-start;opacity:0;animation:fade .9s ease .35s forwards}
+  .soon .pulse{width:6px;height:6px;border-radius:50%;background:var(--patina);animation:pulseDot 2.4s ease-out infinite}
+  @keyframes pulseDot{0%{box-shadow:0 0 0 0 rgba(95,160,147,.5)}70%{box-shadow:0 0 0 8px rgba(95,160,147,0)}100%{box-shadow:0 0 0 0 rgba(95,160,147,0)}}
 
-  /* ---------- CURSOR GLOW ---------- */
-  .glow{position:fixed;top:0;left:0;width:520px;height:520px;border-radius:50%;pointer-events:none;z-index:1;
-    background:radial-gradient(circle,rgba(216,185,143,.16) 0%,transparent 65%);
-    left:0;top:0;opacity:0;transition:opacity .4s var(--ease-out);mix-blend-mode:screen;will-change:transform}
+  /* ---------- CATALOG BAR ---------- */
+  .bar{position:fixed;top:0;left:0;right:0;z-index:40;display:flex;justify-content:space-between;align-items:center;
+    padding:.85rem clamp(1rem,4vw,2.4rem);background:rgba(11,12,13,.72);backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--line)}
+  .bar .id{font-family:var(--mono);font-size:.7rem;letter-spacing:.34em;text-transform:uppercase;color:var(--bone)}
+  .bar .meta{display:flex;gap:1.6rem}
+  .bar .meta a{font-family:var(--mono);font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--silver);
+    transition:color .3s var(--e-out)}
+  .bar .meta a:hover{color:var(--patina)}
+  @media (max-width:680px){.bar .meta a:not(.acq){display:none}}
 
   /* ---------- HERO ---------- */
-  .hero{position:relative;min-height:100vh;color:var(--bone);display:flex;flex-direction:column;align-items:center;justify-content:center;
-    text-align:center;padding:4rem 1.5rem;overflow:hidden;
-    background:radial-gradient(ellipse 120% 90% at 50% -10%, #7a1c4a 0%, var(--pompeii) 42%, var(--pompeii-deep) 100%)}
-  .hero::before{content:"";position:absolute;inset:0;opacity:.5;pointer-events:none;
-    background:radial-gradient(circle at 50% 40%,transparent 30%,rgba(0,0,0,.35) 100%)}
-  .hero::after{content:"";position:absolute;inset:0;opacity:.14;pointer-events:none;
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E")}
-  .embers{position:absolute;inset:0;pointer-events:none;z-index:1}
-  .ember{position:absolute;bottom:-10px;width:3px;height:3px;border-radius:50%;background:var(--gold-lite);opacity:0;
-    animation:rise linear infinite}
-  @keyframes rise{
-    0%{transform:translateY(0) scale(1);opacity:0}
-    12%{opacity:.7}
-    100%{transform:translateY(-105vh) scale(.3);opacity:0}}
-  .hero-inner{position:relative;z-index:2;transform:translateZ(0)}
-  .sigil{width:120px;height:150px;margin-bottom:2.2rem;filter:drop-shadow(0 6px 18px rgba(0,0,0,.4))}
-  .sigil path,.sigil circle{fill:none;stroke:var(--bone);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;
-    stroke-dasharray:600;stroke-dashoffset:600;animation:draw 2.6s ease forwards}
-  .sigil circle{animation-delay:.5s}
-  @keyframes draw{to{stroke-dashoffset:0}}
-  .hero h1{font-family:var(--inscr);font-weight:500;font-size:clamp(2.2rem,7vw,4.4rem);letter-spacing:.24em;margin-bottom:1.1rem;
-    background:linear-gradient(180deg,#F7ECCF 0%,var(--gold-lite) 45%,#B98F3E 100%);
-    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:var(--gold-lite);
-    filter:drop-shadow(0 2px 10px rgba(0,0,0,.35))}
-  .hero h1 span{display:inline-block;opacity:0;transform:translateY(24px);animation:letterUp .8s var(--ease) forwards}
-  @keyframes letterUp{to{opacity:1;transform:translateY(0)}}
-  .hero .sub{font-family:var(--inscr);font-size:.78rem;letter-spacing:.46em;text-transform:uppercase;color:var(--gold-lite);margin-bottom:2.4rem;
-    opacity:0;animation:fadeUp 1s var(--ease) .3s forwards}
-  .hero .blessing{font-style:italic;font-size:clamp(1.05rem,2.6vw,1.35rem);max-width:34ch;margin:0 auto 3rem;color:#F3E8CD;
-    opacity:0;animation:fadeUp 1s var(--ease) 1.4s forwards}
-  .hero .cta-row{opacity:0;animation:fadeUp 1s var(--ease) 1.7s forwards}
-  @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
-  .btn{display:inline-block;font-family:var(--inscr);font-size:.8rem;letter-spacing:.3em;text-transform:uppercase;
-    color:var(--bone);border:1px solid var(--bone);padding:1.05rem 2.6rem;text-decoration:none;position:relative;overflow:hidden;
-    transition:color .3s var(--ease-out),transform .16s var(--ease-out)}
-  .btn::before{content:"";position:absolute;inset:0;background:var(--bone);transform:translateY(101%);transition:transform .35s var(--ease-out);z-index:-1}
-  .btn:hover,.btn:focus-visible{color:var(--pompeii-deep)}
-  .btn:hover::before,.btn:focus-visible::before{transform:translateY(0)}
-  .btn:active{transform:scale(0.97)}
-  .btn:focus-visible{outline:2px solid #D8B98F;outline-offset:3px}
-  .scroll-hint{position:absolute;bottom:1.8rem;left:50%;transform:translateX(-50%);z-index:2;
-    font-family:var(--inscr);font-size:.6rem;letter-spacing:.3em;color:var(--gold-lite);text-transform:uppercase;opacity:.8;
-    display:flex;flex-direction:column;align-items:center;gap:.5rem;animation:bob 2.4s ease-in-out infinite}
-  .scroll-hint::after{content:"";width:1px;height:34px;background:linear-gradient(var(--gold-lite),transparent)}
-  @keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
+  .hero{position:relative;z-index:2;min-height:100svh;padding:clamp(6rem,12vh,9rem) clamp(1rem,4vw,2.4rem) 2.5rem;
+    display:grid;grid-template-columns:1fr;align-content:center;gap:2rem}
+  .hero .plate{border:1px solid var(--line);position:relative;
+    display:grid;grid-template-columns:1.15fr .85fr;min-height:min(70vh,620px)}
+  @media (max-width:860px){.hero .plate{grid-template-columns:1fr}}
+
+  .hero .left{padding:clamp(1.6rem,3vw,3rem);display:flex;flex-direction:column;justify-content:space-between;
+    border-right:1px solid var(--line);position:relative}
+  @media (max-width:860px){.hero .left{border-right:0;border-bottom:1px solid var(--line)}}
+  .tag-row{display:flex;justify-content:space-between;align-items:baseline;gap:1rem}
+  .hero h1{font-family:var(--disp);font-weight:500;font-size:clamp(3.4rem,13vw,8.6rem);line-height:.82;
+    letter-spacing:-.02em;margin:2.4rem 0 1.4rem}
+  .hero h1 em{font-style:italic;font-weight:400}
+  .hero h1 .ln{display:block;overflow:hidden}
+  .hero h1 .ln span{display:block;transform:translateY(105%);animation:rise 1s var(--e-out) forwards}
+  .hero h1 .ln:nth-child(2) span{animation-delay:.09s}
+  .hero h1 .ln:nth-child(3) span{animation-delay:.18s}
+  @keyframes rise{to{transform:translateY(0)}}
+  .hero .lede{max-width:44ch;color:var(--bone-dim);opacity:0;animation:fade .9s ease .5s forwards}
+  .hero .lede b{color:var(--bone);font-weight:400}
+  @keyframes fade{to{opacity:1}}
+  .hero .foot{display:flex;align-items:center;gap:1.4rem;margin-top:2.4rem;opacity:0;animation:fade .9s ease .7s forwards;flex-wrap:wrap}
+
+  .cta{display:inline-flex;align-items:center;gap:.7rem;font-family:var(--mono);font-size:.7rem;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--void);background:var(--patina);padding:1rem 1.6rem;
+    transition:transform .16s var(--e-out),background .3s var(--e-out)}
+  .cta:hover{background:var(--patina-2)}
+  .cta:active{transform:scale(.97)}
+  .cta .arw{transition:transform .3s var(--e-out)}
+  .cta:hover .arw{transform:translateX(4px)}
+  .ghost{font-family:var(--mono);font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--silver);
+    border-bottom:1px solid var(--line);padding-bottom:.25rem;transition:color .3s,border-color .3s}
+  .ghost:hover{color:var(--bone);border-color:var(--patina)}
+
+  /* hero right — the specimen */
+  .hero .right{position:relative;overflow:hidden;background:
+    radial-gradient(120% 100% at 70% 15%,#1c1f22 0%,#0d0e10 70%)}
+  .hero .right img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;
+    filter:grayscale(.25) contrast(1.05);opacity:0;transform:scale(1.08);
+    animation:reveal 1.6s var(--e-out) .3s forwards}
+  @keyframes reveal{to{opacity:1;transform:scale(1)}}
+  .hero .right::after{content:"";position:absolute;inset:0;
+    background:linear-gradient(to top,rgba(11,12,13,.5),transparent 45%)}
+  .spec-tag{position:absolute;left:1.2rem;bottom:1.2rem;z-index:3;font-family:var(--mono);font-size:.6rem;
+    letter-spacing:.18em;text-transform:uppercase;color:var(--bone);line-height:1.9;
+    background:rgba(11,12,13,.55);backdrop-filter:blur(6px);border:1px solid var(--line);padding:.7rem .9rem}
+  .spec-tag b{color:var(--patina);font-weight:500}
+  .cross{position:absolute;width:9px;height:9px;z-index:3}
+  .cross::before,.cross::after{content:"";position:absolute;background:var(--silver);opacity:.5}
+  .cross::before{left:4px;top:0;width:1px;height:9px}
+  .cross::after{top:4px;left:0;height:1px;width:9px}
+  .c-tl{top:8px;left:8px}.c-tr{top:8px;right:8px}.c-bl{bottom:8px;left:8px}.c-br{bottom:8px;right:8px}
+
+  /* ---------- MARQUEE ---------- */
+  .marquee{position:relative;z-index:2;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+    overflow:hidden;background:var(--void-2);white-space:nowrap;padding:1.1rem 0}
+  .marquee .track{display:inline-flex;gap:3rem;animation:scroll 34s linear infinite;will-change:transform}
+  .marquee:hover .track{animation-play-state:paused}
+  .marquee span{font-family:var(--disp);font-style:italic;font-size:1.5rem;color:var(--bone-dim)}
+  .marquee .dot{color:var(--patina);font-style:normal}
+  @keyframes scroll{to{transform:translateX(-50%)}}
 
   /* ---------- SECTION SHELL ---------- */
-  section{padding:6rem 1.5rem;position:relative}
-  .wrap{max-width:1060px;margin:0 auto;position:relative;z-index:2}
-  .sect-head{text-align:center;margin-bottom:3.5rem}
-  .sect-head h2{font-family:var(--inscr);font-weight:500;font-size:clamp(1.6rem,4vw,2.4rem);letter-spacing:.14em;margin-top:.9rem}
-  .rule{width:54px;height:1px;background:var(--gold);margin:1.4rem auto 0;position:relative}
-  .rule::after{content:"";position:absolute;left:50%;top:50%;width:7px;height:7px;background:var(--gold);
-    transform:translate(-50%,-50%) rotate(45deg)}
+  section{position:relative;z-index:2;padding:clamp(4.5rem,9vw,8rem) clamp(1rem,4vw,2.4rem)}
+  .max{max-width:1200px;margin:0 auto}
+  .kicker{display:flex;align-items:center;gap:.8rem;margin-bottom:2.6rem}
+  .kicker .no{font-family:var(--mono);font-size:.66rem;letter-spacing:.2em;color:var(--patina)}
+  .kicker .ttl{font-family:var(--mono);font-size:.66rem;letter-spacing:.28em;text-transform:uppercase;color:var(--silver)}
+  .kicker .fill{flex:1;height:1px;background:var(--line)}
 
-  /* ---------- REVEAL ---------- */
-  .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s var(--ease-out),transform .7s var(--ease-out)}
-  .reveal.in{opacity:1;transform:none}
-  .reveal.d1{transition-delay:.06s}.reveal.d2{transition-delay:.12s}.reveal.d3{transition-delay:.18s}
+  /* reveal */
+  .rv{opacity:0;transform:translateY(26px);transition:opacity .8s var(--e-out),transform .8s var(--e-out)}
+  .rv.in{opacity:1;transform:none}
+  .rv.d1{transition-delay:.08s}.rv.d2{transition-delay:.16s}.rv.d3{transition-delay:.24s}
 
-  /* ---------- LEGEND ---------- */
-  .legend .cols{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:start}
-  .legend p{margin-bottom:1.3rem}
-  .legend p:first-of-type::first-letter{font-family:var(--inscr);font-size:3.4em;float:left;line-height:.85;
-    padding-right:.12em;color:var(--pompeii)}
-  .legend .aside{border-left:1px solid var(--gold);padding-left:2rem}
-  .legend .aside .latin{font-family:var(--inscr);font-size:1.15rem;letter-spacing:.18em;color:var(--pompeii);margin-bottom:.4rem}
-  .legend .aside .trans{font-style:italic;color:#5c554b;margin-bottom:1.6rem}
+  /* ---------- PROVENANCE ---------- */
+  .prov{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,5rem);align-items:center}
+  @media (max-width:860px){.prov{grid-template-columns:1fr}}
+  .prov .quote{font-family:var(--disp);font-weight:400;font-style:italic;font-size:clamp(1.9rem,3.6vw,3rem);
+    line-height:1.18;letter-spacing:-.01em}
+  .prov .quote .hi{color:var(--patina);font-style:normal;font-weight:500}
+  .prov .body p{color:var(--bone-dim);margin-bottom:1.2rem}
+  .prov .body p b{color:var(--bone);font-weight:400}
+  .prov .src{font-family:var(--mono);font-size:.64rem;letter-spacing:.14em;color:var(--silver);
+    border-left:2px solid var(--patina);padding-left:1rem;margin-top:2rem;line-height:1.8}
 
-  /* stat counters */
-  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:4rem;text-align:center}
-  .stat .num{font-family:var(--inscr);font-size:clamp(1.8rem,4vw,2.6rem);color:var(--pompeii);line-height:1}
-  .stat .lbl{font-family:var(--inscr);font-size:.62rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-top:.6rem}
-  @media (max-width:520px){.stats{grid-template-columns:1fr;gap:2rem}}
-
-  /* ---------- AMULETS ---------- */
-  .amulets{background:var(--bone-dim)}
-  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
-  .card{background:var(--bone);border:1px solid #d3c6ab;padding:1.2rem 1.2rem 1.8rem;text-align:center;
-    transition:transform .3s var(--ease),box-shadow .3s var(--ease);transform-style:preserve-3d;will-change:transform}
-  .card:hover{box-shadow:0 26px 50px -20px rgba(82,21,17,.4);border-color:var(--gold)}
-  .card .ph{aspect-ratio:4/5;position:relative;overflow:hidden;margin-bottom:1.4rem;
-    background:radial-gradient(ellipse at 50% 35%, #c9c4ba 0%, #8f8a80 70%, #6f6a61 100%)}
-  .card .ph::after{content:"";position:absolute;inset:0;transform:translateX(-120%);
-    background:linear-gradient(105deg,transparent 30%,rgba(255,255,255,.35) 50%,transparent 70%)}
-  @keyframes sheen{to{transform:translateX(120%)}}
-  .card .ph span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
-    font-family:var(--inscr);font-size:.62rem;letter-spacing:.3em;color:#efeae0;text-transform:uppercase}
-  .card .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;
-    transition:transform .6s var(--ease-out)}
-  /* hover-motion only on real pointers — taps on touch shouldn't fire it */
+  /* ---------- THE REGISTER (products) ---------- */
+  .register{border-top:1px solid var(--line)}
+  .specimens{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);border-bottom:0}
+  @media (max-width:860px){.specimens{grid-template-columns:1fr}}
+  .sp{position:relative;border-bottom:1px solid var(--line);border-right:1px solid var(--line);
+    padding:0;overflow:hidden;transition:background .4s var(--e-out)}
+  .sp:last-child{border-right:0}
+  @media (max-width:860px){.sp{border-right:0}}
+  .sp:hover{background:var(--panel)}
+  .sp .frame{position:relative;aspect-ratio:1/1;overflow:hidden;border-bottom:1px solid var(--line);
+    background:radial-gradient(120% 100% at 50% 20%,#1a1d20,#0c0d0f)}
+  .sp .frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+    filter:grayscale(.4) contrast(1.04);transition:transform .7s var(--e-out),filter .7s var(--e-out)}
+  .sp .no{position:absolute;top:.8rem;left:.8rem;z-index:2;font-family:var(--mono);font-size:.6rem;
+    letter-spacing:.16em;color:var(--bone);background:rgba(11,12,13,.6);padding:.3rem .5rem;border:1px solid var(--line)}
+  .sp .body{padding:1.4rem 1.4rem 1.7rem}
+  .sp h3{font-family:var(--disp);font-weight:500;font-size:1.5rem;letter-spacing:0;margin-bottom:.5rem}
+  .sp p{font-size:.93rem;color:var(--bone-dim);min-height:3.4em}
+  .sp .row{display:flex;justify-content:space-between;align-items:center;margin-top:1.2rem;
+    border-top:1px solid var(--line);padding-top:1rem}
+  .sp .row .mat{font-family:var(--mono);font-size:.6rem;letter-spacing:.14em;color:var(--silver);text-transform:uppercase}
+  .sp .row .acq{font-family:var(--mono);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--patina);display:inline-flex;gap:.4rem;align-items:center;transition:gap .3s var(--e-out)}
+  .sp:hover .row .acq{gap:.75rem}
   @media (hover:hover) and (pointer:fine){
-    .card:hover .ph::after{animation:sheen .9s var(--ease-out)}
-    .card:hover .ph img{transform:scale(1.06)}
-    .step:hover .glyph{transform:translateY(-6px) scale(1.06);color:var(--ink);background:var(--gold-lite);
-      border-color:var(--gold-lite);box-shadow:0 0 30px rgba(198,163,119,.5)}
+    .sp:hover .frame img{transform:scale(1.05);filter:grayscale(0) contrast(1.06)}
   }
-  .card h3{font-family:var(--inscr);font-weight:500;font-size:1.05rem;letter-spacing:.16em;margin-bottom:.5rem}
-  .card p{font-size:.95rem;color:#4c463d}
-  .card .price{display:block;margin-top:1rem;font-family:var(--inscr);font-size:.85rem;letter-spacing:.2em;color:var(--pompeii)}
-  .card .pick{display:inline-block;margin-top:1.2rem;font-family:var(--inscr);font-size:.62rem;letter-spacing:.24em;
-    text-transform:uppercase;color:var(--gold);border-bottom:1px solid transparent;
-    transition:border-color .3s var(--ease-out),color .3s var(--ease-out),transform .16s var(--ease-out);cursor:pointer}
-  .card:hover .pick{color:var(--pompeii);border-color:var(--pompeii)}
-  .pick:active{transform:scale(0.97)}
 
-  /* ---------- RITUAL ---------- */
-  .ritual{background:var(--ink);color:var(--bone);overflow:hidden}
-  .ritual .eyebrow{color:#C6A377}
-  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:2.5rem;text-align:center;max-width:900px;margin:0 auto;position:relative}
-  .steps::before{content:"";position:absolute;top:26px;left:16%;right:16%;height:1px;
-    background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.5}
-  @media (max-width:820px){.steps::before{display:none}}
-  .step{position:relative;cursor:default}
-  .step .glyph{width:56px;height:56px;margin:0 auto 1.2rem;display:flex;align-items:center;justify-content:center;
-    font-family:var(--inscr);font-size:1.4rem;color:#C6A377;border:1px solid var(--gold);border-radius:50%;
-    background:var(--ink);transition:transform .4s var(--ease-in-out),color .4s var(--ease-out),border-color .4s var(--ease-out),box-shadow .4s var(--ease-out)}
-  .step h3{font-family:var(--inscr);font-weight:500;font-size:1rem;letter-spacing:.26em;text-transform:uppercase;margin-bottom:.7rem}
-  .step p{font-size:.98rem;color:#CDC3B0}
+  /* ---------- CONSERVATION (ritual) ---------- */
+  .cons{border-top:1px solid var(--line);background:var(--void-2)}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+  @media (max-width:760px){.steps{grid-template-columns:1fr}}
+  .st{background:var(--void-2);padding:clamp(1.6rem,3vw,2.6rem);position:relative;transition:background .4s}
+  .st:hover{background:var(--panel)}
+  .st .n{font-family:var(--disp);font-size:3.4rem;line-height:1;color:var(--line);
+    transition:color .5s var(--e-out)}
+  .st:hover .n{color:var(--patina)}
+  .st h4{font-family:var(--mono);font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;margin:1.2rem 0 .7rem}
+  .st p{color:var(--bone-dim);font-size:.95rem}
 
-  /* ---------- INSCRIPTION BAND ---------- */
-  .inscription{background:var(--pompeii);color:var(--bone);text-align:center;padding:4.5rem 1.5rem;position:relative;overflow:hidden}
-  .inscription .carved{font-family:var(--inscr);font-weight:600;font-size:clamp(1.3rem,4.5vw,2.6rem);
-    letter-spacing:.3em;text-shadow:0 1px 0 rgba(255,255,255,.12), 0 -1px 1px rgba(0,0,0,.45)}
-  .inscription .meaning{font-style:italic;margin-top:1rem;color:#E9D9BE}
-
-  /* ---------- DETAILS + FAQ ---------- */
-  .details .specs{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-bottom:3.5rem}
-  @media (max-width:760px){.details .specs{grid-template-columns:1fr 1fr}}
-  .spec-item{border:1px solid #d3c6ab;background:var(--bone);padding:1.4rem;text-align:center}
-  .spec-item .k{font-family:var(--inscr);font-size:.6rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-bottom:.6rem}
-  .spec-item .v{font-family:var(--inscr);font-size:1rem;letter-spacing:.06em;color:var(--pompeii)}
-  .faq{max-width:760px;margin:0 auto}
-  .faq details{border-bottom:1px solid #d3c6ab}
-  .faq summary{list-style:none;cursor:pointer;padding:1.3rem 2.4rem 1.3rem 0;position:relative;
-    font-family:var(--inscr);font-size:1.02rem;letter-spacing:.04em;color:var(--ink);transition:color .3s var(--ease-out)}
+  /* ---------- DOSSIER (details + faq) ---------- */
+  .dossier{border-top:1px solid var(--line)}
+  .specs{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);margin-bottom:3.5rem}
+  @media (max-width:640px){.specs{grid-template-columns:1fr 1fr}}
+  .specs .cell{padding:1.4rem;border-right:1px solid var(--line)}
+  .specs .cell:last-child{border-right:0}
+  @media (max-width:640px){.specs .cell:nth-child(2){border-right:0}.specs .cell:nth-child(1),.specs .cell:nth-child(2){border-bottom:1px solid var(--line)}}
+  .specs .k{font-family:var(--mono);font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:var(--silver);margin-bottom:.6rem}
+  .specs .v{font-family:var(--disp);font-size:1.3rem;color:var(--bone)}
+  .faq{max-width:820px}
+  .faq details{border-bottom:1px solid var(--line)}
+  .faq summary{list-style:none;cursor:pointer;padding:1.4rem 2.4rem 1.4rem 0;position:relative;
+    font-family:var(--disp);font-size:1.25rem;color:var(--bone);transition:color .3s var(--e-out)}
   .faq summary::-webkit-details-marker{display:none}
-  .faq summary:hover{color:var(--pompeii)}
-  .faq summary::after{content:"+";position:absolute;right:.2rem;top:50%;transform:translateY(-50%);
-    font-family:var(--inscr);font-size:1.4rem;color:var(--gold);transition:transform .3s var(--ease-out)}
+  .faq summary:hover{color:var(--patina)}
+  .faq summary::after{content:"+";position:absolute;right:0;top:50%;transform:translateY(-50%);
+    font-family:var(--mono);font-size:1.2rem;color:var(--patina);transition:transform .3s var(--e-out)}
   .faq details[open] summary::after{transform:translateY(-50%) rotate(45deg)}
-  .faq .ans{padding:0 2.4rem 1.4rem 0;color:#4c463d;font-size:.97rem}
+  .faq .ans{padding:0 2rem 1.5rem 0;color:var(--bone-dim);font-size:.96rem}
 
-  /* ---------- SIGNUP ---------- */
-  .signup{text-align:center}
-  .signup p{max-width:52ch;margin:0 auto 2.2rem}
-  .field{display:flex;max-width:460px;margin:0 auto;border:1px solid var(--ink);transition:border-color .3s,box-shadow .3s}
-  .field:focus-within{border-color:var(--pompeii);box-shadow:0 0 0 3px rgba(110,31,27,.12)}
-  .field input{flex:1;border:0;background:transparent;padding:1rem 1.2rem;font-family:var(--serif);font-size:1rem;color:var(--ink)}
-  .field input:focus{outline:none}
-  .field button{border:0;background:var(--pompeii);color:var(--bone);font-family:var(--inscr);
-    font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;padding:0 1.8rem;cursor:pointer;
-    transition:background .25s var(--ease-out),transform .16s var(--ease-out)}
-  .field button:hover,.field button:focus-visible{background:var(--pompeii-deep)}
-  .field button:active{transform:scale(0.97)}
-  .field button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
-  .signup .note{font-size:.85rem;color:#6b6355;margin-top:1rem}
-  .signup .done{display:none;font-style:italic;color:var(--pompeii);margin-top:1.4rem;font-size:1.1rem}
-  .signup .done.show{display:block;animation:fadeUp .6s var(--ease)}
-  .signup .err{display:none;color:var(--pompeii);margin-top:1rem;font-size:.92rem}
-  .signup .err.show{display:block;animation:fadeUp .5s var(--ease)}
-  .field button[disabled]{opacity:.7;cursor:default}
+  /* ---------- ACQUISITION (signup) ---------- */
+  .acq-sec{border-top:1px solid var(--line);text-align:center}
+  .acq-sec h2{font-family:var(--disp);font-weight:500;font-size:clamp(2.2rem,6vw,4.4rem);line-height:1;
+    letter-spacing:-.02em;margin-bottom:1.3rem}
+  .acq-sec h2 em{font-style:italic}
+  .acq-sec .sub{max-width:48ch;margin:0 auto 2.6rem;color:var(--bone-dim)}
+  .form{display:flex;max-width:480px;margin:0 auto;border:1px solid var(--line);background:var(--void-2);
+    transition:border-color .3s var(--e-out)}
+  .form:focus-within{border-color:var(--patina)}
+  .form input{flex:1;background:transparent;border:0;color:var(--bone);font-family:var(--mono);font-size:.82rem;
+    letter-spacing:.06em;padding:1.1rem 1.2rem}
+  .form input::placeholder{color:var(--silver)}
+  .form input:focus{outline:none}
+  .form button{border:0;background:var(--patina);color:var(--void);font-family:var(--mono);font-size:.66rem;
+    letter-spacing:.2em;text-transform:uppercase;padding:0 1.6rem;cursor:pointer;
+    transition:background .3s var(--e-out),transform .16s var(--e-out)}
+  .form button:hover{background:var(--patina-2)}
+  .form button:active{transform:scale(.97)}
+  .note{font-family:var(--mono);font-size:.6rem;letter-spacing:.14em;color:var(--silver);margin-top:1.1rem;text-transform:uppercase}
+  .done{display:none;font-family:var(--disp);font-style:italic;font-size:1.4rem;color:var(--patina);margin-top:1.6rem}
+  .done.show{display:block;animation:fade .6s ease}
+  .err-msg{display:none;font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--rust);margin-top:1.2rem}
+  .err-msg.show{display:block;animation:fade .5s ease}
+  .form button[disabled]{opacity:.7;cursor:default}
 
   /* ---------- FOOTER ---------- */
-  footer{background:var(--ink);color:#9d968a;text-align:center;padding:3rem 1.5rem;font-size:.9rem}
-  footer .mark{font-family:var(--inscr);letter-spacing:.3em;color:var(--bone);font-size:.95rem;margin-bottom:.8rem}
-  footer .disclaimer{max-width:60ch;margin:1.2rem auto 0;font-size:.8rem;color:#7c766b}
-
-  /* ---------- TOP BUTTON ---------- */
-  .top{position:fixed;right:1.4rem;bottom:1.4rem;z-index:80;width:44px;height:44px;border-radius:50%;
-    background:var(--pompeii);color:var(--bone);border:0;cursor:pointer;display:grid;place-items:center;
-    opacity:0;transform:translateY(20px);pointer-events:none;
-    transition:opacity .35s var(--ease-out),transform .35s var(--ease-out),background .25s var(--ease-out)}
-  .top.show{opacity:1;transform:none;pointer-events:auto}
-  .top:hover{background:var(--pompeii-deep)}
-  .top.show:active{transform:scale(0.92)}
+  footer{position:relative;z-index:2;border-top:1px solid var(--line);padding:clamp(3rem,6vw,5rem) clamp(1rem,4vw,2.4rem) 3rem}
+  .fgrid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:2rem;align-items:start}
+  @media (max-width:760px){.fgrid{grid-template-columns:1fr;gap:2.4rem}}
+  .fgrid .brand{font-family:var(--disp);font-size:2rem;font-weight:500}
+  .fgrid .brand span{color:var(--patina)}
+  .fcol h5{font-family:var(--mono);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--silver);margin-bottom:1rem}
+  .fcol a,.fcol p{display:block;font-size:.9rem;color:var(--bone-dim);margin-bottom:.5rem}
+  .fcol a{transition:color .3s}.fcol a:hover{color:var(--patina)}
+  .disc{max-width:1200px;margin:3rem auto 0;padding-top:1.6rem;border-top:1px solid var(--line);
+    display:flex;justify-content:space-between;gap:1.5rem;flex-wrap:wrap}
+  .disc p{font-family:var(--mono);font-size:.58rem;letter-spacing:.1em;color:var(--silver);line-height:1.9;max-width:70ch}
 
   @media (prefers-reduced-motion: reduce){
     *{animation-duration:.001s !important;animation-delay:0s !important;transition-duration:.001s !important}
-    .reveal{opacity:1;transform:none}
-    .sigil path,.sigil circle{stroke-dashoffset:0}
-    .hero h1 span,.hero .sub,.hero .blessing,.hero .cta-row{opacity:1;transform:none}
-  }
-
-  @media (max-width:820px){
-    .legend .cols{grid-template-columns:1fr}
-    .legend .aside{border-left:0;border-top:1px solid var(--gold);padding-left:0;padding-top:2rem}
-    .cards{grid-template-columns:1fr;max-width:400px;margin:0 auto}
-    .steps{grid-template-columns:1fr;gap:2.5rem}
-    section{padding:4.5rem 1.25rem}
+    .rv{opacity:1;transform:none}
+    .hero h1 .ln span{transform:none}
+    .marquee .track{animation:none}
   }
 </style>
 </head>
 <body>
 
-<div class="progress" id="progress"></div>
-<div class="glow" id="glow" aria-hidden="true"></div>
-
-<!-- NAV -->
-<nav id="nav">
-  <a class="brand" href="#top">FELICITAS</a>
-  <div class="links">
-    <a href="#legend">Legend</a>
-    <a href="#amulets">Amulets</a>
-    <a href="#ritual">Ritual</a>
-    <a href="#details">Details</a>
-    <a href="#signup">Join</a>
-  </div>
-</nav>
+<!-- CATALOG BAR -->
+<div class="bar">
+  <a href="#top" class="id">FELICITAS</a>
+  <nav class="meta">
+    <a href="#provenance">Provenance</a>
+    <a href="#register">The Register</a>
+    <a href="#conservation">Handling</a>
+    <a href="#dossier">Dossier</a>
+    <a href="#acquire" class="acq">Acquire →</a>
+  </nav>
+</div>
 
 <!-- HERO -->
 <header class="hero" id="top">
-  <div class="embers" id="embers" aria-hidden="true"></div>
-  <div class="hero-inner">
-    <svg class="sigil" viewBox="0 0 120 150" aria-hidden="true">
-      <circle cx="60" cy="22" r="9"/>
-      <path d="M60 36 L60 128 M52 40 L52 110 Q52 122 60 128 Q68 122 68 110 L68 40"/>
-      <path d="M52 48 Q30 40 16 22 Q26 52 48 62 M52 60 Q34 56 22 44 Q32 68 50 74"/>
-      <path d="M68 48 Q90 40 104 22 Q94 52 72 62 M68 60 Q86 56 98 44 Q88 68 70 74"/>
-    </svg>
-    <p class="sub">Roma · Amuletum</p>
-    <p class="soon-wrap"><span class="soon"><span class="pulse"></span>Coming Soon · First Casting</span></p>
-    <h1 id="title" aria-label="Felicitas"></h1>
-    <p class="blessing">May envy never find you, and fortune never leave you.</p>
-    <p class="cta-row"><a class="btn" href="#amulets">Discover the Amulet</a></p>
+  <div class="plate">
+    <div class="left">
+      <span class="soon"><span class="pulse"></span>Coming Soon · First Casting</span>
+      <div class="tag-row">
+        <span class="mono">Cabinet&nbsp;of&nbsp;Protection</span>
+        <span class="mono">Roma · MMXXVI</span>
+      </div>
+      <h1>
+        <span class="ln"><span>THE</span></span>
+        <span class="ln"><span><em>Fascinum</em></span></span>
+      </h1>
+      <p class="lede"><b>Against the evil eye, for two thousand years.</b> The amulet Rome trusted above all others — sacred to Fascinus, hung over cradles, fixed beneath triumphal chariots — now recast in sterling silver, catalogued and conserved.</p>
+      <div class="foot">
+        <a href="#register" class="cta">View the Register <span class="arw">→</span></a>
+        <a href="#provenance" class="ghost">Read the provenance</a>
+      </div>
+    </div>
+    <div class="right">
+      <span class="cross c-tl"></span><span class="cross c-tr"></span>
+      <span class="cross c-bl"></span><span class="cross c-br"></span>
+      <img src="images/guardian.webp" alt="The Guardian — winged fascinum amulet in sterling silver">
+      <div class="spec-tag">
+        SPECIMEN <b>FA·001</b><br>
+        THE GUARDIAN<br>
+        925 STERLING · HAND-FINISHED
+      </div>
+    </div>
   </div>
-  <div class="scroll-hint" aria-hidden="true">Scroll</div>
 </header>
 
-<!-- LEGEND -->
-<section class="legend" id="legend">
-  <div class="wrap">
-    <div class="sect-head reveal">
-      <span class="eyebrow">The Legend</span>
-      <h2>Two Thousand Years of Protection</h2>
-      <div class="rule"></div>
-    </div>
-    <div class="cols">
-      <div class="reveal">
-        <p>Two thousand years ago, the people of Rome trusted one talisman above all others. They called it the fascinum — sacred to Fascinus, the divine guardian of vitality and fortune, whose cult was tended by the Vestal Virgins, the holiest priestesses of the eternal city.</p>
-        <p>Mothers hung it over cradles to shield their children. Generals rode to triumph with it fixed beneath their chariots, guarding them at the very moment envy burned hottest. Its purpose was singular: to break the evil eye — the jealous glance the ancients believed could steal health, happiness, and luck.</p>
-        <p>Wherever the fascinum was worn, envy blinked and looked away.</p>
-      </div>
-      <div class="aside reveal d1">
-        <p class="latin">HIC HABITAT FELICITAS</p>
-        <p class="trans">"Here dwells happiness" — carved beside a bakery door in Pompeii, preserved in ash for eighteen centuries.</p>
-        <p>Our name, Felicitas, is taken from that inscription. Every amulet we cast carries its promise: that happiness, guarded well, endures.</p>
-      </div>
-    </div>
-    <div class="stats reveal">
-      <div class="stat"><div class="num" data-count="2000" data-suffix="">0</div><div class="lbl">Years of Tradition</div></div>
-      <div class="stat"><div class="num" data-count="925" data-suffix="">0</div><div class="lbl">Sterling Silver</div></div>
-      <div class="stat"><div class="num" data-count="1" data-suffix=" of a kind">0</div><div class="lbl">Hand-Finished</div></div>
-    </div>
+<!-- MARQUEE -->
+<div class="marquee" aria-hidden="true">
+  <div class="track">
+    <span>Hic habitat felicitas <span class="dot">✦</span></span>
+    <span>May envy never find you <span class="dot">✦</span></span>
+    <span>Fortune never leave you <span class="dot">✦</span></span>
+    <span>Contra oculum malum <span class="dot">✦</span></span>
+    <span>Hic habitat felicitas <span class="dot">✦</span></span>
+    <span>May envy never find you <span class="dot">✦</span></span>
+    <span>Fortune never leave you <span class="dot">✦</span></span>
+    <span>Contra oculum malum <span class="dot">✦</span></span>
   </div>
-</section>
-
-<!-- AMULETS -->
-<section class="amulets" id="amulets">
-  <div class="wrap">
-    <div class="sect-head reveal">
-      <span class="eyebrow">The Collection</span>
-      <h2>The Fascinum, Reborn in Silver</h2>
-      <div class="rule"></div>
-    </div>
-    <div class="cards">
-      <div class="card tilt reveal">
-        <div class="ph"><img src="images/guardian.webp" alt="The Guardian — winged fascinum amulet in sterling silver"></div>
-        <h3>THE GUARDIAN</h3>
-        <p>The winged fascinum in its classic form — solid 925 silver, hand-finished with an antique patina.</p>
-        <span class="price">Sterling Silver · 925</span><br>
-        <a class="pick" href="#signup">Reserve →</a>
-      </div>
-      <div class="card tilt reveal d1">
-        <div class="ph"><img src="images/seal.webp" alt="The Seal — votive coin medallion with winged sigil"></div>
-        <h3>THE SEAL</h3>
-        <p>A medallion struck like an ancient votive coin, the winged sigil ringed by the marks of fortune.</p>
-        <span class="price">Sterling Silver · 925</span><br>
-        <a class="pick" href="#signup">Reserve →</a>
-      </div>
-      <div class="card tilt reveal d2">
-        <div class="ph"><img src="images/crescent.webp" alt="The Crescent — wings over the lunula amulet"></div>
-        <h3>THE CRESCENT</h3>
-        <p>Wings over the lunula — the crescent amulet Roman women wore — united in one protective form.</p>
-        <span class="price">Sterling Silver · 925</span><br>
-        <a class="pick" href="#signup">Reserve →</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- RITUAL -->
-<section class="ritual" id="ritual">
-  <div class="wrap">
-    <div class="sect-head reveal">
-      <span class="eyebrow">The Awakening Ritual</span>
-      <h2 style="color:var(--bone)">Make It Yours</h2>
-      <div class="rule"></div>
-    </div>
-    <div class="steps">
-      <div class="step reveal">
-        <div class="glyph">I</div>
-        <h3>Hold</h3>
-        <p>On the first evening, hold the amulet against your heart and be still.</p>
-      </div>
-      <div class="step reveal d1">
-        <div class="glyph">II</div>
-        <h3>Speak</h3>
-        <p>Name what you wish to protect, and speak the blessing aloud.</p>
-      </div>
-      <div class="step reveal d2">
-        <div class="glyph">III</div>
-        <h3>Wear</h3>
-        <p>Wear it against the skin through the night. From then on, it works as amulets always have — quietly, close to the body.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- INSCRIPTION -->
-<div class="inscription" role="presentation">
-  <p class="carved">HIC · HABITAT · FELICITAS</p>
-  <p class="meaning">Here dwells happiness.</p>
 </div>
 
-<!-- DETAILS + FAQ -->
-<section class="details" id="details">
-  <div class="wrap">
-    <div class="sect-head reveal">
-      <span class="eyebrow">The Making</span>
-      <h2>Details &amp; Assurances</h2>
-      <div class="rule"></div>
-    </div>
-    <div class="specs reveal">
-      <div class="spec-item"><div class="k">Metal</div><div class="v">925 Sterling</div></div>
-      <div class="spec-item"><div class="k">Pendant</div><div class="v">≈ 28 mm</div></div>
-      <div class="spec-item"><div class="k">Chain</div><div class="v">50 / 60 cm</div></div>
-      <div class="spec-item"><div class="k">Finish</div><div class="v">Antique Patina</div></div>
-    </div>
-    <div class="faq">
-      <details class="reveal"><summary>Is it solid sterling silver?</summary>
-        <div class="ans">Yes — every amulet is cast in solid 925 sterling silver, then hand-finished with an antique patina and sealed. It is not plated. Each piece is stamped 925.</div></details>
-      <details class="reveal"><summary>How large is the amulet, and what chain does it come with?</summary>
-        <div class="ans">The pendant measures roughly 28&nbsp;mm tall — substantial but comfortable for daily wear. It arrives on a solid sterling chain, offered in 50&nbsp;cm and 60&nbsp;cm lengths so it sits well on any frame.</div></details>
-      <details class="reveal"><summary>Will it tarnish?</summary>
-        <div class="ans">The antique patina is intentional — it deepens the detail and is meant to age gracefully. Sterling can darken over time; a soft polishing cloth returns the raised surfaces to a bright shine whenever you wish.</div></details>
-      <details class="reveal"><summary>When does it ship, and what does it cost?</summary>
-        <div class="ans">The first casting launches on Kickstarter. Founding supporters receive the earliest ships and the best price we will ever offer. Join the list below and we will write to you with dates and pricing before anyone else.</div></details>
-      <details class="reveal"><summary>What if it isn't right for me?</summary>
-        <div class="ans">Every order is backed by a 30-day return on unworn pieces. If something arrives damaged, we replace it at no cost. Your happiness is, after all, the point.</div></details>
+<!-- PROVENANCE -->
+<section id="provenance">
+  <div class="max">
+    <div class="kicker rv"><span class="no">01</span><span class="ttl">Provenance</span><span class="fill"></span></div>
+    <div class="prov">
+      <p class="quote rv">Wherever the fascinum was worn, <span class="hi">envy blinked</span> and looked away.</p>
+      <div class="body rv d1">
+        <p>Two thousand years ago the people of Rome trusted one talisman above all others. They called it the <b>fascinum</b> — sacred to Fascinus, divine guardian of vitality and fortune, whose cult was tended by the Vestal Virgins.</p>
+        <p>Mothers hung it over cradles. Generals rode to triumph with it fixed beneath their chariots, guarded at the moment envy burned hottest. Its purpose was singular: to break the <b>evil eye</b> — the jealous glance believed to steal health, happiness, and luck.</p>
+        <p class="src">SOURCE — "HIC HABITAT FELICITAS" / "Here dwells happiness."<br>Inscribed beside a bakery door, Pompeii. Preserved in ash eighteen centuries. Our name is taken from it.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- SIGNUP -->
-<section class="signup" id="signup">
-  <div class="wrap">
-    <div class="sect-head reveal">
-      <span class="eyebrow">First Casting</span>
-      <h2>Join the Founding Guardians</h2>
-      <div class="rule"></div>
+<!-- THE REGISTER -->
+<section id="register" class="register">
+  <div class="max">
+    <div class="kicker rv"><span class="no">02</span><span class="ttl">The Register — Three Castings</span><span class="fill"></span></div>
+    <div class="specimens">
+      <article class="sp rv">
+        <div class="frame"><span class="no">FA·001</span><img src="images/guardian.webp" alt="The Guardian amulet"></div>
+        <div class="body">
+          <h3>The Guardian</h3>
+          <p>The winged fascinum in its classic form, hand-finished with an antique patina.</p>
+          <div class="row"><span class="mat">925 Silver</span><a href="#acquire" class="acq">Reserve →</a></div>
+        </div>
+      </article>
+      <article class="sp rv d1">
+        <div class="frame"><span class="no">FA·002</span><img src="images/seal.webp" alt="The Seal amulet"></div>
+        <div class="body">
+          <h3>The Seal</h3>
+          <p>A medallion struck like a votive coin, the winged sigil ringed by the marks of fortune.</p>
+          <div class="row"><span class="mat">925 Silver</span><a href="#acquire" class="acq">Reserve →</a></div>
+        </div>
+      </article>
+      <article class="sp rv d2">
+        <div class="frame"><span class="no">FA·003</span><img src="images/crescent.webp" alt="The Crescent amulet"></div>
+        <div class="body">
+          <h3>The Crescent</h3>
+          <p>Wings over the lunula — the crescent Roman women wore — united in one protective form.</p>
+          <div class="row"><span class="mat">925 Silver</span><a href="#acquire" class="acq">Reserve →</a></div>
+        </div>
+      </article>
     </div>
-    <p class="reveal">The first casting of the Fascinum launches soon on Kickstarter. Leave your email to receive the early blessing price — the best it will ever be offered.</p>
-    <form class="field reveal" id="signupForm" action="https://formspree.io/f/xeeyyzkk" method="POST">
-      <input type="email" name="email" id="email" placeholder="Your email" aria-label="Email address" required autocomplete="email">
+  </div>
+</section>
+
+<!-- CONSERVATION -->
+<section id="conservation" class="cons">
+  <div class="max">
+    <div class="kicker rv"><span class="no">03</span><span class="ttl">Handling Notes — The Awakening</span><span class="fill"></span></div>
+    <div class="steps">
+      <div class="st rv">
+        <div class="n">I</div>
+        <h4>Hold</h4>
+        <p>On the first evening, hold the amulet against your heart and be still.</p>
+      </div>
+      <div class="st rv d1">
+        <div class="n">II</div>
+        <h4>Speak</h4>
+        <p>Name what you wish to protect, and speak the blessing aloud.</p>
+      </div>
+      <div class="st rv d2">
+        <div class="n">III</div>
+        <h4>Wear</h4>
+        <p>Wear it against the skin through the night. From then on it works quietly, close to the body.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DOSSIER -->
+<section id="dossier" class="dossier">
+  <div class="max">
+    <div class="kicker rv"><span class="no">04</span><span class="ttl">The Dossier — Specification &amp; Enquiry</span><span class="fill"></span></div>
+    <div class="specs rv">
+      <div class="cell"><div class="k">Metal</div><div class="v">925 Silver</div></div>
+      <div class="cell"><div class="k">Pendant</div><div class="v">≈28mm</div></div>
+      <div class="cell"><div class="k">Chain</div><div class="v">50 / 60cm</div></div>
+      <div class="cell"><div class="k">Finish</div><div class="v">Patina</div></div>
+    </div>
+    <div class="faq">
+      <details class="rv"><summary>Is it solid sterling silver?</summary>
+        <div class="ans">Yes — each specimen is cast in solid 925 sterling silver, hand-finished with an antique patina and sealed. Not plated. Stamped 925.</div></details>
+      <details class="rv"><summary>Dimensions and chain?</summary>
+        <div class="ans">The pendant stands roughly 28&nbsp;mm — substantial yet comfortable for daily wear. It arrives on a solid sterling chain in your choice of 50&nbsp;cm or 60&nbsp;cm.</div></details>
+      <details class="rv"><summary>Will it tarnish?</summary>
+        <div class="ans">The patina is intentional and deepens the relief; it is meant to age. Sterling can darken over time — a soft cloth returns the raised surfaces to a bright shine.</div></details>
+      <details class="rv"><summary>Shipping &amp; price?</summary>
+        <div class="ans">The first casting launches on Kickstarter. Founding supporters ship earliest at the best price we will ever offer. Enter the register below to hear dates first.</div></details>
+      <details class="rv"><summary>Returns?</summary>
+        <div class="ans">A 30-day return on unworn pieces. Anything damaged in transit is replaced at no cost.</div></details>
+    </div>
+  </div>
+</section>
+
+<!-- ACQUISITION -->
+<section id="acquire" class="acq-sec">
+  <div class="max">
+    <div class="kicker rv" style="justify-content:center"><span class="no">04</span><span class="ttl">Acquisition</span></div>
+    <h2 class="rv">Join the <em>Register</em></h2>
+    <p class="sub rv d1">The first casting launches soon on Kickstarter. Leave your address to receive the founding price — the best it will ever be offered.</p>
+    <form class="form rv d1" id="form" action="https://formspree.io/f/xeeyyzkk" method="POST">
+      <input type="email" name="email" id="email" placeholder="your@email.com" aria-label="Email address" required autocomplete="email">
       <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
-      <button type="submit" id="signupBtn">Notify Me</button>
+      <button type="submit" id="submitBtn">Notify Me</button>
     </form>
-    <p class="done" id="doneMsg">Welcome among the guardians — we will write to you before the first casting.</p>
-    <p class="err" id="errMsg">Something went wrong — please try again.</p>
-    <p class="note reveal">No noise, no spam. One letter when the casting opens.</p>
+    <p class="note rv">No noise · one letter when the casting opens</p>
+    <p class="done" id="done">You are entered in the register — we will write before the first casting.</p>
+    <p class="err-msg" id="err">Something went wrong — please try again.</p>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <p class="mark">FELICITAS AMULETS</p>
-  <p>Sterling silver amulets in the Roman tradition · feclicitasamulets.com</p>
-  <p class="disclaimer">Our amulets are offered in the spirit of tradition, retelling beliefs held for two thousand years. They are jewelry and story — not medical products — and make no promise beyond the oldest one: may envy never find you, and fortune never leave you.</p>
+  <div class="fgrid">
+    <div>
+      <p class="brand">Felicitas<span>.</span></p>
+      <p style="color:var(--bone-dim);max-width:34ch;margin-top:1rem;font-size:.92rem">Sterling silver amulets in the Roman tradition. Catalogued, conserved, and cast to be worn.</p>
+    </div>
+    <div class="fcol">
+      <h5>Cabinet</h5>
+      <a href="#provenance">Provenance</a>
+      <a href="#register">The Register</a>
+      <a href="#conservation">Handling</a>
+    </div>
+    <div class="fcol">
+      <h5>Contact</h5>
+      <a href="#acquire">Acquire</a>
+      <p>feclicitasamulets.com</p>
+    </div>
+  </div>
+  <div class="disc">
+    <p>© MMXXVI FELICITAS — Our amulets are offered in the spirit of tradition, retelling beliefs held for two thousand years. They are jewelry and story, not medical products, and make no promise beyond the oldest one: may envy never find you, and fortune never leave you.</p>
+    <p>925 · STERLING · ROMA</p>
+  </div>
 </footer>
 
-<button class="top" id="topBtn" aria-label="Back to top">↑</button>
+<script>
+(function(){
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);} });
+  },{threshold:.14,rootMargin:'0px 0px -6% 0px'});
+  document.querySelectorAll('.rv').forEach(function(el){io.observe(el);});
+
+  /* signup — Formspree */
+  var form=document.getElementById('form');
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    if(!document.getElementById('email').value.trim()) return;
+    var btn=document.getElementById('submitBtn');
+    var err=document.getElementById('err');
+    var endpoint=form.getAttribute('action');
+    var configured=endpoint.indexOf('YOUR_FORM_ID')===-1;
+    err.classList.remove('show');
+    btn.disabled=true; btn.textContent='Sending…';
+    function success(){ form.style.display='none'; document.getElementById('done').classList.add('show');
+      if(typeof gtag==='function'){ gtag('event','sign_up',{method:'email',event_category:'engagement'}); } }
+    if(!configured){ console.warn('Formspree endpoint not set — replace YOUR_FORM_ID in the form action.'); success(); return; }
+    fetch(endpoint,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}})
+      .then(function(res){ if(res.ok){success();} else {throw new Error('bad');} })
+      .catch(function(){ btn.disabled=false; btn.textContent='Try Again'; err.classList.add('show'); });
+  });
+})();
+</script>
 
 <script type="application/ld+json">
 {
@@ -483,7 +518,7 @@
       "@id": "https://feclicitasamulets.com/#org",
       "name": "Felicitas Amulets",
       "url": "https://feclicitasamulets.com/",
-      "logo": "https://feclicitasamulets.com/og.jpg",
+      "logo": "https://feclicitasamulets.com/favicon.svg",
       "description": "Sterling silver amulets in the Roman tradition, cast from the ancient fascinum — the talisman worn against the evil eye."
     },
     {
@@ -521,141 +556,15 @@
     {
       "@type": "FAQPage",
       "mainEntity": [
-        {"@type":"Question","name":"Is it solid sterling silver?","acceptedAnswer":{"@type":"Answer","text":"Yes — every amulet is cast in solid 925 sterling silver, then hand-finished with an antique patina and sealed. It is not plated. Each piece is stamped 925."}},
-        {"@type":"Question","name":"How large is the amulet, and what chain does it come with?","acceptedAnswer":{"@type":"Answer","text":"The pendant measures roughly 28 mm tall. It arrives on a solid sterling chain, offered in 50 cm and 60 cm lengths."}},
-        {"@type":"Question","name":"Will it tarnish?","acceptedAnswer":{"@type":"Answer","text":"The antique patina is intentional and ages gracefully. Sterling can darken over time; a soft polishing cloth returns the raised surfaces to a bright shine."}},
-        {"@type":"Question","name":"When does it ship, and what does it cost?","acceptedAnswer":{"@type":"Answer","text":"The first casting launches on Kickstarter. Founding supporters receive the earliest ships and the best price we will ever offer. Join the list to hear dates and pricing first."}},
-        {"@type":"Question","name":"What if it isn't right for me?","acceptedAnswer":{"@type":"Answer","text":"Every order is backed by a 30-day return on unworn pieces. Damaged items are replaced at no cost."}}
+        {"@type":"Question","name":"Is it solid sterling silver?","acceptedAnswer":{"@type":"Answer","text":"Yes — each specimen is cast in solid 925 sterling silver, hand-finished with an antique patina and sealed. Not plated. Stamped 925."}},
+        {"@type":"Question","name":"What are the dimensions and chain?","acceptedAnswer":{"@type":"Answer","text":"The pendant stands roughly 28 mm and arrives on a solid sterling chain in your choice of 50 cm or 60 cm."}},
+        {"@type":"Question","name":"Will it tarnish?","acceptedAnswer":{"@type":"Answer","text":"The patina is intentional and ages gracefully. Sterling can darken over time; a soft cloth returns the raised surfaces to a bright shine."}},
+        {"@type":"Question","name":"When does it ship, and what does it cost?","acceptedAnswer":{"@type":"Answer","text":"The first casting launches on Kickstarter. Founding supporters ship earliest at the best price we will ever offer. Enter the register to hear dates first."}},
+        {"@type":"Question","name":"What is the return policy?","acceptedAnswer":{"@type":"Answer","text":"A 30-day return on unworn pieces. Anything damaged in transit is replaced at no cost."}}
       ]
     }
   ]
 }
-</script>
-
-<script>
-(function(){
-  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  /* ---- animate title letters ---- */
-  var title = document.getElementById('title');
-  'FELICITAS'.split('').forEach(function(ch,i){
-    var s=document.createElement('span');
-    s.textContent=ch;
-    s.style.animationDelay=(0.4 + i*0.08)+'s';
-    title.appendChild(s);
-  });
-
-  /* ---- embers ---- */
-  if(!reduce){
-    var box=document.getElementById('embers');
-    for(var i=0;i<22;i++){
-      var e=document.createElement('span');
-      e.className='ember';
-      var size=1.5+Math.random()*2.5;
-      e.style.left=(Math.random()*100)+'%';
-      e.style.width=e.style.height=size+'px';
-      e.style.animationDuration=(6+Math.random()*7)+'s';
-      e.style.animationDelay=(Math.random()*8)+'s';
-      box.appendChild(e);
-    }
-  }
-
-  /* ---- scroll progress + nav + top btn ---- */
-  var progress=document.getElementById('progress'),
-      nav=document.getElementById('nav'),
-      topBtn=document.getElementById('topBtn');
-  function onScroll(){
-    var st=window.scrollY||document.documentElement.scrollTop;
-    var h=document.documentElement.scrollHeight-window.innerHeight;
-    progress.style.width=(h>0?(st/h*100):0)+'%';
-    if(st>80){nav.classList.add('show');} else {nav.classList.remove('show');}
-    if(st>140){nav.classList.add('solid');} else {nav.classList.remove('solid');}
-    if(st>600){topBtn.classList.add('show');} else {topBtn.classList.remove('show');}
-  }
-  window.addEventListener('scroll',onScroll,{passive:true});
-  onScroll();
-  topBtn.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
-
-  /* ---- reveal on scroll ---- */
-  var io=new IntersectionObserver(function(entries){
-    entries.forEach(function(en){
-      if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}
-    });
-  },{threshold:0.16,rootMargin:'0px 0px -8% 0px'});
-  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
-
-  /* ---- animated counters ---- */
-  var cio=new IntersectionObserver(function(entries){
-    entries.forEach(function(en){
-      if(!en.isIntersecting) return;
-      var el=en.target, target=+el.dataset.count, suffix=el.dataset.suffix||'', start=null, dur=1400;
-      function tick(ts){
-        if(!start) start=ts;
-        var p=Math.min((ts-start)/dur,1);
-        var eased=1-Math.pow(1-p,3);
-        el.textContent=Math.round(eased*target).toLocaleString()+suffix;
-        if(p<1) requestAnimationFrame(tick);
-      }
-      requestAnimationFrame(tick);
-      cio.unobserve(el);
-    });
-  },{threshold:0.6});
-  document.querySelectorAll('[data-count]').forEach(function(el){cio.observe(el);});
-
-  /* ---- cursor glow ---- */
-  var glow=document.getElementById('glow');
-  if(window.matchMedia('(pointer:fine)').matches && !reduce){
-    window.addEventListener('mousemove',function(e){
-      glow.style.opacity='1';
-      // move via transform (GPU) instead of left/top (layout+paint every frame)
-      glow.style.transform='translate('+e.clientX+'px,'+e.clientY+'px) translate(-50%,-50%)';
-    });
-    document.addEventListener('mouseleave',function(){glow.style.opacity='0';});
-  }
-
-  /* ---- 3D tilt cards ---- */
-  if(window.matchMedia('(pointer:fine)').matches && !reduce){
-    document.querySelectorAll('.tilt').forEach(function(card){
-      card.addEventListener('mousemove',function(e){
-        var r=card.getBoundingClientRect();
-        var x=(e.clientX-r.left)/r.width-0.5;
-        var y=(e.clientY-r.top)/r.height-0.5;
-        card.style.transform='perspective(900px) rotateX('+(-y*7)+'deg) rotateY('+(x*7)+'deg) translateY(-6px)';
-      });
-      card.addEventListener('mouseleave',function(){card.style.transform='';});
-    });
-  }
-
-  /* ---- signup (Formspree) ---- */
-  var signupForm=document.getElementById('signupForm');
-  signupForm.addEventListener('submit',function(e){
-    e.preventDefault();
-    var email=document.getElementById('email').value.trim();
-    if(!email) return;
-    var btn=document.getElementById('signupBtn');
-    var errMsg=document.getElementById('errMsg');
-    var endpoint=signupForm.getAttribute('action');
-    var configured=endpoint.indexOf('YOUR_FORM_ID')===-1;
-    errMsg.classList.remove('show');
-    btn.disabled=true; btn.textContent='Sending…';
-    function success(){
-      signupForm.style.display='none';
-      document.getElementById('doneMsg').classList.add('show');
-      if(typeof gtag==='function'){ gtag('event','sign_up',{method:'email',event_category:'engagement'}); }
-    }
-    // Until the Formspree endpoint is set, degrade gracefully so the form still confirms.
-    if(!configured){ console.warn('Formspree endpoint not set — replace YOUR_FORM_ID in the form action.'); success(); return; }
-    fetch(endpoint,{method:'POST',body:new FormData(signupForm),headers:{'Accept':'application/json'}})
-      .then(function(res){
-        if(res.ok){ success(); }
-        else { throw new Error('bad response'); }
-      })
-      .catch(function(){
-        btn.disabled=false; btn.textContent='Try Again';
-        errMsg.classList.add('show');
-      });
-  });
-})();
 </script>
 </body>
 </html>
