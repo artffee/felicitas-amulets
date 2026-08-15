@@ -106,20 +106,9 @@
   .hero h1 .t-the{display:block;overflow:hidden;font-size:.62em;letter-spacing:.02em;color:var(--bone)}
   .hero h1 .t-the span{display:block;transform:translateY(105%);animation:rise .9s var(--e-out) forwards}
   @keyframes rise{to{transform:translateY(0)}}
-  /* line 2 — Fascinum : solid & always visible, with per-letter blur-rise reveal */
-  .hero h1 .t-fasc{display:block;position:relative;font-style:italic;font-weight:400;
-    color:var(--bone);white-space:nowrap}
-  /* metallic gleam only where text-clip gradients are supported (keeps solid fallback otherwise) */
-  @supports ((-webkit-background-clip:text) or (background-clip:text)){
-    .hero h1 .t-fasc{
-      background:linear-gradient(100deg,var(--bone) 0%,var(--bone) 38%,#fffdf6 50%,var(--bone) 62%,var(--bone) 100%);
-      background-size:250% 100%;background-position:150% 0;
-      -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
-      animation:gleam 1.7s var(--e-out) 1.25s 1 both}
-    .hero h1:hover .t-fasc{animation:gleam 1.2s var(--e-out) 0s 1 both}
-  }
-  @keyframes gleam{0%{background-position:150% 0}100%{background-position:-50% 0}}
-  .hero h1 .t-fasc .ch{display:inline-block;opacity:0;transform:translateY(.42em);filter:blur(10px);
+  /* line 2 — Fascinum : solid bone, always visible, with per-letter blur-rise reveal */
+  .hero h1 .t-fasc{display:block;font-style:italic;font-weight:400;color:var(--bone);white-space:nowrap}
+  .hero h1 .t-fasc .ch{display:inline-block;color:var(--bone);opacity:0;transform:translateY(.42em);filter:blur(10px);
     animation:chIn .7s var(--e-out) forwards}
   .hero h1 .t-fasc .ch:nth-child(1){animation-delay:.30s}
   .hero h1 .t-fasc .ch:nth-child(2){animation-delay:.36s}
