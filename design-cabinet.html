@@ -99,20 +99,25 @@
     border-right:1px solid var(--line);position:relative}
   @media (max-width:860px){.hero .left{border-right:0;border-bottom:1px solid var(--line)}}
   .tag-row{display:flex;justify-content:space-between;align-items:baseline;gap:1rem}
-  .hero h1{font-family:var(--disp);font-weight:500;font-size:clamp(3.4rem,13vw,8.6rem);line-height:.82;
-    letter-spacing:-.02em;margin:2.4rem 0 1.4rem}
+  .hero h1{font-family:var(--disp);font-weight:500;font-size:clamp(2.9rem,7.5vw,6.4rem);line-height:.86;
+    letter-spacing:-.02em;margin:2rem 0 1.4rem}
   .hero h1 em{font-style:italic;font-weight:400}
   /* line 1 — THE : rises in from a clipped baseline */
-  .hero h1 .t-the{display:block;overflow:hidden}
+  .hero h1 .t-the{display:block;overflow:hidden;font-size:.62em;letter-spacing:.02em;color:var(--bone)}
   .hero h1 .t-the span{display:block;transform:translateY(105%);animation:rise .9s var(--e-out) forwards}
   @keyframes rise{to{transform:translateY(0)}}
-  /* line 2 — Fascinum : per-letter blur-rise + a metallic gleam sweep */
+  /* line 2 — Fascinum : solid & always visible, with per-letter blur-rise reveal */
   .hero h1 .t-fasc{display:block;position:relative;font-style:italic;font-weight:400;
-    color:var(--bone);
-    background:linear-gradient(100deg,var(--bone) 0%,var(--bone) 38%,#fffdf6 50%,var(--bone) 62%,var(--bone) 100%);
-    background-size:250% 100%;background-position:150% 0;
-    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
-    animation:gleam 1.7s var(--e-out) 1.25s 1 both}
+    color:var(--bone);white-space:nowrap}
+  /* metallic gleam only where text-clip gradients are supported (keeps solid fallback otherwise) */
+  @supports ((-webkit-background-clip:text) or (background-clip:text)){
+    .hero h1 .t-fasc{
+      background:linear-gradient(100deg,var(--bone) 0%,var(--bone) 38%,#fffdf6 50%,var(--bone) 62%,var(--bone) 100%);
+      background-size:250% 100%;background-position:150% 0;
+      -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+      animation:gleam 1.7s var(--e-out) 1.25s 1 both}
+    .hero h1:hover .t-fasc{animation:gleam 1.2s var(--e-out) 0s 1 both}
+  }
   @keyframes gleam{0%{background-position:150% 0}100%{background-position:-50% 0}}
   .hero h1 .t-fasc .ch{display:inline-block;opacity:0;transform:translateY(.42em);filter:blur(10px);
     animation:chIn .7s var(--e-out) forwards}
@@ -125,8 +130,6 @@
   .hero h1 .t-fasc .ch:nth-child(7){animation-delay:.66s}
   .hero h1 .t-fasc .ch:nth-child(8){animation-delay:.72s}
   @keyframes chIn{to{opacity:1;transform:none;filter:blur(0)}}
-  /* replay the gleam on hover */
-  .hero h1:hover .t-fasc{animation:gleam 1.2s var(--e-out) 0s 1 both}
   .hero .lede{max-width:44ch;color:var(--bone-dim);opacity:0;animation:fade .9s ease .5s forwards}
   .hero .lede b{color:var(--bone);font-weight:400}
   @keyframes fade{to{opacity:1}}
@@ -145,14 +148,14 @@
 
   /* hero right — the specimen */
   .hero .right{position:relative;overflow:hidden;background:
-    radial-gradient(120% 100% at 50% 22%,#eceae7 0%,#d7d5d3 52%,#c4c1bd 100%)}
-  .hero .right img{position:absolute;inset:5% 7%;width:86%;height:90%;object-fit:contain;object-position:center;
-    filter:contrast(1.03);opacity:0;transform:scale(1.06);
-    animation:reveal 1.6s var(--e-out) .3s forwards}
+    radial-gradient(130% 100% at 50% 20%,#1c2024 0%,#101315 55%,#0a0b0c 100%)}
+  .hero .right img{position:absolute;inset:7% 9%;width:82%;height:86%;object-fit:contain;object-position:center;
+    opacity:0;transform:scale(1.05);animation:reveal 1.6s var(--e-out) .3s forwards;
+    filter:drop-shadow(0 26px 42px rgba(0,0,0,.6))}
   @keyframes reveal{to{opacity:1;transform:scale(1)}}
-  /* soft spotlight + inner vignette for depth on the light display */
+  /* soft spotlight from above, fading to a dark vignette */
   .hero .right::after{content:"";position:absolute;inset:0;pointer-events:none;
-    background:radial-gradient(ellipse 80% 70% at 50% 38%,transparent 55%,rgba(60,50,40,.16) 100%)}
+    background:radial-gradient(ellipse 72% 62% at 50% 32%,rgba(255,250,240,.05) 0%,transparent 45%,rgba(0,0,0,.45) 100%)}
   .spec-tag{position:absolute;left:1.2rem;bottom:1.2rem;z-index:3;font-family:var(--mono);font-size:.6rem;
     letter-spacing:.18em;text-transform:uppercase;color:var(--bone);line-height:1.9;
     background:rgba(11,12,13,.55);backdrop-filter:blur(6px);border:1px solid var(--line);padding:.7rem .9rem}
