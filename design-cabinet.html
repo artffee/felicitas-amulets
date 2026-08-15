@@ -145,13 +145,14 @@
 
   /* hero right — the specimen */
   .hero .right{position:relative;overflow:hidden;background:
-    radial-gradient(120% 100% at 70% 15%,#1c1f22 0%,#0d0e10 70%)}
-  .hero .right img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;
-    filter:grayscale(.25) contrast(1.05);opacity:0;transform:scale(1.08);
+    radial-gradient(120% 100% at 50% 22%,#eceae7 0%,#d7d5d3 52%,#c4c1bd 100%)}
+  .hero .right img{position:absolute;inset:5% 7%;width:86%;height:90%;object-fit:contain;object-position:center;
+    filter:contrast(1.03);opacity:0;transform:scale(1.06);
     animation:reveal 1.6s var(--e-out) .3s forwards}
   @keyframes reveal{to{opacity:1;transform:scale(1)}}
-  .hero .right::after{content:"";position:absolute;inset:0;
-    background:linear-gradient(to top,rgba(11,12,13,.5),transparent 45%)}
+  /* soft spotlight + inner vignette for depth on the light display */
+  .hero .right::after{content:"";position:absolute;inset:0;pointer-events:none;
+    background:radial-gradient(ellipse 80% 70% at 50% 38%,transparent 55%,rgba(60,50,40,.16) 100%)}
   .spec-tag{position:absolute;left:1.2rem;bottom:1.2rem;z-index:3;font-family:var(--mono);font-size:.6rem;
     letter-spacing:.18em;text-transform:uppercase;color:var(--bone);line-height:1.9;
     background:rgba(11,12,13,.55);backdrop-filter:blur(6px);border:1px solid var(--line);padding:.7rem .9rem}
@@ -478,10 +479,10 @@
     <div class="right">
       <span class="cross c-tl"></span><span class="cross c-tr"></span>
       <span class="cross c-bl"></span><span class="cross c-br"></span>
-      <img src="images/guardian.webp" alt="The Guardian — winged fascinum amulet in sterling silver">
+      <img src="images/hero-amulet.webp" alt="The Fascinum — winged crescent amulet in sterling silver">
       <div class="spec-tag">
         SPECIMEN <b>FA·001</b><br>
-        THE GUARDIAN<br>
+        THE FASCINUM<br>
         925 STERLING · HAND-FINISHED
       </div>
     </div>
