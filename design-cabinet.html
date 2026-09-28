@@ -45,10 +45,10 @@
     --line:#26292d;
     --bone:#e9e5db;
     --bone-dim:#b9b6ac;
-    --silver:#8b9296;
-    --patina:#5fa093;      /* excavated bronze verdigris */
-    --patina-2:#7cbdb0;
-    --rust:#b56a4a;        /* trace oxidation, used sparingly */
+    --silver:#b2b9bc;
+    --patina:#7cbdb0;      /* excavated bronze verdigris */
+    --patina-2:#9ad3c6;
+    --rust:#e49a79;        /* trace oxidation, used sparingly */
     --disp:'Bodoni Moda', Georgia, serif;
     --body:'Hanken Grotesk', system-ui, sans-serif;
     --mono:'IBM Plex Mono', ui-monospace, monospace;
@@ -230,8 +230,7 @@
   .sp .frame.flip.flipped .flip-inner{transform:rotateY(180deg)}
   .sp .frame.flip.flipped .peek{opacity:0}
   @media (hover:hover) and (pointer:fine){
-    .sp:hover .frame.flip .flip-inner{transform:rotateY(180deg)}
-    .sp:hover .frame.flip .peek{opacity:0}
+    .sp .frame.flip:hover{outline:1px solid var(--patina);outline-offset:-1px}
   }
 
   /* ---------- CONSERVATION (ritual) ---------- */
@@ -432,20 +431,91 @@
     .hero h1 .t-fasc .ch{opacity:1;transform:none;filter:none}
     .marquee .track{animation:none}
   }
+
+  /* Launch clarity and accessible controls */
+  html{scroll-padding-top:6rem}
+  :focus-visible{outline:2px solid var(--patina-2);outline-offset:5px}
+  .skip-link{position:fixed;top:-10rem;left:1rem;z-index:250;background:var(--bone);color:var(--void);padding:.8rem 1rem}
+  .skip-link:focus{top:1rem}
+  .bar .id{font-size:.875rem;letter-spacing:.24em}
+  .bar .meta{gap:clamp(.8rem,1.5vw,1.4rem);align-items:center}
+  .bar .meta a{font-size:.875rem;letter-spacing:.06em;min-height:44px;display:inline-flex;align-items:center}
+  .bar .meta .acq{color:var(--patina)}
+  .mono,.soon,.spec-tag,.kicker .no,.kicker .ttl,.sp .no,.sp .row .mat,
+  .book .sub2,.book .facts .m .k,.specs .k,.fcol h5{font-size:.75rem;letter-spacing:.12em}
+  .soon{margin-bottom:1.2rem}
+  .cta,.ghost,.sp .row .acq,.form button,.st h4{font-size:.875rem;letter-spacing:.08em}
+  .cta,.ghost,.sp .row .acq{min-height:44px;align-items:center}
+  .ghost{display:inline-flex}
+  .sp .row{flex-wrap:wrap;gap:.6rem}
+  .sp p,.st p,.faq .ans,.fcol a,.fcol p,.cs-msg{font-size:1rem}
+  .sp .frame.flip .peek,.book .cover .hint,.lb-cap,.prov .src,.disc p,
+  .note,.err-msg,.cs-head .s,.cs-chip{font-size:.75rem;letter-spacing:.06em}
+  .cs-chip{min-height:44px;font-size:.875rem}
+  .cs-form input,.cs-form textarea,.cs-form button,.form input{font-size:1rem}
+  .form{max-width:560px}
+  .form input{min-width:0;width:100%}
+  .form button{min-height:52px;flex-shrink:0}
+  .cs-panel{visibility:hidden;max-height:calc(100dvh - 120px)}
+  .cs.open .cs-panel{visibility:visible}
+  .cs-body{min-height:0}
+  .cs-quick{max-height:30dvh;overflow:auto;flex-shrink:0}
+  .cs-close{min-width:44px;min-height:44px;top:.3rem;right:.3rem}
+  .text-button{display:block;background:none;border:0;font:inherit;font-size:1rem;color:var(--bone-dim);cursor:pointer;text-align:left;min-height:44px}
+  .text-button:hover{color:var(--patina)}
+  .privacy-note{font-size:.875rem;color:var(--bone-dim);max-width:56ch;margin:1rem auto 0}
+  .privacy-note a,.privacy-details a{text-decoration:underline;text-underline-offset:3px}
+  .privacy-details{max-width:1200px;margin:2.5rem auto 0;border-top:1px solid var(--line);padding-top:1.2rem;color:var(--bone-dim)}
+  .privacy-details summary{cursor:pointer;color:var(--bone);min-height:44px}
+  .privacy-details p{max-width:85ch;margin-top:1rem;font-size:1rem}
+  .rv{opacity:1;transform:none}
+  .menu-toggle{display:none;background:none;border:1px solid var(--line);padding:.55rem .85rem;color:var(--bone);font:inherit;min-height:44px;cursor:pointer}
+  .lb-track img{max-width:calc(100vw - 2rem);height:auto;max-height:80dvh;object-fit:contain}
+  @media (max-width:1100px){
+    .bar{flex-wrap:wrap;padding:.6rem 1rem}
+    .menu-toggle{display:block}
+    .bar .meta{display:none;flex-basis:100%;flex-direction:column;align-items:stretch;gap:0;padding:.75rem 0;max-height:70dvh;overflow:auto}
+    .bar .meta.open{display:flex}
+    .bar .meta a,.bar .meta a:not(.acq){display:flex;min-height:48px;font-size:.875rem}
+  }
+  @media (max-width:860px){
+    .hero{padding-top:6rem;min-height:auto}
+    .hero .right{min-height:26rem}
+    .hero .left{gap:.75rem}
+    .hero .tag-row{flex-wrap:wrap;gap:.4rem}
+    .hero .foot{gap:1rem;margin-top:1.25rem}
+    .hero h1{font-size:clamp(2.65rem,11vw,5rem);line-height:1;margin-top:1rem}
+    .spec-tag{font-size:.75rem}
+  }
+  @media (max-width:480px){
+    .form{flex-direction:column}
+    .form button{padding:.85rem 1rem}
+    .hero .right{min-height:23rem}
+    .cta{padding:.9rem 1rem;letter-spacing:.05em}
+    .book .facts{gap:1.4rem}
+    .kicker .ttl{letter-spacing:.08em}
+    .cs{right:.75rem;bottom:.75rem}
+    .cs-panel{width:calc(100vw - 1.5rem)}
+    .lb-cap{padding:0 1rem;bottom:.5rem}
+  }
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
 </style>
 </head>
 <body>
+<a class="skip-link" href="#register">Skip to the collection</a>
 
 <!-- CATALOG BAR -->
 <div class="bar">
   <a href="#top" class="id">FELICITAS</a>
-  <nav class="meta">
-    <a href="#provenance">Provenance</a>
-    <a href="#register">The Register</a>
+  <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mainNav" type="button">Menu</button>
+  <nav class="meta" id="mainNav" aria-label="Main navigation">
+    <a href="#provenance">Our Story</a>
+    <a href="#register">The Collection</a>
     <a href="#book">The Book</a>
-    <a href="#conservation">Handling</a>
-    <a href="#dossier">Dossier</a>
-    <a href="#acquire" class="acq">Acquire →</a>
+    <a href="#conservation">The Ritual</a>
+    <a href="#dossier">Details &amp; FAQ</a>
+    <a href="#acquire" class="acq">Get launch updates →</a>
   </nav>
 </div>
 
@@ -453,7 +523,7 @@
 <header class="hero" id="top">
   <div class="plate">
     <div class="left">
-      <span class="soon"><span class="pulse"></span>Coming Soon · First Casting</span>
+      <span class="soon"><span class="pulse"></span>Coming to Kickstarter</span>
       <div class="tag-row">
         <span class="mono">Cabinet&nbsp;of&nbsp;Protection</span>
         <span class="mono">Roma · MMXXVI</span>
@@ -462,10 +532,10 @@
         <span class="t-the" aria-hidden="true"><span>THE</span></span>
         <span class="t-fasc" aria-hidden="true"><span class="ch">F</span><span class="ch">a</span><span class="ch">s</span><span class="ch">c</span><span class="ch">i</span><span class="ch">n</span><span class="ch">u</span><span class="ch">m</span></span>
       </h1>
-      <p class="lede"><b>Against the evil eye, for two thousand years.</b> The amulet Rome trusted above all others — sacred to Fascinus, hung over cradles, fixed beneath triumphal chariots — now recast in sterling silver, catalogued and conserved.</p>
+      <p class="lede"><b>Roman-inspired amulets in sterling silver.</b> Discover a collection shaped by the ancient fascinum: a symbol of protection, vitality, and good fortune, reimagined to wear today.</p>
       <div class="foot">
-        <a href="#register" class="cta">View the Register <span class="arw">→</span></a>
-        <a href="#provenance" class="ghost">Read the provenance</a>
+        <a href="#acquire" class="cta">Get launch updates <span class="arw" aria-hidden="true">→</span></a>
+        <a href="#register" class="ghost">Explore the collection</a>
       </div>
     </div>
     <div class="right">
@@ -473,7 +543,7 @@
       <span class="cross c-bl"></span><span class="cross c-br"></span>
       <img src="images/hero-amulet.webp" alt="The Fascinum — winged crescent amulet in sterling silver">
       <div class="spec-tag">
-        SPECIMEN <b>FA·001</b><br>
+        FELICITAS <b>FIRST CASTING</b><br>
         THE FASCINUM<br>
         925 STERLING · HAND-FINISHED
       </div>
@@ -513,7 +583,7 @@
 <!-- THE REGISTER -->
 <section id="register" class="register">
   <div class="max">
-    <div class="kicker rv"><span class="no">02</span><span class="ttl">The Register — Three Castings</span><span class="fill"></span></div>
+    <div class="kicker rv"><span class="no">02</span><span class="ttl">The Collection — Three Amulets</span><span class="fill"></span></div>
     <div class="specimens">
       <article class="sp rv">
         <div class="frame flip" id="guardianFlip">
@@ -525,8 +595,8 @@
         </div>
         <div class="body">
           <h3>The Guardian</h3>
-          <p>The winged fascinum in its classic form, hand-finished with an antique patina.</p>
-          <div class="row"><span class="mat">925 Silver</span><a href="#acquire" class="acq">Reserve →</a></div>
+          <p>An elongated pendant with geometric wings and a circular detail, finished with an antique patina.</p>
+          <div class="row"><span class="mat">925 Silver</span><a href="#acquire" class="acq">Notify me →</a></div>
         </div>
       </article>
       <article class="sp rv d1">
@@ -539,8 +609,8 @@
         </div>
         <div class="body">
           <h3>The Seal</h3>
-          <p>A medallion struck like a votive coin, the winged sigil ringed by the marks of fortune.</p>
-          <div class="row"><span class="mat">925 Silver</span><a href="#acquire" class="acq">Reserve →</a></div>
+          <p>A sculptural winged fascinum with outstretched wings and a textured antique finish.</p>
+          <div class="row"><span class="mat">925 Silver</span><a href="#acquire" class="acq">Notify me →</a></div>
         </div>
       </article>
       <article class="sp rv d2">
@@ -553,8 +623,8 @@
         </div>
         <div class="body">
           <h3>The Crescent</h3>
-          <p>Wings over the lunula — the crescent Roman women wore — united in one protective form.</p>
-          <div class="row"><span class="mat">925 Silver</span><a href="#acquire" class="acq">Reserve →</a></div>
+          <p>A winged fascinum shown in profile, with a sweeping feathered wing and an antique finish.</p>
+          <div class="row"><span class="mat">925 Silver</span><a href="#acquire" class="acq">Notify me →</a></div>
         </div>
       </article>
     </div>
@@ -592,7 +662,7 @@
           <div class="m"><div class="k">Edition</div><div class="v">First Casting</div></div>
         </div>
         <p class="latin2">Ne invidia te inveniat, ne fortuna te deserat.</p>
-        <p><a href="#acquire" class="cta">Reserve the Book <span class="arw">→</span></a></p>
+        <p><a href="#acquire" class="cta">Get book launch updates <span class="arw" aria-hidden="true">→</span></a></p>
       </div>
     </div>
   </div>
@@ -616,7 +686,7 @@
       <div class="st rv d2">
         <div class="n">III</div>
         <h4>Wear</h4>
-        <p>Wear it against the skin through the night. From then on it works quietly, close to the body.</p>
+        <p>Wear it as a personal reminder of your intention — a small ritual rooted in tradition.</p>
       </div>
     </div>
   </div>
@@ -639,8 +709,8 @@
         <div class="ans">The pendant stands roughly 28&nbsp;mm — substantial yet comfortable for daily wear. It arrives on a solid sterling chain in your choice of 50&nbsp;cm or 60&nbsp;cm.</div></details>
       <details class="rv"><summary>Will it tarnish?</summary>
         <div class="ans">The patina is intentional and deepens the relief; it is meant to age. Sterling can darken over time — a soft cloth returns the raised surfaces to a bright shine.</div></details>
-      <details class="rv"><summary>Shipping &amp; price?</summary>
-        <div class="ans">The first casting launches on Kickstarter. Founding supporters ship earliest at the best price we will ever offer. Enter the register below to hear dates first.</div></details>
+      <details class="rv"><summary>When can I buy, and what will it cost?</summary>
+        <div class="ans">The first casting is planned for Kickstarter. Prices, the launch date, and estimated delivery dates have not been announced. Join the launch list to hear when the campaign opens. Signing up is free and does not reserve a piece or place an order.</div></details>
       <details class="rv"><summary>Returns?</summary>
         <div class="ans">A 30-day return on unworn pieces. Anything damaged in transit is replaced at no cost.</div></details>
     </div>
@@ -650,17 +720,20 @@
 <!-- ACQUISITION -->
 <section id="acquire" class="acq-sec">
   <div class="max">
-    <div class="kicker rv" style="justify-content:center"><span class="no">04</span><span class="ttl">Acquisition</span></div>
-    <h2 class="rv">Join the <em>Register</em></h2>
-    <p class="sub rv d1">The first casting launches soon on Kickstarter. Leave your address to receive the founding price — the best it will ever be offered.</p>
-    <form class="form rv d1" id="form" action="https://formspree.io/f/xeeyyzkk" method="POST">
+    <div class="kicker rv" style="justify-content:center"><span class="no">06</span><span class="ttl">Launch updates</span></div>
+    <h2 class="rv">Be first to <em>discover.</em></h2>
+    <p class="sub rv d1">Join the launch list for the first Kickstarter casting. We’ll email you when the collection opens, with prices and estimated delivery dates.</p>
+    <form class="form rv d1" id="form" aria-describedby="signupNote" action="https://formspree.io/f/xeeyyzkk" method="POST">
       <input type="email" name="email" id="email" placeholder="your@email.com" aria-label="Email address" required autocomplete="email">
       <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
-      <button type="submit" id="submitBtn">Notify Me</button>
+      <input type="hidden" name="_subject" value="Felicitas — launch list signup">
+      <input type="hidden" name="source" value="launch-list">
+      <button type="submit" id="submitBtn">Notify me</button>
     </form>
-    <p class="note rv">No noise · one letter when the casting opens</p>
-    <p class="done" id="done">You are entered in the register — we will write before the first casting.</p>
-    <p class="err-msg" id="err">Something went wrong — please try again.</p>
+    <p class="note rv" id="signupNote">Free signup · No payment · No reservation</p>
+    <p class="privacy-note">By signing up, you ask Felicitas to email you about the launch. <a href="#privacy">Email &amp; privacy</a></p>
+    <p class="done" id="done" role="status" aria-live="polite">You’re on the launch list. We’ll email you when the first casting opens.</p>
+    <p class="err-msg" id="err" role="alert">Your signup could not be sent. Please try again.</p>
   </div>
 </section>
 
@@ -673,17 +746,24 @@
     </div>
     <div class="fcol">
       <h5>Cabinet</h5>
-      <a href="#provenance">Provenance</a>
-      <a href="#register">The Register</a>
+      <a href="#provenance">Our Story</a>
+      <a href="#register">The Collection</a>
       <a href="#book">The Book</a>
-      <a href="#conservation">Handling</a>
+      <a href="#conservation">The Ritual</a>
     </div>
     <div class="fcol">
       <h5>Contact</h5>
-      <a href="#acquire">Acquire</a>
+      <button class="text-button" id="contactLink" type="button">Write to Felicitas</button>
+      <a href="#acquire">Launch updates</a>
+      <a href="#privacy">Email &amp; privacy</a>
       <p>feclicitasamulets.com</p>
     </div>
   </div>
+  <details class="privacy-details" id="privacy">
+    <summary>Email &amp; privacy</summary>
+    <p>The launch form sends your email address to Felicitas through Formspree. The contact form sends your email address and message through the same service. Use “Write to Felicitas” to ask about your submission or request removal from the launch list.</p>
+    <p>This website uses Google Analytics to measure visits and is hosted on Vercel. These services may process technical information such as browser and device data. See the <a href="https://formspree.io/legal/privacy-policy/" target="_blank" rel="noopener noreferrer">Formspree</a>, <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google</a>, and <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">Vercel</a> privacy notices.</p>
+  </details>
   <div class="disc">
     <p>© MMXXVI FELICITAS — Our amulets are offered in the spirit of tradition, retelling beliefs held for two thousand years. They are jewelry and story, not medical products, and make no promise beyond the oldest one: may envy never find you, and fortune never leave you.</p>
     <p>925 · STERLING · ROMA</p>
@@ -691,11 +771,18 @@
 </footer>
 
 <script>
-(function(){
-  var io=new IntersectionObserver(function(es){
+document.addEventListener('DOMContentLoaded',function(){
+  var io=window.IntersectionObserver ? new IntersectionObserver(function(es){
     es.forEach(function(e){ if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);} });
-  },{threshold:.14,rootMargin:'0px 0px -6% 0px'});
-  document.querySelectorAll('.rv').forEach(function(el){io.observe(el);});
+  },{threshold:.14,rootMargin:'0px 0px -6% 0px'}) : null;
+  document.querySelectorAll('.rv').forEach(function(el){if(io) io.observe(el);});
+  var menu=document.getElementById('menuToggle'), nav=document.getElementById('mainNav');
+  function closeMenu(){nav.classList.remove('open');menu.setAttribute('aria-expanded','false');menu.textContent='Menu';}
+  menu.addEventListener('click',function(){var open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',String(open));menu.textContent=open?'Close':'Menu';});
+  nav.addEventListener('click',function(e){if(e.target.closest('a')) closeMenu();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&nav.classList.contains('open')){closeMenu();menu.focus();}});
+  document.querySelectorAll('a[href="#privacy"]').forEach(function(a){a.addEventListener('click',function(){document.getElementById('privacy').open=true;});});
+  if(location.hash==='#privacy') document.getElementById('privacy').open=true;
 
   /* book pages lightbox */
   var lb=document.getElementById('lightbox'),
@@ -711,21 +798,32 @@
   }
   lbClose.addEventListener('click',closeLB);
   lb.addEventListener('click',function(e){ if(e.target===lb) closeLB(); });
-  document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&lb.classList.contains('open')) closeLB(); });
+  document.addEventListener('keydown',function(e){
+    if(!lb.classList.contains('open')) return;
+    if(e.key==='Escape') closeLB();
+    if(e.key==='Tab'){e.preventDefault();lbClose.focus();}
+    if(e.key==='ArrowRight'||e.key==='ArrowLeft'){
+      e.preventDefault();var track=lb.querySelector('.lb-track');
+      track.scrollBy({left:(e.key==='ArrowRight'?1:-1)*track.clientWidth*.8,behavior:window.matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth'});
+    }
+  });
 
-  /* Amulet cards — tap to flip on touch (desktop uses :hover) */
-  if(window.matchMedia('(hover:none)').matches){
-    document.querySelectorAll('.frame.flip').forEach(function(fl){
-      fl.setAttribute('role','button'); fl.setAttribute('tabindex','0');
-      fl.addEventListener('click',function(){ fl.classList.toggle('flipped'); });
-    });
-  }
+  /* Every product card supports pointer, touch, and keyboard. */
+  document.querySelectorAll('.frame.flip').forEach(function(fl){
+    var name=fl.closest('article').querySelector('h3').textContent;
+    fl.setAttribute('role','button'); fl.setAttribute('tabindex','0');
+    fl.setAttribute('aria-label','Flip '+name+' story card'); fl.setAttribute('aria-pressed','false');
+    fl.querySelector('.peek').textContent='Tap to flip ⟳';
+    function flip(){var on=fl.classList.toggle('flipped');fl.setAttribute('aria-pressed',String(on));}
+    fl.addEventListener('click',flip);
+    fl.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();flip();}});
+  });
 
   /* Curator — scripted FAQ chat */
   var CS_QA=[
     {q:'Real silver?', a:'Every amulet is <b>solid 925 sterling silver</b> — cast, hand-finished with an antique patina, and stamped 925. Never plated.'},
     {q:'Size & chain', a:'The pendant stands about <b>28&nbsp;mm</b> and arrives on a solid sterling chain in <b>50&nbsp;cm</b> or <b>60&nbsp;cm</b>.'},
-    {q:'Price & shipping', a:'The first casting launches on <b>Kickstarter</b>. Founding supporters ship earliest at the best price we will ever offer — join the register and we’ll write with dates and pricing first.'},
+    {q:'Price & shipping', a:'The first casting is planned for <b>Kickstarter</b>. Prices, the launch date, and delivery estimates have not been announced. Join the launch list for the campaign announcement. Signup is free; it does not reserve a piece or place an order.'},
     {q:'Returns', a:'A <b>30-day return</b> on unworn pieces, and anything damaged in transit is replaced at no cost.'},
     {q:'Will it tarnish?', a:'The patina is intentional and ages gracefully. Sterling can darken over time; a soft cloth returns the raised surfaces to a bright shine.'},
     {q:'The Book of Sigils', a:'A companion volume — the origin of every sigil and the ritual that wakes it. Hover the book on this page to peek inside, or tap it to read a preview.'}
@@ -745,13 +843,13 @@
   function csContactForm(){
     var existing=csBody.querySelector('.cs-form');
     if(existing){ existing.scrollIntoView({block:'nearest'}); existing.querySelector('input').focus(); return; }
-    csBot('Leave your email and a message — it comes straight to us. We usually reply within a day.',300);
+    csBot('Leave your email and a message for Felicitas. We’ll reply to the address you provide.',300);
     setTimeout(function(){
       var f=document.createElement('form'); f.className='cs-form';
       f.setAttribute('action','https://formspree.io/f/xeeyyzkk'); f.setAttribute('method','POST');
       f.innerHTML=
-        '<input type="email" name="email" placeholder="your email" required autocomplete="email">'+
-        '<textarea name="message" placeholder="how can we help?" required></textarea>'+
+        '<input type="email" name="email" aria-label="Your email address" placeholder="your email" required autocomplete="email">'+
+        '<textarea name="message" aria-label="Your message" placeholder="how can we help?" required></textarea>'+
         '<input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none">'+
         '<input type="hidden" name="_subject" value="Felicitas — message from the Curator chat">'+
         '<input type="hidden" name="source" value="curator-chat">'+
@@ -774,7 +872,7 @@
       var b=document.createElement('button'); b.className='cs-chip'; b.type='button'; b.textContent=item.q;
       b.addEventListener('click',function(){ csAnswer(item); }); csQuick.appendChild(b);
     });
-    var reg=document.createElement('button'); reg.className='cs-chip accent'; reg.type='button'; reg.textContent='Join the register →';
+    var reg=document.createElement('button'); reg.className='cs-chip accent'; reg.type='button'; reg.textContent='Get launch updates →';
     reg.addEventListener('click',function(){ csClosePanel(); document.getElementById('acquire').scrollIntoView({behavior:'smooth'}); });
     csQuick.appendChild(reg);
     var mail=document.createElement('button'); mail.className='cs-chip'; mail.type='button'; mail.textContent='Write to us';
@@ -782,12 +880,13 @@
     csQuick.appendChild(mail);
   }
   function csOpenPanel(){
-    cs.classList.add('open'); csToggle.setAttribute('aria-expanded','true'); csPanel.setAttribute('aria-hidden','false');
+    cs.classList.add('open'); csToggle.setAttribute('aria-expanded','true'); csPanel.setAttribute('aria-hidden','false'); csPanel.inert=false;
     if(csDot) csDot.style.display='none';
     if(!csGreeted){ csGreeted=true; csBot('Salve. I am the <b>Curator</b>. Ask me about the amulets, the Book, or the first casting — or write to us anytime.',300); }
     csClose.focus();
   }
-  function csClosePanel(){ cs.classList.remove('open'); csToggle.setAttribute('aria-expanded','false'); csPanel.setAttribute('aria-hidden','true'); }
+  function csClosePanel(){ cs.classList.remove('open'); csToggle.setAttribute('aria-expanded','false'); csPanel.setAttribute('aria-hidden','true'); csPanel.inert=true; csToggle.focus(); }
+  document.getElementById('contactLink').addEventListener('click',function(){csOpenPanel();csContactForm();});
   csBuildChips();
   csToggle.addEventListener('click',function(){ cs.classList.contains('open')?csClosePanel():csOpenPanel(); });
   csClose.addEventListener('click',csClosePanel);
@@ -797,7 +896,7 @@
   var form=document.getElementById('form');
   form.addEventListener('submit',function(e){
     e.preventDefault();
-    if(!document.getElementById('email').value.trim()) return;
+    if(!form.reportValidity() || document.getElementById('submitBtn').disabled) return;
     var btn=document.getElementById('submitBtn');
     var err=document.getElementById('err');
     var endpoint=form.getAttribute('action');
@@ -806,12 +905,12 @@
     btn.disabled=true; btn.textContent='Sending…';
     function success(){ form.style.display='none'; document.getElementById('done').classList.add('show');
       if(typeof gtag==='function'){ gtag('event','sign_up',{method:'email',event_category:'engagement'}); } }
-    if(!configured){ console.warn('Formspree endpoint not set — replace YOUR_FORM_ID in the form action.'); success(); return; }
+    if(!configured){btn.disabled=false;btn.textContent='Try again';err.classList.add('show');return;}
     fetch(endpoint,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}})
       .then(function(res){ if(res.ok){success();} else {throw new Error('bad');} })
       .catch(function(){ btn.disabled=false; btn.textContent='Try Again'; err.classList.add('show'); });
   });
-})();
+});
 </script>
 
 <!-- CURATOR — scripted help chat -->
@@ -820,19 +919,19 @@
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z" stroke-linejoin="round" stroke-linecap="round"/></svg>
     <span class="dot" id="csDot"></span>
   </button>
-  <div class="cs-panel" id="csPanel" role="dialog" aria-label="Felicitas — the Curator" aria-hidden="true">
+  <div class="cs-panel" id="csPanel" inert role="dialog" aria-label="Felicitas — the Curator" aria-hidden="true">
     <div class="cs-head">
       <div class="t">The Curator</div>
       <div class="s">Felicitas · here to help</div>
       <button class="cs-close" id="csClose" aria-label="Close chat">&times;</button>
     </div>
-    <div class="cs-body" id="csBody"></div>
+    <div class="cs-body" id="csBody" role="log" aria-live="polite"></div>
     <div class="cs-quick" id="csQuick"></div>
   </div>
 </div>
 
 <!-- BOOK PAGES LIGHTBOX -->
-<div class="lb" id="lightbox" aria-hidden="true" role="dialog" aria-label="The Book of Sigils — preview pages">
+<div class="lb" id="lightbox" aria-hidden="true" aria-modal="true" role="dialog" aria-label="The Book of Sigils — preview pages">
   <button class="lb-close" id="lbClose" aria-label="Close preview">&times;</button>
   <div class="lb-track">
     <img src="images/page3.webp" alt="The Book of Sigils, page 3 — What exactly is a sigil?">
@@ -860,50 +959,98 @@
       "@id": "https://feclicitasamulets.com/#site",
       "url": "https://feclicitasamulets.com/",
       "name": "Felicitas Amulets",
-      "publisher": { "@id": "https://feclicitasamulets.com/#org" },
+      "publisher": {
+        "@id": "https://feclicitasamulets.com/#org"
+      },
       "inLanguage": "en-US"
     },
     {
       "@type": "Product",
       "name": "The Guardian",
       "image": "https://feclicitasamulets.com/images/guardian.webp",
-      "description": "The winged fascinum in its classic form — solid 925 silver, hand-finished with an antique patina.",
+      "description": "An elongated sterling silver pendant with geometric wings, a circular detail, and an antique patina.",
       "material": "925 Sterling Silver",
-      "brand": { "@id": "https://feclicitasamulets.com/#org" }
+      "brand": {
+        "@id": "https://feclicitasamulets.com/#org"
+      }
     },
     {
       "@type": "Product",
       "name": "The Seal",
       "image": "https://feclicitasamulets.com/images/seal.webp",
-      "description": "A medallion struck like an ancient votive coin, the winged sigil ringed by the marks of fortune.",
+      "description": "A sculptural winged fascinum with outstretched wings and a textured antique finish in sterling silver.",
       "material": "925 Sterling Silver",
-      "brand": { "@id": "https://feclicitasamulets.com/#org" }
+      "brand": {
+        "@id": "https://feclicitasamulets.com/#org"
+      }
     },
     {
       "@type": "Product",
       "name": "The Crescent",
       "image": "https://feclicitasamulets.com/images/crescent.webp",
-      "description": "Wings over the lunula — the crescent amulet Roman women wore — united in one protective form.",
+      "description": "A winged fascinum shown in profile, with a sweeping feathered wing and an antique finish in sterling silver.",
       "material": "925 Sterling Silver",
-      "brand": { "@id": "https://feclicitasamulets.com/#org" }
+      "brand": {
+        "@id": "https://feclicitasamulets.com/#org"
+      }
     },
     {
       "@type": "Book",
       "name": "The Book of Sigils",
       "alternativeHeadline": "A Manual of Protection and Sacred Symbols",
       "bookFormat": "https://schema.org/Hardcover",
-      "inLanguage": ["la", "en"],
+      "inLanguage": [
+        "la",
+        "en"
+      ],
       "image": "https://feclicitasamulets.com/images/book.webp",
-      "publisher": { "@id": "https://feclicitasamulets.com/#org" }
+      "publisher": {
+        "@id": "https://feclicitasamulets.com/#org"
+      }
     },
     {
       "@type": "FAQPage",
       "mainEntity": [
-        {"@type":"Question","name":"Is it solid sterling silver?","acceptedAnswer":{"@type":"Answer","text":"Yes — each specimen is cast in solid 925 sterling silver, hand-finished with an antique patina and sealed. Not plated. Stamped 925."}},
-        {"@type":"Question","name":"What are the dimensions and chain?","acceptedAnswer":{"@type":"Answer","text":"The pendant stands roughly 28 mm and arrives on a solid sterling chain in your choice of 50 cm or 60 cm."}},
-        {"@type":"Question","name":"Will it tarnish?","acceptedAnswer":{"@type":"Answer","text":"The patina is intentional and ages gracefully. Sterling can darken over time; a soft cloth returns the raised surfaces to a bright shine."}},
-        {"@type":"Question","name":"When does it ship, and what does it cost?","acceptedAnswer":{"@type":"Answer","text":"The first casting launches on Kickstarter. Founding supporters ship earliest at the best price we will ever offer. Enter the register to hear dates first."}},
-        {"@type":"Question","name":"What is the return policy?","acceptedAnswer":{"@type":"Answer","text":"A 30-day return on unworn pieces. Anything damaged in transit is replaced at no cost."}}
+        {
+          "@type": "Question",
+          "name": "Is it solid sterling silver?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes — each specimen is cast in solid 925 sterling silver, hand-finished with an antique patina and sealed. Not plated. Stamped 925."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are the dimensions and chain?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The pendant stands roughly 28 mm and arrives on a solid sterling chain in your choice of 50 cm or 60 cm."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Will it tarnish?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The patina is intentional and ages gracefully. Sterling can darken over time; a soft cloth returns the raised surfaces to a bright shine."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "When does it ship, and what does it cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The first casting is planned for Kickstarter. Prices, the launch date, and estimated delivery dates have not been announced. Join the launch list to hear when the campaign opens. Signing up is free and does not reserve a piece or place an order."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the return policy?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A 30-day return on unworn pieces. Anything damaged in transit is replaced at no cost."
+          }
+        }
       ]
     }
   ]
