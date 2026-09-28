@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Felicitas — The Cabinet of Protection</title>
-<meta name="description" content="An archival house of Roman amulets. The fascinum — worn against the evil eye for two thousand years — recast in sterling silver, catalogued and conserved.">
+<title>Felicitas — The Pendant Chooses You</title>
+<meta name="description" content="Discover The Chosen One, a planned mystery box with one of three Roman-inspired sterling-silver pendants. The pendant chooses you. Join the Felicitas launch list.">
 
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-G76GFDSWE5"></script>
@@ -24,14 +24,14 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Felicitas Amulets">
 <meta property="og:url" content="https://feclicitasamulets.com/">
-<meta property="og:title" content="Felicitas — The Cabinet of Protection">
-<meta property="og:description" content="An archival house of Roman amulets. The fascinum, recast in sterling silver.">
+<meta property="og:title" content="Felicitas — The Pendant Chooses You">
+<meta property="og:description" content="The pendant chooses you. Discover The Chosen One mystery-box concept and the Felicitas sterling-silver collection.">
 <meta property="og:image" content="https://feclicitasamulets.com/og.jpg">
 <meta property="og:image:alt" content="Felicitas — the fascinum, amulet of protection, in sterling silver">
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Felicitas — The Cabinet of Protection">
-<meta name="twitter:description" content="An archival house of Roman amulets. The fascinum, recast in sterling silver.">
+<meta name="twitter:title" content="Felicitas — The Pendant Chooses You">
+<meta name="twitter:description" content="The pendant chooses you. Discover The Chosen One mystery-box concept and the Felicitas sterling-silver collection.">
 <meta name="twitter:image" content="https://feclicitasamulets.com/og.jpg">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -500,6 +500,54 @@
   }
   @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 
+  /* The Chosen One — planned mystery edition */
+  .hero h1.mystery-title{font-size:clamp(3rem,5.5vw,5.6rem);line-height:1.02;letter-spacing:-.035em;margin:1.5rem 0}
+  .hero .mystery-hero-image img{inset:0;width:100%;height:100%;object-fit:cover;object-position:40% center;filter:none}
+  .hero .mystery-hero-image::after{background:linear-gradient(transparent 60%,rgba(0,0,0,.45))}
+  .mystery-section{background:var(--void-2);border-bottom:1px solid var(--line)}
+  .mystery-layout{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,6vw,5rem)}
+  .mystery-story h2{font-family:var(--disp);font-size:clamp(2.5rem,4.5vw,4.3rem);font-weight:400;line-height:1.05;margin:1rem 0 1.5rem}
+  .mystery-story h2 em{font-weight:400;color:var(--patina)}
+  .mystery-story>p:not(.mono){color:var(--bone-dim);margin-bottom:1.2rem;max-width:53ch}
+  .mystery-story b{color:var(--bone);font-weight:500}
+  .mystery-story blockquote{font-family:var(--disp);font-style:italic;font-size:1.65rem;line-height:1.35;border-left:1px solid var(--patina);padding-left:1.3rem;margin-top:2rem}
+  .mystery-story cite{display:block;font-family:var(--mono);font-style:normal;font-size:.7rem;color:var(--silver);margin-top:.8rem;letter-spacing:.08em;text-transform:uppercase}
+  .mystery-contents{padding:clamp(1.25rem,3vw,2.5rem);border:1px solid var(--line);align-self:start}
+  .mystery-contents ul{list-style:none;margin:1.4rem 0}
+  .mystery-contents li{display:flex;gap:1rem;padding:1.1rem 0;border-top:1px solid var(--line)}
+  .mystery-contents li>span{font-family:var(--mono);font-size:.75rem;color:var(--patina);padding-top:.3rem}
+  .mystery-contents b{font-weight:500;font-size:1.1rem}
+  .mystery-contents li p{color:var(--bone-dim);font-size:1rem;margin-top:.3rem}
+  .mystery-small{font-size:.875rem;color:var(--silver)}
+  .mystery-steps{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2rem;margin:3.5rem 0;padding-top:2rem;border-top:1px solid var(--line)}
+  .mystery-steps .mono{color:var(--patina)}
+  .mystery-steps h3{font-family:var(--disp);font-size:1.65rem;font-weight:400;margin:.65rem 0}
+  .mystery-steps p{color:var(--bone-dim);font-size:1rem;max-width:35ch}
+  .mystery-launch{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;border-top:1px solid var(--line);padding-top:2rem}
+  .mystery-launch>div>p+p{color:var(--bone-dim);font-size:.95rem;margin-top:.6rem}
+  .mystery-launch .cta{flex-shrink:0}
+  .form{flex-direction:column;border:0;background:transparent}
+  .signup-interest{text-align:left;margin-bottom:1rem}
+  .signup-interest label{display:block;color:var(--bone-dim);font-size:.875rem;margin-bottom:.5rem}
+  .signup-interest select{width:100%;min-height:52px;border:1px solid var(--line);border-radius:0;background:var(--void-2);color:var(--bone);font:inherit;padding:.75rem 1rem;color-scheme:dark}
+  .signup-email-row{display:flex;border:1px solid var(--line);background:var(--void-2)}
+  .signup-email-row:focus-within{border-color:var(--patina)}
+  .cs-msg a{text-decoration:underline;text-underline-offset:3px}
+  @media(max-width:860px){
+    .hero h1.mystery-title{font-size:clamp(2.6rem,8.8vw,4.5rem)}
+    .hero .mystery-hero-image{min-height:0;aspect-ratio:3/2}
+    .mystery-layout{grid-template-columns:1fr;gap:2rem}
+    .mystery-story>p:not(.mono){max-width:65ch}
+    .mystery-launch{align-items:flex-start;flex-direction:column}
+  }
+  @media(max-width:580px){
+    .mystery-steps{grid-template-columns:1fr;gap:1.75rem;margin:2rem 0}
+    .mystery-steps p{max-width:100%}
+    .signup-email-row{flex-direction:column}
+    .mystery-launch .cta{font-size:.8rem;max-width:100%;padding:1rem}
+    .hero .spec-tag{font-size:.625rem;padding:.5rem .7rem;left:.75rem;bottom:.75rem}
+  }
+
 </style>
 </head>
 <body>
@@ -513,7 +561,7 @@
     <a href="#provenance">Our Story</a>
     <a href="#register">The Collection</a>
     <a href="#book">The Book</a>
-    <a href="#conservation">The Ritual</a>
+    <a href="#mystery-box">Mystery Box</a>
     <a href="#dossier">Details &amp; FAQ</a>
     <a href="#acquire" class="acq">Get launch updates →</a>
   </nav>
@@ -525,27 +573,24 @@
     <div class="left">
       <span class="soon"><span class="pulse"></span>Coming to Kickstarter</span>
       <div class="tag-row">
-        <span class="mono">Cabinet&nbsp;of&nbsp;Protection</span>
+        <span class="mono">Introducing The Chosen One</span>
         <span class="mono">Roma · MMXXVI</span>
       </div>
-      <h1 aria-label="The Fascinum">
-        <span class="t-the" aria-hidden="true"><span>THE</span></span>
-        <span class="t-fasc" aria-hidden="true"><span class="ch">F</span><span class="ch">a</span><span class="ch">s</span><span class="ch">c</span><span class="ch">i</span><span class="ch">n</span><span class="ch">u</span><span class="ch">m</span></span>
-      </h1>
-      <p class="lede"><b>Roman-inspired amulets in sterling silver.</b> Discover a collection shaped by the ancient fascinum: a symbol of protection, vitality, and good fortune, reimagined to wear today.</p>
+      <h1 class="mystery-title">The pendant<br><em>chooses you.</em></h1>
+      <p class="lede"><b>One sealed box. One silver amulet. A story waiting to unfold.</b> Meet The Chosen One, our planned mystery edition. Your pendant stays a secret until you open the box.</p>
       <div class="foot">
-        <a href="#acquire" class="cta">Get launch updates <span class="arw" aria-hidden="true">→</span></a>
-        <a href="#register" class="ghost">Explore the collection</a>
+        <a href="#mystery-box" class="cta">Discover the mystery <span class="arw" aria-hidden="true">→</span></a>
+        <a href="#acquire" data-interest="mystery-box" class="ghost">Join the box launch list</a>
       </div>
     </div>
-    <div class="right">
+    <div class="right mystery-hero-image">
       <span class="cross c-tl"></span><span class="cross c-tr"></span>
       <span class="cross c-bl"></span><span class="cross c-br"></span>
-      <img src="images/hero-amulet.webp" alt="The Fascinum — winged crescent amulet in sterling silver">
+      <img src="images/chosen-one-box-concept.webp" width="1536" height="1024" fetchpriority="high" alt="Packaging concept for The Chosen One: a sealed charcoal box with gold lettering, a story envelope, and a pouch">
       <div class="spec-tag">
-        FELICITAS <b>FIRST CASTING</b><br>
-        THE FASCINUM<br>
-        925 STERLING · HAND-FINISHED
+        FELICITAS <b>THE CHOSEN ONE</b><br>
+        PACKAGING CONCEPT<br>
+        FINAL DESIGN MAY CHANGE
       </div>
     </div>
   </div>
@@ -564,6 +609,42 @@
     <span>Contra oculum malum <span class="dot">✦</span></span>
   </div>
 </div>
+
+<!-- THE CHOSEN ONE -->
+<section id="mystery-box" class="mystery-section" aria-labelledby="mystery-heading">
+  <div class="max">
+    <div class="kicker"><span class="no">NEW</span><span class="ttl">The Chosen One — Mystery Box</span><span class="fill"></span></div>
+    <div class="mystery-layout">
+      <div class="mystery-story">
+        <p class="mono patina">A little mystery. Something to keep.</p>
+        <h2 id="mystery-heading">Three designs.<br><em>One sealed story.</em></h2>
+        <p>A gift to yourself, or a new chapter for someone you love. The Chosen One is our planned surprise edition: one sterling-silver pendant from the Felicitas collection, wrapped in a ritual of discovery.</p>
+        <p>Your box will reveal <b>The Guardian, The Seal, or The Crescent</b>. The planned editions share one price and comparable value; the design is the surprise.</p>
+        <a href="#register" class="ghost">See all three possible pendants →</a>
+        <blockquote>“Your next chapter begins<br>with a small mystery.”<cite>The message inside the lid</cite></blockquote>
+      </div>
+      <div class="mystery-contents">
+        <p class="mono">Inside the planned edition</p>
+        <ul>
+          <li><span>01</span><div><b>One 925 sterling-silver pendant</b><p>With a sterling-silver chain; planned lengths of 50 or 60 cm.</p></div></li>
+          <li><span>02</span><div><b>A sealed presentation box &amp; pouch</b><p>Charcoal, antique-gold details, and a numbered seal.</p></div></li>
+          <li><span>03</span><div><b>Your pendant’s illustrated story card</b><p>Meet the symbol, its origins, and the story you’ll carry.</p></div></li>
+          <li><span>04</span><div><b>An intention card</b><p>What will you carry into your next chapter?</p></div></li>
+        </ul>
+        <p class="mystery-small">An optional gift dedication is planned. The Book of Sigils is a separate companion volume.</p>
+      </div>
+    </div>
+    <ol class="mystery-steps" aria-label="The planned unboxing experience">
+      <li><span class="mono">I · Choose your fit</span><h3>You choose the chain.</h3><p>At launch, choose your chain length and leave the pendant a surprise.</p></li>
+      <li><span class="mono">II · Break the seal</span><h3>Read the story first.</h3><p>Open the envelope, meet your symbol, and set an intention.</p></li>
+      <li><span class="mono">III · Meet your amulet</span><h3>The reveal is yours.</h3><p>Unwrap your pendant and carry its story into your next chapter.</p></li>
+    </ol>
+    <div class="mystery-launch">
+      <div><p class="mono patina">In development · Planned for Kickstarter</p><p>Price, launch date, and delivery estimates are still to come.</p></div>
+      <a href="#acquire" data-interest="mystery-box" class="cta">Notify me about the box <span class="arw" aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</section>
 
 <!-- PROVENANCE -->
 <section id="provenance">
@@ -596,7 +677,7 @@
         <div class="body">
           <h3>The Guardian</h3>
           <p>An elongated pendant with geometric wings and a circular detail, finished with an antique patina.</p>
-          <div class="row"><span class="mat">925 Silver</span><a href="#acquire" class="acq">Notify me →</a></div>
+          <div class="row"><span class="mat">925 Silver</span><a href="#acquire" data-interest="collection" class="acq">Notify me →</a></div>
         </div>
       </article>
       <article class="sp rv d1">
@@ -610,7 +691,7 @@
         <div class="body">
           <h3>The Seal</h3>
           <p>A sculptural winged fascinum with outstretched wings and a textured antique finish.</p>
-          <div class="row"><span class="mat">925 Silver</span><a href="#acquire" class="acq">Notify me →</a></div>
+          <div class="row"><span class="mat">925 Silver</span><a href="#acquire" data-interest="collection" class="acq">Notify me →</a></div>
         </div>
       </article>
       <article class="sp rv d2">
@@ -624,7 +705,7 @@
         <div class="body">
           <h3>The Crescent</h3>
           <p>A winged fascinum shown in profile, with a sweeping feathered wing and an antique finish.</p>
-          <div class="row"><span class="mat">925 Silver</span><a href="#acquire" class="acq">Notify me →</a></div>
+          <div class="row"><span class="mat">925 Silver</span><a href="#acquire" data-interest="collection" class="acq">Notify me →</a></div>
         </div>
       </article>
     </div>
@@ -662,7 +743,7 @@
           <div class="m"><div class="k">Edition</div><div class="v">First Casting</div></div>
         </div>
         <p class="latin2">Ne invidia te inveniat, ne fortuna te deserat.</p>
-        <p><a href="#acquire" class="cta">Get book launch updates <span class="arw" aria-hidden="true">→</span></a></p>
+        <p><a href="#acquire" data-interest="book" class="cta">Get book launch updates <span class="arw" aria-hidden="true">→</span></a></p>
       </div>
     </div>
   </div>
@@ -703,6 +784,8 @@
       <div class="cell"><div class="k">Finish</div><div class="v">Patina</div></div>
     </div>
     <div class="faq">
+      <details class="rv"><summary>How does The Chosen One mystery box work?</summary>
+        <div class="ans">The Chosen One is a planned mystery edition containing one of three published designs: The Guardian, The Seal, or The Crescent. You choose your chain length at launch; the pendant remains a surprise until you open the box. Each edition is planned with the same price and comparable value. Packaging and contents are still in development. Join the mystery-box launch list for final details before ordering.</div></details>
       <details class="rv"><summary>Is it solid sterling silver?</summary>
         <div class="ans">Yes — each specimen is cast in solid 925 sterling silver, hand-finished with an antique patina and sealed. Not plated. Stamped 925.</div></details>
       <details class="rv"><summary>Dimensions and chain?</summary>
@@ -722,13 +805,24 @@
   <div class="max">
     <div class="kicker rv" style="justify-content:center"><span class="no">06</span><span class="ttl">Launch updates</span></div>
     <h2 class="rv">Be first to <em>discover.</em></h2>
-    <p class="sub rv d1">Join the launch list for the first Kickstarter casting. We’ll email you when the collection opens, with prices and estimated delivery dates.</p>
+    <p class="sub rv d1">Choose what you’re interested in and join the launch list. We’ll email you about the first Kickstarter casting, including final contents, prices, and estimated delivery dates.</p>
     <form class="form rv d1" id="form" aria-describedby="signupNote" action="https://formspree.io/f/xeeyyzkk" method="POST">
+      <div class="signup-interest">
+        <label for="signupInterest">I’m interested in</label>
+        <select id="signupInterest" name="interest">
+          <option value="all">The full Felicitas collection</option>
+          <option value="mystery-box">The Chosen One — Mystery Box</option>
+          <option value="collection">Choosing my own pendant</option>
+          <option value="book">The Book of Sigils</option>
+        </select>
+      </div>
+      <div class="signup-email-row">
       <input type="email" name="email" id="email" placeholder="your@email.com" aria-label="Email address" required autocomplete="email">
       <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
       <input type="hidden" name="_subject" value="Felicitas — launch list signup">
       <input type="hidden" name="source" value="launch-list">
       <button type="submit" id="submitBtn">Notify me</button>
+      </div>
     </form>
     <p class="note rv" id="signupNote">Free signup · No payment · No reservation</p>
     <p class="privacy-note">By signing up, you ask Felicitas to email you about the launch. <a href="#privacy">Email &amp; privacy</a></p>
@@ -750,6 +844,7 @@
       <a href="#register">The Collection</a>
       <a href="#book">The Book</a>
       <a href="#conservation">The Ritual</a>
+      <a href="#mystery-box">The Chosen One</a>
     </div>
     <div class="fcol">
       <h5>Contact</h5>
@@ -761,7 +856,7 @@
   </div>
   <details class="privacy-details" id="privacy">
     <summary>Email &amp; privacy</summary>
-    <p>The launch form sends your email address to Felicitas through Formspree. The contact form sends your email address and message through the same service. Use “Write to Felicitas” to ask about your submission or request removal from the launch list.</p>
+    <p>The launch form sends your email address and selected product interest to Felicitas through Formspree. The contact form sends your email address and message through the same service. Use “Write to Felicitas” to ask about your submission or request removal from the launch list.</p>
     <p>This website uses Google Analytics to measure visits and is hosted on Vercel. These services may process technical information such as browser and device data. See the <a href="https://formspree.io/legal/privacy-policy/" target="_blank" rel="noopener noreferrer">Formspree</a>, <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google</a>, and <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">Vercel</a> privacy notices.</p>
   </details>
   <div class="disc">
@@ -821,6 +916,7 @@ document.addEventListener('DOMContentLoaded',function(){
 
   /* Curator — scripted FAQ chat */
   var CS_QA=[
+    {q:'The mystery box', a:'<b>The Chosen One</b> is our planned mystery edition. You choose the chain length at launch; one of three pendants — The Guardian, The Seal, or The Crescent — stays a surprise until you open it. Planned contents include a sterling-silver pendant and chain, presentation box, pouch, story card, and intention card. Price and timing are still to come. <a href="#mystery-box">Explore the concept →</a>'},
     {q:'Real silver?', a:'Every amulet is <b>solid 925 sterling silver</b> — cast, hand-finished with an antique patina, and stamped 925. Never plated.'},
     {q:'Size & chain', a:'The pendant stands about <b>28&nbsp;mm</b> and arrives on a solid sterling chain in <b>50&nbsp;cm</b> or <b>60&nbsp;cm</b>.'},
     {q:'Price & shipping', a:'The first casting is planned for <b>Kickstarter</b>. Prices, the launch date, and delivery estimates have not been announced. Join the launch list for the campaign announcement. Signup is free; it does not reserve a piece or place an order.'},
@@ -894,6 +990,12 @@ document.addEventListener('DOMContentLoaded',function(){
 
   /* signup — Formspree */
   var form=document.getElementById('form');
+  var signupInterest=document.getElementById('signupInterest');
+  document.querySelectorAll('a[data-interest]').forEach(function(link){
+    link.addEventListener('click',function(){
+      signupInterest.value=link.getAttribute('data-interest');
+    });
+  });
   form.addEventListener('submit',function(e){
     e.preventDefault();
     if(!form.reportValidity() || document.getElementById('submitBtn').disabled) return;
@@ -903,8 +1005,10 @@ document.addEventListener('DOMContentLoaded',function(){
     var configured=endpoint.indexOf('YOUR_FORM_ID')===-1;
     err.classList.remove('show');
     btn.disabled=true; btn.textContent='Sending…';
-    function success(){ form.style.display='none'; document.getElementById('done').classList.add('show');
-      if(typeof gtag==='function'){ gtag('event','sign_up',{method:'email',event_category:'engagement'}); } }
+    function success(){ form.style.display='none'; var done=document.getElementById('done');
+      done.textContent=signupInterest.value==='mystery-box' ? 'You’re on The Chosen One launch list. We’ll email you when the mystery-box details are ready.' : 'You’re on the launch list. We’ll email you when the first casting opens.';
+      done.classList.add('show');
+      if(typeof gtag==='function'){ gtag('event','sign_up',{method:'email',event_category:'engagement',product_interest:signupInterest.value}); } }
     if(!configured){btn.disabled=false;btn.textContent='Try again';err.classList.add('show');return;}
     fetch(endpoint,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}})
       .then(function(res){ if(res.ok){success();} else {throw new Error('bad');} })
