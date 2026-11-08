@@ -3,20 +3,20 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://feclicitasamulets.com/</loc>
-    <lastmod>2026-07-15</lastmod>
+    <lastmod>2026-11-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://feclicitasamulets.com/images/guardian.png</image:loc>
+      <image:loc>https://feclicitasamulets.com/images/guardian.webp</image:loc>
       <image:title>The Guardian — winged fascinum amulet</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://feclicitasamulets.com/images/seal.png</image:loc>
-      <image:title>The Seal — votive coin medallion</image:title>
+      <image:loc>https://feclicitasamulets.com/images/seal.webp</image:loc>
+      <image:title>The Seal — winged fascinum pendant</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://feclicitasamulets.com/images/crescent.png</image:loc>
-      <image:title>The Crescent — wings over the lunula</image:title>
+      <image:loc>https://feclicitasamulets.com/images/crescent.webp</image:loc>
+      <image:title>The Crescent — winged fascinum in profile</image:title>
     </image:image>
   </url>
 </urlset>
